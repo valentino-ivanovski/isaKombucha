@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 37 100% 97%;
+    --foreground: 20 7% 13%;
+    --card: 37 100% 97%;
+    --card-foreground: 20 7% 13%;
+    --popover: 37 100% 97%;
+    --popover-foreground: 20 7% 13%;
+    --primary: 20 7% 13%;
+    --primary-foreground: 37 100% 97%;
+    --secondary: 255 33% 69%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 255 33% 95%;
+    --muted-foreground: 20 7% 40%;
+    --accent: 240 50% 42%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 255 33% 85%;
+    --input: 255 33% 85%;
+    --ring: 240 50% 42%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 7% 13%;
+    --foreground: 37 100% 97%;
+    --card: 20 7% 13%;
+    --card-foreground: 37 100% 97%;
+    --popover: 20 7% 13%;
+    --popover-foreground: 37 100% 97%;
+    --primary: 37 100% 97%;
+    --primary-foreground: 20 7% 13%;
+    --secondary: 255 33% 69%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 255 33% 30%;
+    --muted-foreground: 255 33% 85%;
+    --accent: 240 50% 42%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 255 33% 30%;
+    --input: 255 33% 30%;
+    --ring: 240 50% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-lato font-bold;
+  }
+
+  p,
+  span,
+  div,
+  li,
+  a {
+    @apply font-lato;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
