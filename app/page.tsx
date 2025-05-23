@@ -27,7 +27,7 @@ export default function Home() {
         <section className="relative flex min-h-screen items-center bg-white justify-center pt-0 px-1">
             <div className="relative w-full h-[calc(100vh-10px)] max-w-10xl bg-gray-200 overflow-hidden rounded-lg">
             <div className="relative z-10 bg-[#fffaf0] h-[55%] text-[#241f20] flex flex-col items-start justify-center px-16 py-24 text-left text-white">
-              <h1 className="font-playfair text-3xl font-bold tracking-tight md:text-5xl">
+              <h1 className="font-playfair text-3xl font-bold tracking-tight md:text-4xl">
                 Full of Life. <br></br> Alive with Culture, Energy, and Spirit.
               </h1>
               <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed md:text-xl">
@@ -37,7 +37,14 @@ export default function Home() {
             </div>
             {/* Three square divs at the bottom */}
             <div className="absolute bottom-0 left-0 right-0 flex justify-between h-[45%] z-20 w-full">
-              <div className="w-1/4 h-full bg-green-300" />
+                <div className="w-1/4 h-full bg-green-300 relative">
+                <Image
+                  src="/images/2.png"
+                  alt="Placeholder Image"
+                  fill
+                  className="object-cover"
+                />
+                </div>
               <div className="w-1/4 h-full bg-blue-300" />
               <div className="w-2/4 h-full bg-red-300" />
             </div>
