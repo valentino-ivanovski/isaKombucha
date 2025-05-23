@@ -10,372 +10,38 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import VisualHighlight from "@/components/visual-highlight"
 import ScrollableReviews from "@/components/scrollable-reviews"
+import Header from "@/components/header"
 export default function Home() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [selectedLanguage, setSelectedLanguage] = useState("EN")
 
+
   return (
     <div className="flex min-h-screen flex-col">
       {/* Header */}
-      <header className="fixed h-15 top-0 z-50 w-full bg-white text-richblack transition-transform duration-300" id="header">
-        {/* Desktop Header */}
-        <div className="container hidden md:flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <Image
-              src="/logos/logo.svg"
-              alt="Isa's Kombucha Logo"
-              width={40}
-              height={40}
-              className="h-12 w-12"
-              priority
-            />
-          </Link>
-          <nav className="flex-1 flex justify-center absolute left-1/2 transform -translate-x-1/2">
-            <ul className="flex space-x-8">
-              <li>
-                <Link href="#">
-                  Home
-                </Link>
-                
-              </li>
-              <li>
-                <Link href="#" className="">
-                  Shop
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="">
-                  My Story
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="">
-                  Help & FAQ
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="">
-                  For Offices
-                </Link>
-              </li>
-            </ul>
-          </nav>
-          <div className="relative ml-4">
-            <button
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center gap-2 text-sm font-medium text-richblack px-3 transform translate-x-7 py-1 transition-all"
-            >
-              <Image
-              src={
-                selectedLanguage === "EN"
-                ? "/flags/sh.svg"
-                : selectedLanguage === "SI"
-                ? "/flags/si.svg"
-                : selectedLanguage === "HR"
-                ? "/flags/hr.svg"
-                : selectedLanguage === "AT"
-                ? "/flags/at.svg"
-                : "/flags/sh.svg"
-              }
-              alt={`${selectedLanguage} flag`}
-              width={20}
-              height={14}
-              className="inline-block mr-1 rounded-sm"
-              priority={false}
-              />
-              {selectedLanguage}
-              <ChevronDown className="w-4 h-4" />
-            </button>
-            <AnimatePresence>
-              {dropdownOpen && (
-                <motion.ul
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded shadow-lg z-50"
-                >
-                  <li>
-                    <button
-                      className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors flex items-center gap-2"
-                      onClick={() => {
-                        setSelectedLanguage("EN")
-                        setDropdownOpen(false)
-                        // router.push('/en')
-                      }}
-                    >
-                      <Image
-                        src="/flags/sh.svg"
-                        alt="English flag"
-                        width={20}
-                        height={14}
-                        className="inline-block mr-1 rounded-sm"
-                        priority={false}
-                      />
-                      English
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors flex items-center gap-2"
-                      onClick={() => {
-                        setSelectedLanguage("SI")
-                        setDropdownOpen(false)
-                        // router.push('/en')
-                      }}
-                    >
-                      <Image
-                        src="/flags/si.svg"
-                        alt="English flag"
-                        width={20}
-                        height={14}
-                        className="inline-block mr-1 rounded-sm"
-                        priority={false}
-                      />
-                      Slovenian
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors flex items-center gap-2"
-                      onClick={() => {
-                        setSelectedLanguage("HR")
-                        setDropdownOpen(false)
-                        // router.push('/en')
-                      }}
-                    >
-                      <Image
-                        src="/flags/hr.svg"
-                        alt="English flag"
-                        width={20}
-                        height={14}
-                        className="inline-block mr-1 rounded-sm"
-                        priority={false}
-                      />
-                      Croatian
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors flex items-center gap-2"
-                      onClick={() => {
-                        setSelectedLanguage("AT")
-                        setDropdownOpen(false)
-                        // router.push('/en')
-                      }}
-                    >
-                      <Image
-                        src="/flags/at.svg"
-                        alt="English flag"
-                        width={20}
-                        height={14}
-                        className="inline-block mr-1 rounded-sm"
-                        priority={false}
-                      />
-                      Austrian
-                    </button>
-                  </li>
-                </motion.ul>
-              )}
-            </AnimatePresence>
-          </div>
-        </div>
-        {/* Mobile Header */}
-        <div className="md:hidden flex w-full justify-between items-center px-4 pt-1 h-16">
-          <button
-            onClick={() => setDropdownOpen(!dropdownOpen)}
-            className="flex items-center gap-2 text-sm font-medium text-richblack px-3 py-1 transition-all"
-          >
-            <Image
-              src={
-                selectedLanguage === "EN"
-                ? "/flags/sh.svg"
-                : selectedLanguage === "SI"
-                ? "/flags/si.svg"
-                : selectedLanguage === "HR"
-                ? "/flags/hr.svg"
-                : selectedLanguage === "AT"
-                ? "/flags/at.svg"
-                : "/flags/sh.svg"
-              }
-              alt={`${selectedLanguage} flag`}
-              width={20}
-              height={14}
-              className="inline-block mr-1 rounded-sm"
-              priority={false}
-              />
-            {selectedLanguage}
-            <ChevronDown className="w-4 h-4" />
-          </button>
-          <Link href="/" className="absolute left-1/2 transform -translate-x-1/2">
-            <Image
-              src="/logos/logo.svg"
-              alt="Isa's Kombucha Logo"
-              width={40}
-              height={40}
-              className="h-12 w-12 mb-1"
-              priority
-            />
-          </Link>
-          <Button variant="ghost" className="text-richblack" aria-label="Menu" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-6 w-6"
-            >
-              <line x1="4" y1="12" x2="20" y2="12"></line>
-              <line x1="4" y1="6" x2="20" y2="6"></line>
-              <line x1="4" y1="18" x2="20" y2="18"></line>
-            </svg>
-          </Button>
-          {/* Language Dropdown on mobile */}
-          <AnimatePresence>
-            {dropdownOpen && (
-              <motion.ul
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2 }}
-                className="absolute left-4 top-16 w-40 bg-white border border-gray-200 rounded shadow-lg z-50"
-              >
-                <li>
-                    <button
-                      className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors flex items-center gap-2"
-                      onClick={() => {
-                        setSelectedLanguage("EN")
-                        setDropdownOpen(false)
-                        // router.push('/en')
-                      }}
-                    >
-                      <Image
-                        src="/flags/sh.svg"
-                        alt="English flag"
-                        width={20}
-                        height={14}
-                        className="inline-block mr-1 rounded-sm"
-                        priority={false}
-                      />
-                      English
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors flex items-center gap-2"
-                      onClick={() => {
-                        setSelectedLanguage("SI")
-                        setDropdownOpen(false)
-                        // router.push('/si')
-                      }}
-                    >
-                      <Image
-                        src="/flags/si.svg"
-                        alt="English flag"
-                        width={20}
-                        height={14}
-                        className="inline-block mr-1 rounded-sm"
-                        priority={false}
-                      />
-                      Slovenian
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors flex items-center gap-2"
-                      onClick={() => {
-                        setSelectedLanguage("HR")
-                        setDropdownOpen(false)
-                        // router.push('/hr')
-                      }}
-                    >
-                      <Image
-                        src="/flags/hr.svg"
-                        alt="English flag"
-                        width={20}
-                        height={14}
-                        className="inline-block mr-1 rounded-sm"
-                        priority={false}
-                      />
-                      Croatian
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors flex items-center gap-2"
-                      onClick={() => {
-                        setSelectedLanguage("AT")
-                        setDropdownOpen(false)
-                        // router.push('/at')
-                      }}
-                    >
-                      <Image
-                        src="/flags/at.svg"
-                        alt="English flag"
-                        width={20}
-                        height={14}
-                        className="inline-block mr-1 rounded-sm"
-                        priority={false}
-                      />
-                      Austrian
-                    </button>
-                  </li>
-              </motion.ul>
-            )}
-          </AnimatePresence>
-        </div>
-        {/* Mobile Hamburger Dropdown */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden absolute top-16 left-0 right-0 bg-white z-40 shadow-md"
-            >
-              <ul className="flex flex-col p-4 space-y-4">
-                <li><Link href="#">Home</Link></li>
-                <li><Link href="#">Shop</Link></li>
-                <li><Link href="#">My Story</Link></li>
-                <li><Link href="#">Help & FAQ</Link></li>
-                <li><Link href="#">For Offices</Link></li>
-              </ul>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </header>
+      <Header />
       
       <main className="flex-1">
-
         {/* Hero Section */}
-        <section className="relative flex min-h-screen items-center bg-white justify-center pt-0 px-2">
-          <div className="relative w-full h-[calc(100vh-72px)] max-w-10xl mt-14 overflow-hidden rounded-lg">
-            <div className="absolute inset-0 z-0">
-              <Image
-                src="/placeholder.svg?height=1080&width=1920"
-                alt="Kombucha bottle"
-                fill
-                className="object-cover brightness-50"
-                priority
-              />
-            </div>
-            <div className="relative z-10 flex flex-col items-center justify-center px-6 py-24 text-center text-white">
-              <h1 className="font-playfair text-5xl font-bold tracking-tight md:text-7xl">
-                Hero Title 🌞
+        <section className="relative flex min-h-screen items-center bg-white justify-center pt-0 px-1">
+            <div className="relative w-full h-[calc(100vh-10px)] max-w-10xl bg-gray-200 overflow-hidden rounded-lg">
+            <div className="relative z-10 bg-[#fffaf0] h-[55%] text-[#241f20] flex flex-col items-start justify-center px-16 py-24 text-left text-white">
+              <h1 className="font-playfair text-3xl font-bold tracking-tight md:text-5xl">
+                Full of Life. <br></br> Alive with Culture, Energy, and Spirit.
               </h1>
               <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed md:text-xl">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.
+                Every bottle of Isa Kombucha is brewed with raw ingredients, wild fermentation, and a whole lot of soul. No shortcuts, no fake fizz - just nature doing its thing.
               </p>
-              <Button className="mt-8 bg-midnightblue hover:bg-accent text-white">Button</Button>
+
             </div>
-          </div>
+            {/* Three square divs at the bottom */}
+            <div className="absolute bottom-0 left-0 right-0 flex justify-between h-[45%] z-20 w-full">
+              <div className="w-1/4 h-full bg-green-300" />
+              <div className="w-1/4 h-full bg-blue-300" />
+              <div className="w-2/4 h-full bg-red-300" />
+            </div>
+            </div>
         </section>
 
         {/* About Me Section */}
