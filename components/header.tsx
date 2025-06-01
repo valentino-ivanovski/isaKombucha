@@ -49,84 +49,84 @@ export default function Header() {
         <header
             className={`md:block fixed top-3 z-50 md:w-[91.1%] xl:w-[55%] rounded-full transition-all duration-500 left-1/2 transform -translate-x-1/2 ${
             scrolled 
-                ? 'opacity-100 bg-white shadow-sm': 'opacity-100 hover:opacity-100 bg-transparent'}`}
+          ? 'opacity-100 bg-white/85 shadow-[0px_4px_7px_-5px_rgba(0,0,0,0.15)] backdrop-blur-sm': 'opacity-100 hover:opacity-100 bg-transparent'}`}
             id="desktop-header"
         >
             <div className={`container flex items-center justify-between py-2 px-3`}>
             <Link href="/" className="flex items-center space-x-2">
-                <Image
-                src={scrolled ? "/logos/logo.svg" : "/logos/logo-light.svg"}
-                alt="Isa's Kombucha Logo"
-                width={40}
-                height={40}
-                className="h-12 w-12 pl-1"
-                priority
-                />
+          <Image
+          src={scrolled ? "/logos/logo.svg" : "/logos/logo-light.svg"}
+          alt="Isa's Kombucha Logo"
+          width={40}
+          height={40}
+          className="h-12 w-12 pl-1"
+          priority
+          />
             </Link>
             <nav className="flex-1 flex w-3/4 justify-center text-sm absolute left-1/2 transform -translate-x-1/2">
-                <ul className="flex space-x-14">
-                {navItems.map((item) => (
-                    <li key={item.label}>
-                    <Link href={item.href} className="text-[#241f20]">
-                        {item.label}
-                    </Link>
-                    </li>
-                ))}
-                </ul>
+          <ul className="flex space-x-14">
+          {navItems.map((item) => (
+              <li key={item.label}>
+              <Link href={item.href} className="text-[#241f20]">
+            {item.label}
+              </Link>
+              </li>
+          ))}
+          </ul>
             </nav>
             <div className="relative ml-4">
-                <button
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-                className={`flex items-center gap-2 text-sm font-medium px-3 transform translate-x-0 py-1 transition-all text-richblack`}
-                >
-                <motion.div
-                    animate={{ rotate: dropdownOpen ? 180 : 0 }}
-                    transition={{ duration: 0.15 }}
-                >
-                    <ChevronDown className="w-4 h-4" />
-                </motion.div>
+          <button
+          onClick={() => setDropdownOpen(!dropdownOpen)}
+          className={`flex items-center gap-2 text-sm font-medium px-3 transform translate-x-0 py-1 transition-all text-richblack`}
+          >
+          <motion.div
+              animate={{ rotate: dropdownOpen ? 180 : 0 }}
+              transition={{ duration: 0.15 }}
+          >
+              <ChevronDown className="w-4 h-4" />
+          </motion.div>
+          <Image
+              src={languageOptions.find((lang) => lang.code === selectedLanguage)?.flag || "/flags/sh.svg"}
+              alt={`${selectedLanguage} flag`}
+              width={20}
+              height={14}
+              className="inline-block mr-0 rounded-sm"
+              priority={false}
+          />
+          </button>
+          <AnimatePresence>
+          {dropdownOpen && (
+              <motion.ul
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="absolute right-0 mt-2 w-40 bg-white border text-black border-gray-200 rounded shadow-lg z-50"
+              >
+              {languageOptions.map((lang) => (
+            <li key={lang.code}>
+            <button
+                className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors flex items-center gap-2"
+                onClick={() => {
+                setSelectedLanguage(lang.code);
+                setDropdownOpen(false);
+                }}
+            >
                 <Image
-                    src={languageOptions.find((lang) => lang.code === selectedLanguage)?.flag || "/flags/sh.svg"}
-                    alt={`${selectedLanguage} flag`}
-                    width={20}
-                    height={14}
-                    className="inline-block mr-0 rounded-sm"
-                    priority={false}
+                src={lang.flag}
+                alt={`${lang.name} flag`}
+                width={20}
+                height={14}
+                className="inline-block mr-1 rounded-sm"
+                priority={false}
                 />
-                </button>
-                <AnimatePresence>
-                {dropdownOpen && (
-                    <motion.ul
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute right-0 mt-2 w-40 bg-white border text-black border-gray-200 rounded shadow-lg z-50"
-                    >
-                    {languageOptions.map((lang) => (
-                        <li key={lang.code}>
-                        <button
-                            className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors flex items-center gap-2"
-                            onClick={() => {
-                            setSelectedLanguage(lang.code);
-                            setDropdownOpen(false);
-                            }}
-                        >
-                            <Image
-                            src={lang.flag}
-                            alt={`${lang.name} flag`}
-                            width={20}
-                            height={14}
-                            className="inline-block mr-1 rounded-sm"
-                            priority={false}
-                            />
-                            {lang.name}
-                        </button>
-                        </li>
-                    ))}
-                    </motion.ul>
-                )}
-                </AnimatePresence>
+                {lang.name}
+            </button>
+            </li>
+              ))}
+              </motion.ul>
+          )}
+          </AnimatePresence>
             </div>
             </div>
         </header>
