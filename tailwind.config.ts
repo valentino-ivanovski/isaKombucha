@@ -1,3 +1,4 @@
+// tailwind.config.js
 import type { Config } from "tailwindcss"
 
 const config = {
@@ -53,12 +54,10 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Custom brand colors
         richblack: "#241f20",
         softwhite: "#fffaf0",
         lilac: "#d9d5eb",
         midnightblue: "#3e4899",
-        // Flavor accent colors
         flavor: {
           beige: "#e8d9cc",
           green: "#cbdcb8",
@@ -76,8 +75,7 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        playfair: ["var(--font-playfair)"],
-        lato: ["var(--font-lato)"],
+        'general-sans': ['GeneralSans', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {

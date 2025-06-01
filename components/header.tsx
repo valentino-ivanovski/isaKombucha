@@ -6,6 +6,7 @@ import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import { useEffect, useState } from 'react';
+import '../styles/globals.css'
 
 export default function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -42,7 +43,8 @@ export default function Header() {
   ];
 
   return (
-    <>
+    <div className="font-general-sans">
+      <>
       {/* Desktop Header */}
         <header
             className={`md:block fixed top-3 z-50 md:w-[91.1%] xl:w-[55%] rounded-full transition-all duration-500 left-1/2 transform -translate-x-1/2 ${
@@ -65,7 +67,7 @@ export default function Header() {
                 <ul className="flex space-x-14">
                 {navItems.map((item) => (
                     <li key={item.label}>
-                    <Link href={item.href} className="text-richblack">
+                    <Link href={item.href} className="text-[#241f20]">
                         {item.label}
                     </Link>
                     </li>
@@ -256,6 +258,7 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+      </>
+    </div>
   );
 }

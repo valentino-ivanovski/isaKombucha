@@ -5,16 +5,64 @@ import Image from "next/image"
 import Link from "next/link"
 import { ChevronDown, Facebook, Instagram, Twitter, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import VisualHighlight from "@/components/visual-highlight"
 import ScrollableReviews from "@/components/scrollable-reviews"
 import Header from "@/components/header"
+import '../styles/globals.css'
+
 export default function Home() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [selectedLanguage, setSelectedLanguage] = useState("EN")
+  const [imagesLoaded, setImagesLoaded] = useState(false)
+  const [currentFrame, setCurrentFrame] = useState(0)
+  const totalFrames = 181 // 0000.png to 0180.png
+  const frameRate = 30 // Adjust for animation speed (milliseconds)
+
+  useEffect(() => {
+    let isCancelled = false
+
+    const preloadImages = async () => {
+      const promises = []
+      for (let i = 0; i < totalFrames; i++) {
+        const src = getImagePath(i)
+        const img = new window.Image()
+        img.src = src
+        promises.push(
+          new Promise((resolve) => {
+            img.onload = resolve
+            img.onerror = resolve
+          })
+        )
+      }
+
+      await Promise.all(promises)
+      if (!isCancelled) setImagesLoaded(true)
+    }
+
+    preloadImages()
+
+    return () => {
+      isCancelled = true
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!imagesLoaded) return
+
+    const interval = setInterval(() => {
+      setCurrentFrame((prevFrame) => (prevFrame + 1) % totalFrames)
+    }, frameRate)
+
+    return () => clearInterval(interval)
+  }, [imagesLoaded])
+
+  const getImagePath = (frame: number): string => {
+    return `/images/bottleBasilBreeze/${String(frame).padStart(4, "0")}.webp`
+  }
 
 
   return (
@@ -24,31 +72,44 @@ export default function Home() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative flex min-h-screen items-center bg-white justify-center pt-0 px-1">
-            <div className="relative w-full h-[calc(100vh-10px)] max-w-10xl bg-gray-200 overflow-hidden rounded-lg">
-            <div className="relative z-10 bg-[#fffaf0] h-[55%] text-[#241f20] flex flex-col items-start justify-center px-16 py-24 text-left text-white">
-              <h1 className="font-playfair text-3xl font-bold tracking-tight md:text-4xl">
-                Full of Life. <br></br> Alive with Culture, Energy, and Spirit.
+        <section className="font-general-sans relative flex min-h-screen items-center font-general-sans bg-white justify-center pt-0 px-1">
+          <div className="relative w-full h-[calc(100vh-10px)] max-w-10xl bg-gray-200 overflow-hidden rounded-lg">
+            <div className="relative z-10 bg-[#fffaf0] h-[55%] flex flex-col items-start justify-center px-16 py-24 text-left text-white">
+              <h1 className="font-general-sans text-3xl text-[#241f20] tracking-tight md:text-4xl">
+                Full of Life. <br /> Alive with Culture, Energy, and Spirit.
               </h1>
-              <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed md:text-xl">
+              <p className="font-general-sans mt-6 max-w-2xl text-lg font-light text-[#241f20] leading-relaxed md:text-lg">
                 Every bottle of Isa Kombucha is brewed with raw ingredients, wild fermentation, and a whole lot of soul. No shortcuts, no fake fizz - just nature doing its thing.
               </p>
-
+            <a className="relative font-general-sans cursor-pointer inline-flex items-center transform translate-y-5 justify-center px-5 py-1.5 rounded-full border border-transparent bg-white/15 shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full after:shadow-[inset_0_0_2px_1px_#ffffff4d] text-base whitespace-nowrap text-gray-950 data-disabled:bg-white/15 data-disabled:opacity-40 data-hover:bg-white/20"> Explore </a>
             </div>
-            {/* Three square divs at the bottom */}
             <div className="absolute bottom-0 left-0 right-0 flex justify-between h-[45%] z-20 w-full">
-                <div className="w-1/4 h-full bg-green-300 relative">
-                <Image
-                  src="/images/2.png"
-                  alt="Placeholder Image"
-                  fill
-                  className="object-cover"
-                />
-                </div>
-              <div className="w-1/4 h-full bg-blue-300" />
+              <div className="w-1/4 h-full bg-[#fffaf0] relative">
+                {imagesLoaded ? (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                    className="w-full h-full relative"
+                  >
+                    <img
+                      src={getImagePath(currentFrame)}
+                      alt="Bottle Basil Breeze Animation"
+                      className="object-cover w-full h-full"
+                    />
+                  </motion.div>
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-[#fffaf0] text-[#241f20] text-transparent">
+                    Loading...
+                  </div>
+                )}
+              </div>
+              <div className="w-1/4 h-full bg-green-300" />
+              <div className="w-1/4 h-full bg-[#fffaf0] relative">
+              </div>
               <div className="w-2/4 h-full bg-red-300" />
             </div>
-            </div>
+          </div>
         </section>
 
         {/* About Me Section */}
