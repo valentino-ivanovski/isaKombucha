@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import {Facebook, Instagram, Twitter, Globe } from "lucide-react"
 import { GoArrowUpRight } from "react-icons/go";
+import { RxChevronRight, RxChevronLeft } from "react-icons/rx";
 import { Button } from "@/components/ui/button"
 import { useState, useEffect, useRef } from "react"
 import { animate, stagger } from "motion"
@@ -138,24 +139,46 @@ export default function Home() {
               <p className="font-general-sans mt-6 max-w-2xl text-lg font-light text-[#241f20] leading-relaxed md:text-lg">
                 Every bottle of Isa Kombucha is brewed with raw ingredients, wild fermentation, and a whole lot of soul. No shortcuts, no fake fizz - just nature doing its thing.
               </p>
+            <div className="flex flex-row gap-4">
             <motion.a
               initial={{ opacity: 0, y: 0 }}
               animate={{ opacity: 1, y: 30 }}
               transition={{ duration: 1, delay: 2 }}
-              className="relative font-general-sans cursor-pointer inline-flex items-center transform translate-y-5 justify-center px-5 py-1.5 rounded-full border border-transparent bg-white/15 shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full after:shadow-[inset_0_0_2px_1px_#ffffff4d] text-base whitespace-nowrap text-gray-950 data-disabled:bg-white/15 data-disabled:opacity-40 data-hover:bg-white/20"
+              className="relative font-general-sans cursor-pointer inline-flex items-center transform translate-y-5 justify-center px-5 py-1.5 rounded-full border border-transparent bg-white/15 shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-gray-950 hover:shadow-lg transition-all duration-300"
             >
-              Explore
+              About
             </motion.a>
+            <motion.a
+              initial={{ opacity: 0, y: 0 }}
+              animate={{ opacity: 1, y: 30 }}
+              transition={{ duration: 1, delay: 2 }}
+              className="relative font-general-sans cursor-pointer inline-flex items-center transform translate-y-5 justify-center px-5 py-1.5 rounded-full border border-transparent bg-[#241f20] shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full after:shadow-[inset_0_0_2px_1px_#ffffff4d] text-base whitespace-nowrap text-white hover:bg-black/80 transition-all duration-300"
+            >
+              Shop Now
+            </motion.a>
+            </div>
             </div>
             <div className="bottom-0 left-0 right-0 flex justify-between h-[50%] z-20 w-full">
                 <div className="w-1/5 h-full bg-[#fffaf0] relative" ref={bottleRef}>
+                  
+                    <div>
+                    <div className="absolute top-4 left-4 z-40 flex space-x-2">
+                      <button className="p-1 border border-[#241f20] rounded-full bg-transparent hover:bg-[#241f20] hover:text-white transition">
+                      <RxChevronLeft className="h-6 w-6 text-[#241f20] hover:text-white" />
+                      </button>
+                      <button className="p-1 border border-[#241f20] rounded-full bg-transparent hover:bg-[#241f20] hover:text-white transition">
+                      <RxChevronRight className="h-6 w-6 text-[#241f20] hover:text-white" />
+                      </button>
+                    </div>
+                    </div>
+
                   <div className="absolute top-4 right-4 z-40">
-                  <button className="flex items-center px-3 py-1.5 border border-[#241f20] rounded-lg text-[#241f20] bg-transparent hover:bg-[#241f20] hover:text-white transition text-sm">
-                    Order Now
-                    <span className="ml-0">
-                      <GoArrowUpRight className="h-5 w-5" />
-                    </span>
-                  </button>
+                    <button className="flex items-center px-3 py-1.5 border border-[#241f20] rounded-full text-[#241f20] bg-transparent hover:bg-[#241f20] hover:text-white transition text-sm">
+                      Learn More
+                      <span className="ml-0">
+                        <GoArrowUpRight className="h-5 w-5" />
+                      </span>
+                    </button>
                   </div>
                 
                   <div className="absolute z-30 bottom-0 w-full flex flex-col items-start backdrop-blur-sm justify-end p-4 bg-gradient-to-t from-white/60 to-transparent ">
@@ -200,14 +223,14 @@ export default function Home() {
               <div className="order-2 md:order-1">
                 <h2 className="text-3xl md:text-4xl font-bold text-richblack mb-6">Hi, I'm Isa</h2>
                 <p className="text-lg text-richblack/80 mb-4">
-                  My journey with kombucha began five years ago in my small apartment kitchen. What started as a
-                  curiosity quickly blossomed into a passion for crafting the perfect fermented tea.
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.
+
+
                 </p>
                 <p className="text-lg text-richblack/80 mb-6">
-                  Every bottle of Isa's Kombucha is handcrafted with care using traditional methods passed down through
-                  generations, combined with innovative flavor profiles inspired by my travels around the world. I
-                  believe in using only the finest organic ingredients and sustainable practices to create a product
-                  that's good for both you and the planet.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
                 </p>
                 <div>
                   <Button className="bg-lilac hover:bg-midnightblue text-richblack">Read My Full Story</Button>
@@ -320,10 +343,10 @@ export default function Home() {
             <div>
               <h4 className="font-bold">Contact</h4>
               <address className="mt-4 not-italic text-softwhite/70">
-                <p>123 Brew Street</p>
-                <p>Ferment City, FC 12345</p>
-                <p className="mt-2">hello@isaskombucha.com</p>
-                <p>(555) 123-4567</p>
+                <p>test test test</p>
+                <p>test test test</p>
+                <p className="mt-2">hello@email.com</p>
+                <p>(123) 123-4567</p>
               </address>
             </div>
 
@@ -372,32 +395,32 @@ export default function Home() {
 
 const flavors = [
   {
-    name: "Classic Ginger",
-    description: "A timeless blend with a spicy kick",
+    name: "1",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     ingredients: "Organic tea, cane sugar, ginger, kombucha culture",
     image: "/placeholder.svg?height=400&width=600",
   },
   {
-    name: "Lavender Lemon",
-    description: "Floral notes with citrus brightness",
+    name: "2",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     ingredients: "Organic tea, cane sugar, lavender, lemon, kombucha culture",
     image: "/placeholder.svg?height=400&width=600",
   },
   {
-    name: "Berry Hibiscus",
-    description: "Sweet and tart with deep red hues",
+    name: "3",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     ingredients: "Organic tea, cane sugar, mixed berries, hibiscus, kombucha culture",
     image: "/placeholder.svg?height=400&width=600",
   },
   {
-    name: "Cucumber Mint",
-    description: "Refreshing and cooling blend",
+    name: "4",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     ingredients: "Organic tea, cane sugar, cucumber, mint, kombucha culture",
     image: "/placeholder.svg?height=400&width=600",
   },
   {
-    name: "Turmeric Sunrise",
-    description: "Golden elixir with anti-inflammatory properties",
+    name: "5",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     ingredients: "Organic tea, cane sugar, turmeric, black pepper, orange, kombucha culture",
     image: "/placeholder.svg?height=400&width=600",
   },

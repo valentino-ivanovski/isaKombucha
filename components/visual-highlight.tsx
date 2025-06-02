@@ -64,9 +64,9 @@ export default function VisualHighlight() {
             <Button className="mt-8 bg-lilac hover:bg-midnightblue text-richblack">Why Isa&apos;s Kombucha</Button>
           </div>
 
-          <div ref={bottlesRef} className="order-1 md:order-2 transition-transform duration-300 ease-out">
+          <div ref={bottlesRef} className="order-1 md:order-2  transition-transform duration-300 ease-out">
             <div className="relative h-[500px] w-full">
-              <div className="absolute left-[10%] top-[5%] h-[300px] w-[120px] rotate-[-15deg]">
+              <div className="absolute left-[10%] top-[35%] h-[300px] w-[120px] rotate-[-15deg]">
                 <Image
                   src="/placeholder.svg?height=600&width=240"
                   alt="Kombucha bottle"
@@ -74,7 +74,7 @@ export default function VisualHighlight() {
                   className="object-contain"
                 />
               </div>
-              <div className="absolute left-[35%] top-[15%] h-[350px] w-[120px] rotate-[5deg]">
+              <div className="absolute left-[35%] top-[35%] h-[350px] w-[120px] rotate-[5deg]">
                 <Image
                   src="/placeholder.svg?height=600&width=240"
                   alt="Kombucha bottle"
@@ -82,7 +82,7 @@ export default function VisualHighlight() {
                   className="object-contain"
                 />
               </div>
-              <div className="absolute left-[60%] top-[0%] h-[320px] w-[120px] rotate-[20deg]">
+              <div className="absolute left-[60%] top-[30%] h-[320px] w-[120px] rotate-[20deg]">
                 <Image
                   src="/placeholder.svg?height=600&width=240"
                   alt="Kombucha bottle"

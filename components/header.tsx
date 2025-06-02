@@ -31,7 +31,7 @@ export default function Header() {
     { code: "EN", name: "English", flag: "/flags/sh.svg" },
     { code: "SI", name: "Slovenian", flag: "/flags/si.svg" },
     { code: "HR", name: "Croatian", flag: "/flags/hr.svg" },
-    { code: "AT", name: "Austrian", flag: "/flags/at.svg" },
+    { code: "DE", name: "German", flag: "/flags/de.svg" },
   ];
 
   const navItems = [
@@ -59,7 +59,7 @@ export default function Header() {
           alt="Isa's Kombucha Logo"
           width={40}
           height={40}
-          className="h-10 w-10 pl-1"
+          className="h-10 w-10 pl-1 hover:opacity-60 transition-opacity duration-200"
           priority
           />
             </Link>
@@ -67,7 +67,7 @@ export default function Header() {
           <ul className="flex space-x-14 font-medium text-[#241f20]">
           {navItems.map((item) => (
               <li key={item.label}>
-              <Link href={item.href} className="text-[#241f20]">
+              <Link href={item.href} className="text-[#241f20 hover:text-black/60 transition-colors duration-200">
             {item.label}
               </Link>
               </li>
