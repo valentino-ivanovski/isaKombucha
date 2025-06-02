@@ -23,7 +23,7 @@ export default function Home() {
   const [selectedLanguage, setSelectedLanguage] = useState("EN")
   const [imagesLoaded, setImagesLoaded] = useState(false)
   const [currentFrame, setCurrentFrame] = useState(0)
-  const totalFrames = 40 // 0000.png to 0180.png
+  const totalFrames = 30 // 0000.png to 0180.png
   const heroRef = useRef<HTMLDivElement>(null)
   const bottleRef = useRef<HTMLDivElement>(null)
   const heroSectionRef = useRef<HTMLDivElement>(null)
@@ -133,26 +133,26 @@ export default function Home() {
         >
           <div className="relative w-full h-[calc(100vh-10px)] max-w-10xl bg-gray-200 overflow-hidden rounded-lg">
             <div className="relative z-10 bg-[#fffaf0] bg-white h-[50%] flex flex-col items-start justify-center px-16 py-24 text-left text-white">
-              <h1 className="font-general-sans text-3xl text-[#241f20] tracking-tight md:text-4xl">
+              <h1 className="font-general-sans font-semibold text-3xl text-[#241f20] tracking-tight md:text-4xl">
                 Full of Life. <br /> Alive with Culture, Energy, and Spirit.
               </h1>
               <p className="font-general-sans mt-6 max-w-2xl text-lg font-light text-[#241f20] leading-relaxed md:text-lg">
                 Every bottle of Isa Kombucha is brewed with raw ingredients, wild fermentation, and a whole lot of soul. No shortcuts, no fake fizz - just nature doing its thing.
               </p>
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-row gap-4 transform translate-y-8">
             <motion.a
               initial={{ opacity: 0, y: 0 }}
-              animate={{ opacity: 1, y: 30 }}
-              transition={{ duration: 1, delay: 2 }}
-              className="relative font-general-sans cursor-pointer inline-flex items-center transform translate-y-5 justify-center px-5 py-1.5 rounded-full border border-transparent bg-white/15 shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-gray-950 hover:shadow-lg transition-all duration-300"
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 2, ease: "easeOut" }}
+              className="relative font-general-sans cursor-pointer inline-flex items-center transform translate-y-5 justify-center px-5 py-1.5 rounded-full border border-transparent bg-white/15 shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-gray-950 data-disabled:bg-white/15 data-disabled:opacity-40 hover:bg-gray-50 transition-colors duration-300"
             >
               About
             </motion.a>
             <motion.a
               initial={{ opacity: 0, y: 0 }}
-              animate={{ opacity: 1, y: 30 }}
-              transition={{ duration: 1, delay: 2 }}
-              className="relative font-general-sans cursor-pointer inline-flex items-center transform translate-y-5 justify-center px-5 py-1.5 rounded-full border border-transparent bg-[#241f20] shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full after:shadow-[inset_0_0_2px_1px_#ffffff4d] text-base whitespace-nowrap text-white hover:bg-black/80 transition-all duration-300"
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 2, ease: "easeOut" }}
+              className="relative font-general-sans cursor-pointer inline-flex items-center transform translate-y-5 justify-center px-5 py-1.5 rounded-full border border-transparent bg-[#241f20] shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-white data-disabled:bg-white/15 data-disabled:opacity-40  hover:bg-black/80 transition-colors duration-300"
             >
               Shop Now
             </motion.a>
@@ -163,26 +163,31 @@ export default function Home() {
                   
                     <div>
                     <div className="absolute top-4 left-4 z-40 flex space-x-2">
-                      <button className="p-1 border border-[#241f20] rounded-full bg-transparent hover:bg-[#241f20] hover:text-white transition">
-                      <RxChevronLeft className="h-6 w-6 text-[#241f20] hover:text-white" />
+                      <button className="p-1 border border-[#241f20] rounded-full bg-transparent hover:bg-[#241f20] transition group">
+                      <RxChevronLeft className="h-6 w-6 text-[#241f20] transition group-hover:text-white" />
                       </button>
-                      <button className="p-1 border border-[#241f20] rounded-full bg-transparent hover:bg-[#241f20] hover:text-white transition">
-                      <RxChevronRight className="h-6 w-6 text-[#241f20] hover:text-white" />
+                      <button className="p-1 border border-[#241f20] rounded-full bg-transparent hover:bg-[#241f20] transition group">
+                      <RxChevronRight className="h-6 w-6 text-[#241f20] transition group-hover:text-white" />
                       </button>
                     </div>
                     </div>
 
                   <div className="absolute top-4 right-4 z-40">
                     <button className="flex items-center px-3 py-1.5 border border-[#241f20] rounded-full text-[#241f20] bg-transparent hover:bg-[#241f20] hover:text-white transition text-sm">
-                      Learn More
+                      <span className="ml-1">Learn More</span>
                       <span className="ml-0">
                         <GoArrowUpRight className="h-5 w-5" />
                       </span>
                     </button>
                   </div>
                 
-                  <div className="absolute z-30 bottom-0 w-full flex flex-col items-start backdrop-blur-sm justify-end p-4 bg-gradient-to-t from-white/60 to-transparent ">
-                  <h3 className="text-xl font-medium text-black">Basil Breeze</h3>
+                  <div className="absolute z-30 bottom-0 w-full flex flex-col items-start backdrop-blur-sm justify-end p-4 bg-gradient-to-t from-white/0 to-transparent ">
+                    <h3 className="text-xl font-medium text-black inline-flex items-center">
+                    Basil Breeze
+                    <img src="/icons/SVG/fruit7.svg" alt="Fruit 7" className="inline-block w-5 h-5 mx-1 ml-2" />
+                    <img src="/icons/SVG/fruit1.svg" alt="Fruit 1" className="inline-block w-5 h-5 mx-1" />
+                    <img src="/icons/SVG/fruit5.svg" alt="Fruit 5" className="inline-block w-5 h-5 mx-1" />
+                    </h3>
                   <p className="text-sm text-black">A refreshing blend of basil and mint</p>
                   </div>
 

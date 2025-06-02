@@ -10,7 +10,7 @@ const lato = Lato({
 })
 
 export const metadata = {
-  title: "Isa's Kombucha - Premium Fermented Tea",
+  title: "Isa's Kombucha",
   description:
     "Discover Isa's premium kombucha, handcrafted in small batches using only the finest organic ingredients.",
     generator: 'v0.dev'
