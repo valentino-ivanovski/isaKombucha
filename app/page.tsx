@@ -139,79 +139,138 @@ export default function Home() {
               <p className="font-general-sans mt-6 max-w-2xl text-lg font-light text-[#241f20] leading-relaxed md:text-lg">
                 Every bottle of Isa Kombucha is brewed with raw ingredients, wild fermentation, and a whole lot of soul. No shortcuts, no fake fizz - just nature doing its thing.
               </p>
-            <div className="flex flex-row gap-4 transform translate-y-8">
-            <motion.a
-              initial={{ opacity: 0, y: 0 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 2, ease: "easeOut" }}
-              className="relative font-general-sans cursor-pointer inline-flex items-center transform translate-y-5 justify-center px-5 py-1.5 rounded-full border border-transparent bg-white/15 shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-gray-950 data-disabled:bg-white/15 data-disabled:opacity-40 hover:bg-gray-50 transition-colors duration-300"
-            >
-              About
-            </motion.a>
-            <motion.a
-              initial={{ opacity: 0, y: 0 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 2, ease: "easeOut" }}
-              className="relative font-general-sans cursor-pointer inline-flex items-center transform translate-y-5 justify-center px-5 py-1.5 rounded-full border border-transparent bg-[#241f20] shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-white data-disabled:bg-white/15 data-disabled:opacity-40  hover:bg-black/80 transition-colors duration-300"
-            >
-              Shop Now
-            </motion.a>
-            </div>
+              <div className="flex flex-row gap-4 transform translate-y-8">
+                <motion.a
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 1, ease: "easeOut" }}
+                  className="relative font-general-sans cursor-pointer inline-flex items-center transform translate-y-5 justify-center px-5 py-1.5 rounded-full border border-transparent bg-white/15 shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-gray-950 data-disabled:bg-white/15 data-disabled:opacity-40 hover:bg-gray-50 transition-colors duration-300"
+                >
+                  About
+                </motion.a>
+                <motion.a
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 1, ease: "easeOut" }}
+                  className="relative font-general-sans cursor-pointer inline-flex items-center transform translate-y-5 justify-center px-5 py-1.5 rounded-full border border-transparent bg-[#241f20] shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-white data-disabled:bg-white/15 data-disabled:opacity-40  hover:bg-black/80 transition-colors duration-300"
+                >
+                  Shop Now
+                </motion.a>
+              </div>
             </div>
             <div className="bottom-0 left-0 right-0 flex justify-between h-[50%] z-20 w-full">
-                <div className="w-1/5 h-full bg-[#fffaf0] relative" ref={bottleRef}>
-                  
-                    <div>
-                    <div className="absolute top-4 left-4 z-40 flex space-x-2">
-                      <button className="p-1 border border-[#241f20] rounded-full bg-transparent hover:bg-[#241f20] transition group">
-                      <RxChevronLeft className="h-6 w-6 text-[#241f20] transition group-hover:text-white" />
-                      </button>
-                      <button className="p-1 border border-[#241f20] rounded-full bg-transparent hover:bg-[#241f20] transition group">
-                      <RxChevronRight className="h-6 w-6 text-[#241f20] transition group-hover:text-white" />
-                      </button>
-                    </div>
-                    </div>
-
-                  <div className="absolute top-4 right-4 z-40">
-                    <button className="flex items-center px-3 py-1.5 border border-[#241f20] rounded-full text-[#241f20] bg-transparent hover:bg-[#241f20] hover:text-white transition text-sm">
-                      <span className="ml-1">Learn More</span>
-                      <span className="ml-0">
-                        <GoArrowUpRight className="h-5 w-5" />
-                      </span>
-                    </button>
-                  </div>
+              <div className="w-1/5 h-full bg-[#fffaf0] relative" ref={bottleRef}>
                 
-                  <div className="absolute z-30 bottom-0 w-full flex flex-col items-start backdrop-blur-sm justify-end p-4 bg-gradient-to-t from-white/0 to-transparent ">
-                    <h3 className="text-xl font-medium text-black inline-flex items-center">
-                    Basil Breeze
-                    <img src="/icons/SVG/fruit7.svg" alt="Fruit 7" className="inline-block w-5 h-5 mx-1 ml-2" />
-                    <img src="/icons/SVG/fruit1.svg" alt="Fruit 1" className="inline-block w-5 h-5 mx-1" />
-                    <img src="/icons/SVG/fruit5.svg" alt="Fruit 5" className="inline-block w-5 h-5 mx-1" />
-                    </h3>
-                  <p className="text-sm text-black">A refreshing blend of basil and mint</p>
-                  </div>
-
-                  {imagesLoaded ? (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
-                    className="w-full h-full relative transform scale-125 translate-y-24"
-                  >
-                    <img
-                    src={getImagePath(currentFrame)}
-                    alt="Bottle Basil Breeze Animation"
-                    className="object-cover w-full h-full"
-                    />
-                  </motion.div>
-                  ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-[#fffaf0] text-[#241f20] text-transparent">
-                    Loading...
-                  </div>
-                  )}
+                <div>
+                <div className="absolute top-4 left-4 z-40 flex space-x-2">
+                  <button className="p-1 border border-[#241f20] rounded-full bg-transparent hover:bg-[#241f20] transition group">
+                  <RxChevronLeft className="h-6 w-6 text-[#241f20] transition group-hover:text-white" />
+                  </button>
+                  <button className="p-1 border border-[#241f20] rounded-full bg-transparent hover:bg-[#241f20] transition group">
+                  <RxChevronRight className="h-6 w-6 text-[#241f20] transition group-hover:text-white" />
+                  </button>
                 </div>
-              <div className="w-1/3 h-full bg-green-300"></div>
-              <div className="w-2/4 h-full bg-red-300" />
+                </div>
+
+                <div className="absolute top-4 right-4 z-40">
+                <button className="flex items-center px-3 py-1.5 border border-[#241f20] rounded-full text-[#241f20] bg-transparent hover:bg-[#241f20] hover:text-white transition text-sm">
+                  <span className="ml-1">Learn More</span>
+                  <span className="ml-0">
+                  <GoArrowUpRight className="h-5 w-5" />
+                  </span>
+                </button>
+                </div>
+              
+                <div className="absolute z-30 bottom-0 w-full flex flex-col items-start backdrop-blur-sm justify-end p-4 bg-gradient-to-t from-white/0 to-transparent ">
+                <h3 className="text-xl font-medium text-black inline-flex items-center">
+                Basil Breeze
+                <img src="/icons/SVG/fruit7.svg" alt="Fruit 7" className="inline-block w-5 h-5 mx-1 ml-2" />
+                <img src="/icons/SVG/fruit1.svg" alt="Fruit 1" className="inline-block w-5 h-5 mx-1" />
+                <img src="/icons/SVG/fruit5.svg" alt="Fruit 5" className="inline-block w-5 h-5 mx-1" />
+                </h3>
+                <p className="text-sm text-black">A refreshing blend of basil and mint</p>
+                </div>
+                {imagesLoaded ? (
+                <motion.div
+                initial={{ opacity: 0, y: 140 , scale: 1.25 }}
+                animate={{ opacity: 1, y: 96 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="w-full h-full relative transform translate-y-24"
+                >
+                <img
+                  src={getImagePath(currentFrame)}
+                  alt="Bottle Basil Breeze Animation"
+                  className="object-cover w-full h-full"
+                />
+                </motion.div>
+                ) : (
+                <div className="w-full h-full flex items-center justify-center bg-[#fffaf0] text-[#241f20] text-transparent">
+                Loading...
+                </div>
+                )}
+              </div>
+              <div
+                className="w-1/3 h-full relative"
+                style={{
+                backgroundImage: "url('/images/gradientt.png')",
+                backgroundSize: "100% 100%",
+                backgroundPosition: "center",
+                }}
+              >
+                <div className="absolute top-4 right-4 z-40">
+                <button className="flex items-center px-3 py-1.5 border border-white rounded-full text-white bg-transparent hover:bg-white hover:text-[#241f20] transition text-sm">
+                <span className="ml-1">Subscribe</span>
+                <span className="ml-0">
+                <GoArrowUpRight className="h-5 w-5" />
+                </span>
+                </button>
+                </div>
+
+                <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, delay:0.5,  ease: "easeOut" }}
+                className="absolute z-30 bottom-0 w-full flex flex-col items-start justify-end p-4 bg-gradient-to-t from-black/5 to-transparent"
+                >
+                <h3 className="text-xl font-medium text-white inline-flex items-center">
+                  Curious to try every flavor?
+                </h3>
+                <p className="text-sm text-white">
+                  Explore all of our flavors with a monthly subscription! Fresh, affordable, and delivered right to your door every month.
+                </p>
+                </motion.div>
+              </div>
+              <div
+              className="w-2/4 h-full relative"
+              style={{
+                backgroundImage: "url('/images/aboutmeHero.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+              >
+              <div className="absolute top-4 right-4 z-40">
+                <button className="flex items-center px-3 py-1.5 border border-white rounded-full text-white bg-transparent hover:bg-white hover:text-[#241f20] transition text-sm">
+                <span className="ml-1">My Story</span>
+                <span className="ml-0">
+                  <GoArrowUpRight className="h-5 w-5" />
+                </span>
+                </button>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, delay: 1, ease: "easeOut" }}
+                className="absolute z-30 bottom-0 w-full flex flex-col items-start justify-end p-4 bg-gradient-to-t from-black/40 to-transparent"
+              >
+                <h3 className="text-xl font-medium text-white inline-flex items-center">
+                Discover My Story
+                </h3>
+                <p className="text-sm text-white">
+                Learn more about the journey behind Isa Kombucha and the passion that drives every bottle.
+                </p>
+              </motion.div>
+              </div>
             </div>
           </div>
         </section>
@@ -245,7 +304,7 @@ export default function Home() {
                 <div className="relative w-64 h-80 md:w-80 md:h-96 rounded-lg overflow-hidden">
                   <Image
                     src="/placeholder.svg?height=600&width=480"
-                    alt="Isa, founder of Isa's Kombucha"
+                    alt="Pic1"
                     fill
                     className="object-cover"
                   />
