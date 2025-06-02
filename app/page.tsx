@@ -209,68 +209,74 @@ export default function Home() {
                 </div>
                 )}
               </div>
-              <div
+                <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0, ease: "easeOut" }}
                 className="w-1/3 h-full relative"
                 style={{
-                backgroundImage: "url('/images/gradientt.png')",
-                backgroundSize: "100% 100%",
-                backgroundPosition: "center",
+                  backgroundImage: "url('/images/gradientt.png')",
+                  backgroundSize: "100% 100%",
+                  backgroundPosition: "center",
                 }}
-              >
+                >
                 <div className="absolute top-4 right-4 z-40">
-                <button className="flex items-center px-3 py-1.5 border border-white rounded-full text-white bg-transparent hover:bg-white hover:text-[#241f20] transition text-sm">
-                <span className="ml-1">Subscribe</span>
-                <span className="ml-0">
-                <GoArrowUpRight className="h-5 w-5" />
-                </span>
-                </button>
+                  <button className="flex items-center px-3 py-1.5 border border-white rounded-full text-white bg-transparent hover:bg-white hover:text-[#241f20] transition text-sm">
+                  <span className="ml-1">Subscribe</span>
+                  <span className="ml-0">
+                    <GoArrowUpRight className="h-5 w-5" />
+                  </span>
+                  </button>
                 </div>
 
                 <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.9, delay:0.5,  ease: "easeOut" }}
-                className="absolute z-30 bottom-0 w-full flex flex-col items-start justify-end p-4 bg-gradient-to-t from-black/5 to-transparent"
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.9, delay: 0.5, ease: "easeOut" }}
+                  className="absolute z-30 bottom-0 w-full flex flex-col items-start justify-end p-4 bg-gradient-to-t from-black/5 to-transparent"
                 >
-                <h3 className="text-xl font-medium text-white inline-flex items-center">
+                  <h3 className="text-xl font-medium text-white inline-flex items-center">
                   Curious to try every flavor?
-                </h3>
-                <p className="text-sm text-white">
+                  </h3>
+                  <p className="text-sm text-white">
                   Explore all of our flavors with a monthly subscription! Fresh, affordable, and delivered right to your door every month.
-                </p>
+                  </p>
                 </motion.div>
-              </div>
-              <div
-              className="w-2/4 h-full relative"
-              style={{
-                backgroundImage: "url('/images/aboutmeHero.png')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-              >
-              <div className="absolute top-4 right-4 z-40">
-                <button className="flex items-center px-3 py-1.5 border border-white rounded-full text-white bg-transparent hover:bg-white hover:text-[#241f20] transition text-sm">
-                <span className="ml-1">My Story</span>
-                <span className="ml-0">
-                  <GoArrowUpRight className="h-5 w-5" />
-                </span>
-                </button>
-              </div>
+                </motion.div>
+                <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0, ease: "easeOut" }}
+                className="w-2/4 h-full relative"
+                style={{
+                  backgroundImage: "url('/images/aboutmeHero.png')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+                >
+                <div className="absolute top-4 right-4 z-40">
+                  <button className="flex items-center px-3 py-1.5 border border-white rounded-full text-white bg-transparent hover:bg-white hover:text-[#241f20] transition text-sm">
+                  <span className="ml-1">My Story</span>
+                  <span className="ml-0">
+                    <GoArrowUpRight className="h-5 w-5" />
+                  </span>
+                  </button>
+                </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.9, delay: 1, ease: "easeOut" }}
-                className="absolute z-30 bottom-0 w-full flex flex-col items-start justify-end p-4 bg-gradient-to-t from-black/40 to-transparent"
-              >
-                <h3 className="text-xl font-medium text-white inline-flex items-center">
-                Discover My Story
-                </h3>
-                <p className="text-sm text-white">
-                Learn more about the journey behind Isa Kombucha and the passion that drives every bottle.
-                </p>
-              </motion.div>
-              </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.9, delay: 1, ease: "easeOut" }}
+                  className="absolute z-30 bottom-0 w-full flex flex-col items-start justify-end p-4 bg-gradient-to-t from-black/40 to-transparent"
+                >
+                  <h3 className="text-xl font-medium text-white inline-flex items-center">
+                  Discover My Story
+                  </h3>
+                  <p className="text-sm text-white">
+                  Learn more about the journey behind Isa Kombucha and the passion that drives every bottle.
+                  </p>
+                </motion.div>
+                </motion.div>
             </div>
           </div>
         </section>
