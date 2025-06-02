@@ -47,9 +47,9 @@ export default function Header() {
       <>
       {/* Desktop Header */}
         <header
-            className={`md:block fixed top-3 z-50 md:w-[91.1%] xl:w-[55%] rounded-full transition-all duration-500 left-1/2 transform -translate-x-1/2 ${
+            className={`md:block fixed top-3 z-50 md:w-[91.1%] xl:w-[50%] rounded-full transition-all duration-300 left-1/2 transform -translate-x-1/2 ${
             scrolled 
-          ? 'opacity-100 bg-white/85 shadow-[0px_4px_7px_-5px_rgba(0,0,0,0.15)] backdrop-blur-sm': 'opacity-100 hover:opacity-100 bg-transparent'}`}
+          ? 'opacity-100 bg-white/90 shadow-[0px_4px_7px_-5px_rgba(0,0,0,0.15)] backdrop-blur-sm': 'opacity-100 hover:opacity-100 bg-transparent'}`}
             id="desktop-header"
         >
             <div className={`container flex items-center justify-between py-2 px-3`}>
@@ -59,12 +59,12 @@ export default function Header() {
           alt="Isa's Kombucha Logo"
           width={40}
           height={40}
-          className="h-12 w-12 pl-1"
+          className="h-10 w-10 pl-1"
           priority
           />
             </Link>
             <nav className="flex-1 flex w-3/4 justify-center text-sm absolute left-1/2 transform -translate-x-1/2">
-          <ul className="flex space-x-14">
+          <ul className="flex space-x-14 font-medium text-[#241f20]">
           {navItems.map((item) => (
               <li key={item.label}>
               <Link href={item.href} className="text-[#241f20]">

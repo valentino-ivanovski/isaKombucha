@@ -3,9 +3,12 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronDown, Facebook, Instagram, Twitter, Globe } from "lucide-react"
+import {Facebook, Instagram, Twitter, Globe } from "lucide-react"
+import { GoArrowUpRight } from "react-icons/go";
 import { Button } from "@/components/ui/button"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
+import { animate, stagger } from "motion"
+import { splitText } from "motion-plus"
 import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import VisualHighlight from "@/components/visual-highlight"
@@ -19,8 +22,63 @@ export default function Home() {
   const [selectedLanguage, setSelectedLanguage] = useState("EN")
   const [imagesLoaded, setImagesLoaded] = useState(false)
   const [currentFrame, setCurrentFrame] = useState(0)
-  const totalFrames = 181 // 0000.png to 0180.png
-  const frameRate = 30 // Adjust for animation speed (milliseconds)
+  const totalFrames = 40 // 0000.png to 0180.png
+  const heroRef = useRef<HTMLDivElement>(null)
+  const bottleRef = useRef<HTMLDivElement>(null)
+  const heroSectionRef = useRef<HTMLDivElement>(null)
+
+  // Scroll-driven animation frame update (stops after hero section)
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+
+      // Stop scroll animation after hero section
+      const heroBottom = heroSectionRef.current?.offsetHeight ?? 0
+      if (scrollTop > heroBottom) return
+
+      const scrollFraction = Math.max(0, Math.min(1, scrollTop / heroBottom))
+      const newFrame = Math.min(totalFrames - 1, Math.floor(scrollFraction * totalFrames))
+      setCurrentFrame(newFrame)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+  useEffect(() => {
+    document.fonts.ready.then(() => {
+      if (!heroRef.current) return
+      heroRef.current.style.visibility = "visible"
+
+      const h1 = heroRef.current.querySelector("h1")
+      const p = heroRef.current.querySelector("p")
+      if (!h1 || !p) return
+
+      const { words: h1Words } = splitText(h1)
+      const { words: pWords } = splitText(p)
+
+      animate(
+        h1Words,
+        { opacity: [0, 1], y: [10, 0] },
+        {
+          type: "spring",
+          duration: 2,
+          bounce: 0,
+          delay: stagger(0.05),
+        }
+      )
+
+      animate(
+        pWords,
+        { opacity: [0, 1], y: [10, 0] },
+        {
+          type: "spring",
+          duration: 2,
+          bounce: 0,
+          delay: stagger(0.05),
+        }
+      )
+    })
+  }, [])
 
   useEffect(() => {
     let isCancelled = false
@@ -50,15 +108,7 @@ export default function Home() {
     }
   }, [])
 
-  useEffect(() => {
-    if (!imagesLoaded) return
-
-    const interval = setInterval(() => {
-      setCurrentFrame((prevFrame) => (prevFrame + 1) % totalFrames)
-    }, frameRate)
-
-    return () => clearInterval(interval)
-  }, [imagesLoaded])
+  // The scroll-driven effect above replaces the interval animation.
 
   const getImagePath = (frame: number): string => {
     return `/images/bottleBasilBreeze/${String(frame).padStart(4, "0")}.webp`
@@ -72,45 +122,76 @@ export default function Home() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="font-general-sans relative flex min-h-screen items-center font-general-sans bg-white justify-center pt-0 px-1">
+        <section
+          ref={el => {
+            heroRef.current = el as HTMLDivElement | null
+            heroSectionRef.current = el as HTMLDivElement | null
+          }}
+          style={{ visibility: "hidden" }}
+          className="font-general-sans relative flex min-h-screen items-center font-general-sans bg-white justify-center pt-0 px-1"
+        >
           <div className="relative w-full h-[calc(100vh-10px)] max-w-10xl bg-gray-200 overflow-hidden rounded-lg">
-            <div className="relative z-10 bg-[#fffaf0] h-[55%] flex flex-col items-start justify-center px-16 py-24 text-left text-white">
+            <div className="relative z-10 bg-[#fffaf0] bg-white h-[50%] flex flex-col items-start justify-center px-16 py-24 text-left text-white">
               <h1 className="font-general-sans text-3xl text-[#241f20] tracking-tight md:text-4xl">
                 Full of Life. <br /> Alive with Culture, Energy, and Spirit.
               </h1>
               <p className="font-general-sans mt-6 max-w-2xl text-lg font-light text-[#241f20] leading-relaxed md:text-lg">
                 Every bottle of Isa Kombucha is brewed with raw ingredients, wild fermentation, and a whole lot of soul. No shortcuts, no fake fizz - just nature doing its thing.
               </p>
-            <a className="relative font-general-sans cursor-pointer inline-flex items-center transform translate-y-5 justify-center px-5 py-1.5 rounded-full border border-transparent bg-white/15 shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full after:shadow-[inset_0_0_2px_1px_#ffffff4d] text-base whitespace-nowrap text-gray-950 data-disabled:bg-white/15 data-disabled:opacity-40 data-hover:bg-white/20"> Explore </a>
+            <motion.a
+              initial={{ opacity: 0, y: 0 }}
+              animate={{ opacity: 1, y: 30 }}
+              transition={{ duration: 1, delay: 2 }}
+              className="relative font-general-sans cursor-pointer inline-flex items-center transform translate-y-5 justify-center px-5 py-1.5 rounded-full border border-transparent bg-white/15 shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full after:shadow-[inset_0_0_2px_1px_#ffffff4d] text-base whitespace-nowrap text-gray-950 data-disabled:bg-white/15 data-disabled:opacity-40 data-hover:bg-white/20"
+            >
+              Explore
+            </motion.a>
             </div>
-            <div className="absolute bottom-0 left-0 right-0 flex justify-between h-[45%] z-20 w-full">
-              <div className="w-1/4 h-full bg-[#fffaf0] relative">
-                {imagesLoaded ? (
+            <div className="bottom-0 left-0 right-0 flex justify-between h-[50%] z-20 w-full">
+                <div className="w-1/5 h-full bg-[#fffaf0] relative" ref={bottleRef}>
+                  <div className="absolute top-4 right-4 z-40">
+                  <button className="flex items-center px-3 py-1.5 border border-[#241f20] rounded-lg text-[#241f20] bg-transparent hover:bg-[#241f20] hover:text-white transition text-sm">
+                    Order Now
+                    <span className="ml-0">
+                      <GoArrowUpRight className="h-5 w-5" />
+                    </span>
+                  </button>
+                  </div>
+                
+                  <div className="absolute z-30 bottom-0 w-full flex flex-col items-start backdrop-blur-sm justify-end p-4 bg-gradient-to-t from-white/60 to-transparent ">
+                  <h3 className="text-xl font-medium text-black">Basil Breeze</h3>
+                  <p className="text-sm text-black">A refreshing blend of basil and mint</p>
+                  </div>
+
+                  {imagesLoaded ? (
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1 }}
-                    className="w-full h-full relative"
+                    className="w-full h-full relative transform scale-125 translate-y-24"
                   >
                     <img
-                      src={getImagePath(currentFrame)}
-                      alt="Bottle Basil Breeze Animation"
-                      className="object-cover w-full h-full"
+                    src={getImagePath(currentFrame)}
+                    alt="Bottle Basil Breeze Animation"
+                    className="object-cover w-full h-full"
                     />
                   </motion.div>
-                ) : (
+                  ) : (
                   <div className="w-full h-full flex items-center justify-center bg-[#fffaf0] text-[#241f20] text-transparent">
                     Loading...
                   </div>
-                )}
-              </div>
-              <div className="w-1/4 h-full bg-green-300" />
-              <div className="w-1/4 h-full bg-[#fffaf0] relative">
-              </div>
+                  )}
+                </div>
+              <div className="w-1/3 h-full bg-green-300"></div>
               <div className="w-2/4 h-full bg-red-300" />
             </div>
           </div>
         </section>
+        <style>{`
+          .split-word {
+            will-change: transform, opacity;
+          }
+        `}</style>
 
         {/* About Me Section */}
         <section className="py-24 bg-white">
