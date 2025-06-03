@@ -131,32 +131,84 @@ export default function Home() {
           style={{ visibility: "hidden" }}
           className="font-general-sans relative flex min-h-screen items-center font-general-sans bg-white justify-center pt-0 px-1"
         >
+
           <div className="relative w-full h-[calc(100vh-10px)] max-w-10xl bg-gray-200 overflow-hidden rounded-lg">
-            <div className="relative z-10 bg-[#fffaf0] bg-white h-[50%] flex flex-col items-start justify-center px-16 py-24 text-left text-white">
-              <h1 className="font-general-sans font-semibold text-3xl text-[#241f20] tracking-tight md:text-4xl">
-                Full of Life. <br /> Alive with Culture, Energy, and Spirit.
+            <div className="relative z-10 bg-gradient-to-br from-white to-[#D2D2D2] h-[100%] flex flex-col items-center justify-start px-16 py-36 text-center text-white gap -">
+                {/* Background Icons */}
+                <div className="absolute inset-0 -z-10">
+                    {[
+                    { src: "/icons/SVG/minimalistic icons10.svg", alt: "Icon 10", width: 150, height: 150, className: "absolute bottom-10 left-10 blur-sm opacity-100 text-black" },
+                    { src: "/icons/SVG/minimalistic icons15.svg", alt: "Icon 15", width: 120, height: 120, className: "absolute bottom-20 right-20 blur-sm opacity-100 text-black" },
+                    { src: "/icons/SVG/minimalistic icons8.svg", alt: "Icon 8", width: 130, height: 130, className: "absolute top-1/2 left-20 blur-sm opacity-100 text-black rotate-45" },
+                    { src: "/icons/SVG/minimalistic icons13.svg", alt: "Icon 13", width: 80, height: 80, className: "absolute top-1/3 transform translate-y-10 left-1/4 blur-sm opacity-100 text-black xl:block hidden" },
+                    { src: "/icons/SVG/minimalistic icons3.svg", alt: "Icon 6", width: 100, height: 100, className: "absolute top-2/3 transform translate-y-10 left-1/4 blur-sm opacity-100 rotate-45 text-black xl:block hidden" },
+                    { src: "/icons/SVG/minimalistic icons6.svg", alt: "Icon 3", width: 100, height: 100, className: "absolute bottom-1/3 left-3/4 blur-sm opacity-100 text-black" },
+                    { src: "/icons/SVG/minimalistic icons4.svg", alt: "Icon 4", width: 100, height: 100, className: "absolute top-10 left-16 blur-sm opacity-100 text-black" },
+                    { src: "/icons/SVG/minimalistic icons1.svg", alt: "Icon 1", width: 95, height: 95, className: "absolute top-10 right-10 blur-sm opacity-100 text-black" },
+                    { src: "/icons/SVG/minimalistic icons5.svg", alt: "Icon 5", width: 90, height: 90, className: "absolute top-1/4 left-3/4 transform translate-x-32 blur-sm opacity-100 text-black hidden 2xl:block" },
+                    ].map((icon, index) => (
+                    <Image
+                    key={index}
+                    src={icon.src}
+                    alt={icon.alt}
+                    width={icon.width}
+                    height={icon.height}
+                    className={icon.className}
+                    />
+                    ))}
+                </div>
+              <div className="absolute inset-0 -z-10">
+              <div className="absolute top-10 left-10 w-96 h-96 bg-[#D15052]/30 rounded-full blur-3xl opacity-50"></div>
+              <div className="absolute bottom-20 right-20 w-72 h-72 bg-[#241f20]/20 rounded-full blur-2xl opacity-50"></div>
+              <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-[#D2D2D2]/40 rounded-full blur-3xl opacity-50"></div>
+              </div>
+
+              <h1 className="font-general-sans font-semibold text-3xl max-w-xl text-[#241f20] tracking-tight md:text-4xl">
+              Full of Life. Alive with Culture, Energy, and Spirit.
               </h1>
               <p className="font-general-sans mt-6 max-w-2xl text-lg font-light text-[#241f20] leading-relaxed md:text-lg">
-                Every bottle of Isa Kombucha is brewed with raw ingredients, wild fermentation, and a whole lot of soul. No shortcuts, no fake fizz - just nature doing its thing.
+              Every bottle of Isa Kombucha is brewed with raw ingredients, wild fermentation, and a whole lot of soul. No shortcuts, no fake fizz - just nature doing its thing.
               </p>
-              <div className="flex flex-row gap-4 transform translate-y-8">
-                <motion.a
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 1, ease: "easeOut" }}
-                  className="relative font-general-sans cursor-pointer inline-flex items-center transform translate-y-5 justify-center px-5 py-1.5 rounded-full border border-transparent bg-white/15 shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-gray-950 data-disabled:bg-white/15 data-disabled:opacity-40 hover:bg-gray-50 transition-colors duration-300"
-                >
-                  About
-                </motion.a>
-                <motion.a
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 1, ease: "easeOut" }}
-                  className="relative font-general-sans cursor-pointer inline-flex items-center transform translate-y-5 justify-center px-5 py-1.5 rounded-full border border-transparent bg-[#241f20] shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-white data-disabled:bg-white/15 data-disabled:opacity-40  hover:bg-black/80 transition-colors duration-300"
-                >
-                  Shop Now
-                </motion.a>
+              <div className="flex flex-row gap-4 transform translate-y-8 items-center justify-center">
+              <motion.a
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 1, ease: "easeOut" }}
+                className="relative font-general-sans cursor-pointer inline-flex items-center justify-center px-5 py-1.5 rounded-full border border-transparent bg-white/15 shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-gray-950 data-disabled:bg-white/15 data-disabled:opacity-40 hover:bg-gray-50 transition-colors duration-300"
+              >
+                About
+              </motion.a>
+              <motion.a
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 1, ease: "easeOut" }}
+                className="relative font-general-sans cursor-pointer inline-flex items-center justify-center px-5 py-1.5 rounded-full border border-transparent bg-[#241f20] shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-white data-disabled:bg-white/15 data-disabled:opacity-40  hover:bg-black/80 transition-colors duration-300"
+              >
+                Shop Now
+              </motion.a>
+              <style jsx>{`
+                @media (min-width: 768px) {
+                .bottle-image {
+                  max-width: 100%;
+                }
+                }
+              `}</style>
               </div>
+                <div className="mt-16">
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 20 }}
+                  transition={{ duration: 1, ease: "easeOut", delay: 0 }}
+                >
+                  <Image
+                  src="/images/bottle2.png?v2"
+                  alt="Isa Kombucha Bottle"
+                  width={800}
+                  height={800}
+                  className="object-contain mx-auto transform translate-x-2"
+                  />
+                </motion.div>
+                </div>
             </div>
           </div>
         </section>
