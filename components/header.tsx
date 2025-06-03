@@ -47,7 +47,7 @@ export default function Header() {
       <>
       {/* Desktop Header */}
         <header
-            className={`md:block fixed top-3 z-50 md:w-[91.1%] xl:w-[50%] rounded-full transition-all duration-300 left-1/2 transform -translate-x-1/2 ${
+            className={`md:block fixed top-3 z-50 md:w-[91.1%] xl:w-[800px] rounded-full transition-all duration-300 left-1/2 transform -translate-x-1/2 ${
             scrolled 
           ? 'opacity-100 bg-white/90 shadow-[0px_4px_7px_-5px_rgba(0,0,0,0.15)] backdrop-blur-sm': 'opacity-100 hover:opacity-100 bg-transparent'}`}
             id="desktop-header"
@@ -59,7 +59,7 @@ export default function Header() {
           alt="Isa's Kombucha Logo"
           width={40}
           height={40}
-          className="h-10 w-10 pl-1 hover:opacity-60 transition-opacity duration-200"
+          className="h-10 w-10 pl-0 hover:opacity-60 transition-opacity duration-200"
           priority
           />
             </Link>
@@ -132,16 +132,25 @@ export default function Header() {
         </header>
 
       {/* Mobile Header */}
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          #desktop-header {
+        display: none;
+          }
+        }
+      `}</style>
+
       <header
         className={`md:hidden fixed top-0 z-50 w-full transition-all duration-500 
         
         ${
           scrolled 
-        ? 'bg-white shadow-sm' 
-        : 'bg-blue-200'
+        ? 'bg-white/90 backdrop-blur-sm shadow-sm' 
+        : 'bg-white/90 backdrop-blur-sm'
         } 
         
-        h-20 flex items-center justify-between px-4`}
+        h-16 flex items-center justify-between px-4`}
         id="mobile-header"
       >
         <button
