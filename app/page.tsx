@@ -196,13 +196,14 @@ export default function Home() {
               </div>
                 <div className="mt-16">
                 <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 20 }}
+                  initial={{ opacity: 0, y: 0 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, ease: "easeOut", delay: 0 }}
                 >
-                  <Image
-                  src="/images/bottle2.png?v2"
-                  alt="Isa Kombucha Bottle"
+                  <img
+                  key={currentFrame}
+                  src={getImagePath(currentFrame)}
+                  alt={`Frame ${currentFrame}`}
                   width={800}
                   height={800}
                   className="object-contain mx-auto transform translate-x-2"
