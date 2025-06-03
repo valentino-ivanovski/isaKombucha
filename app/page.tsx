@@ -137,24 +137,24 @@ export default function Home() {
                 {/* Background Icons */}
                 <div className="absolute inset-0 -z-10">
                     {[
-                    { src: "/icons/SVG/minimalistic icons10.svg", alt: "Icon 10", width: 150, height: 150, className: "absolute bottom-10 left-10 blur-sm opacity-100 text-black" },
-                    { src: "/icons/SVG/minimalistic icons15.svg", alt: "Icon 15", width: 120, height: 120, className: "absolute bottom-20 right-20 blur-sm opacity-100 text-black" },
-                    { src: "/icons/SVG/minimalistic icons8.svg", alt: "Icon 8", width: 130, height: 130, className: "absolute top-1/2 left-20 blur-sm opacity-100 text-black rotate-45" },
-                    { src: "/icons/SVG/minimalistic icons13.svg", alt: "Icon 13", width: 80, height: 80, className: "absolute top-1/3 transform translate-y-10 left-1/4 blur-sm opacity-100 text-black xl:block hidden" },
-                    { src: "/icons/SVG/minimalistic icons3.svg", alt: "Icon 6", width: 100, height: 100, className: "absolute top-2/3 transform translate-y-10 left-1/4 blur-sm opacity-100 rotate-45 text-black xl:block hidden" },
-                    { src: "/icons/SVG/minimalistic icons6.svg", alt: "Icon 3", width: 100, height: 100, className: "absolute bottom-1/3 left-3/4 blur-sm opacity-100 text-black" },
-                    { src: "/icons/SVG/minimalistic icons4.svg", alt: "Icon 4", width: 100, height: 100, className: "absolute top-10 left-16 blur-sm opacity-100 text-black" },
-                    { src: "/icons/SVG/minimalistic icons1.svg", alt: "Icon 1", width: 95, height: 95, className: "absolute top-10 right-10 blur-sm opacity-100 text-black" },
-                    { src: "/icons/SVG/minimalistic icons5.svg", alt: "Icon 5", width: 90, height: 90, className: "absolute top-1/4 left-3/4 transform translate-x-32 blur-sm opacity-100 text-black hidden 2xl:block" },
+                      { src: "/icons/SVG/minimalistic icons10.svg", alt: "Icon 10", width: 150, height: 150, className: "absolute bottom-10 left-10 blur-sm opacity-100 text-black w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28" },
+                      { src: "/icons/SVG/minimalistic icons15.svg", alt: "Icon 15", width: 120, height: 120, className: "absolute bottom-20 right-20 blur-sm opacity-100 text-black w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" },
+                      { src: "/icons/SVG/minimalistic icons8.svg", alt: "Icon 8", width: 130, height: 130, className: "absolute top-1/2 left-20 blur-sm opacity-100 text-black rotate-45 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" },
+                      { src: "/icons/SVG/minimalistic icons13.svg", alt: "Icon 13", width: 80, height: 80, className: "absolute top-1/3 transform translate-y-10 left-1/4 blur-sm opacity-100 text-black xl:block hidden w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20" },
+                      { src: "/icons/SVG/minimalistic icons3.svg", alt: "Icon 6", width: 100, height: 100, className: "absolute top-2/3 transform translate-y-10 left-1/4 blur-sm opacity-100 rotate-45 text-black xl:block hidden w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20" },
+                      { src: "/icons/SVG/minimalistic icons6.svg", alt: "Icon 3", width: 100, height: 100, className: "absolute bottom-1/3 left-3/4 blur-sm opacity-100 text-black w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20" },
+                      { src: "/icons/SVG/minimalistic icons4.svg", alt: "Icon 4", width: 100, height: 100, className: "absolute top-10 left-16 blur-sm opacity-100 text-black w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20" },
+                      { src: "/icons/SVG/minimalistic icons1.svg", alt: "Icon 1", width: 95, height: 95, className: "absolute top-10 right-10 blur-sm opacity-100 text-black w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16" },
+                      { src: "/icons/SVG/minimalistic icons5.svg", alt: "Icon 5", width: 90, height: 90, className: "absolute top-1/4 left-3/4 transform translate-x-32 blur-sm opacity-100 text-black hidden 2xl:block w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16" },
                     ].map((icon, index) => (
-                    <Image
-                    key={index}
-                    src={icon.src}
-                    alt={icon.alt}
-                    width={icon.width}
-                    height={icon.height}
-                    className={icon.className}
-                    />
+                      <Image
+                        key={index}
+                        src={icon.src}
+                        alt={icon.alt}
+                        width={icon.width}
+                        height={icon.height}
+                        className={icon.className}
+                      />
                     ))}
                 </div>
               <div className="absolute inset-0 -z-10">
@@ -163,12 +163,12 @@ export default function Home() {
               <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-[#D2D2D2]/40 rounded-full blur-3xl opacity-50"></div>
               </div>
 
-              <h1 className="font-general-sans font-semibold text-3xl max-w-xl text-[#241f20] tracking-tight md:text-4xl">
+              <h1 className="font-general-sans font-semibold text-3xl max-w-2xl text-[#241f20] tracking-tight md:text-exl">
               Full of Life. Alive with Culture, Energy, and Spirit.
               </h1>
-              <p className="font-general-sans mt-6 max-w-2xl text-lg font-light text-[#241f20] leading-relaxed md:text-lg">
-              Every bottle of Isa Kombucha is brewed with raw ingredients, wild fermentation, and a whole lot of soul. No shortcuts, no fake fizz - just nature doing its thing.
-              </p>
+                <p className="font-general-sans mt-6 max-w-lg sm:max-w-3xl text-md font-light text-[#241f20] leading-relaxed md:text-base">
+                Every bottle of Isa Kombucha is brewed with raw ingredients, wild fermentation, and a whole lot of soul. No shortcuts, no fake fizz - just nature doing its thing.
+                </p>
               <div className="flex flex-row gap-4 transform translate-y-8 items-center justify-center">
               <motion.a
                 initial={{ opacity: 0, y: 10 }}
@@ -196,15 +196,15 @@ export default function Home() {
               </div>
                 <div className="mt-16">
                 <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 20 }}
+                  initial={{ opacity: 0, y: 40, width: 700, height: 700 }}
+                  animate={{ opacity: 1, y: 0, width: 700, height: 700 }}
                   transition={{ duration: 1, ease: "easeOut", delay: 0 }}
                 >
                   <Image
                   src="/images/bottle2.png?v2"
                   alt="Isa Kombucha Bottle"
-                  width={800}
-                  height={800}
+                  width={700}
+                  height={700}
                   className="object-contain mx-auto transform translate-x-2"
                   />
                 </motion.div>
