@@ -135,7 +135,7 @@ export default function Home() {
           <div className="relative w-full h-[calc(100vh-10px)] max-w-10xl bg-gray-200 overflow-hidden rounded-lg">
             <div className="relative z-10 bg-gradient-to-br from-white to-[#D2D2D2] h-[100%] flex flex-col items-center justify-start px-16 py-36 text-center text-white gap -">
                 {/* Background Icons */}
-                <div className="absolute inset-0 -z-10">
+                <div className="absolute inset-0 hidden -z-10">
                     {[
                       { src: "/icons/SVG/minimalistic icons10.svg", alt: "Icon 10", width: 150, height: 150, className: "absolute bottom-10 left-10 blur-sm opacity-100 text-black w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28" },
                       { src: "/icons/SVG/minimalistic icons15.svg", alt: "Icon 15", width: 120, height: 120, className: "absolute bottom-20 right-20 blur-sm opacity-100 text-black w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" },
@@ -157,11 +157,15 @@ export default function Home() {
                       />
                     ))}
                 </div>
-              <div className="absolute inset-0 -z-10">
-              <div className="absolute top-10 left-10 w-96 h-96 bg-[#D15052]/30 rounded-full blur-3xl opacity-50"></div>
-              <div className="absolute bottom-20 right-20 w-72 h-72 bg-[#241f20]/20 rounded-full blur-2xl opacity-50"></div>
-              <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-[#D2D2D2]/40 rounded-full blur-3xl opacity-50"></div>
-              </div>
+                <div className="absolute inset-0 -z-10">
+                <div className="absolute top-10 left-10 w-96 h-96 bg-[#D15052]/30 rounded-full blur-3xl opacity-80"></div>
+                <div className="absolute bottom-20 right-20 w-72 h-72 bg-[#241f20]/20 rounded-full blur-2xl opacity-80"></div>
+                <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-[#D2D2D2]/40 rounded-full blur-3xl opacity-80"></div>
+                <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-[#A8D5BA]/30 rounded-full blur-3xl opacity-80"></div>
+                <div className="absolute bottom-1/3 left-1/4 w-72 h-72 bg-[#F7C8E0]/30 rounded-full blur-3xl opacity-80"></div>
+                <div className="absolute top-3/4 left-1/2 w-80 h-80 bg-[#F9E79F]/30 rounded-full blur-3xl opacity-80"></div>
+                <div className="absolute bottom-10 right-1/3 w-96 h-96 bg-[#BFD7EA]/30 rounded-full blur-3xl opacity-80"></div>
+                </div>
 
               <h1 className="font-general-sans font-semibold text-3xl max-w-2xl text-[#241f20] tracking-tight md:text-exl">
               Full of Life. Alive with Culture, Energy, and Spirit.
@@ -170,44 +174,39 @@ export default function Home() {
                 Every bottle of Isa Kombucha is brewed with raw ingredients, wild fermentation, and a whole lot of soul. No shortcuts, no fake fizz - just nature doing its thing.
                 </p>
               <div className="flex flex-row gap-4 transform translate-y-8 items-center justify-center">
-              <motion.a
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 1, ease: "easeOut" }}
-                className="relative font-general-sans cursor-pointer inline-flex items-center justify-center px-5 py-1.5 rounded-full border border-transparent bg-white/15 shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-gray-950 data-disabled:bg-white/15 data-disabled:opacity-40 hover:bg-gray-50 transition-colors duration-300"
-              >
-                About
-              </motion.a>
-              <motion.a
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 1, ease: "easeOut" }}
-                className="relative font-general-sans cursor-pointer inline-flex items-center justify-center px-5 py-1.5 rounded-full border border-transparent bg-[#241f20] shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-white data-disabled:bg-white/15 data-disabled:opacity-40  hover:bg-black/80 transition-colors duration-300"
-              >
-                Shop Now
-              </motion.a>
-              <style jsx>{`
-                @media (min-width: 768px) {
-                .bottle-image {
-                  max-width: 100%;
-                }
-                }
-              `}</style>
-              </div>
-                <div className="mt-16">
-                <motion.div
-                  initial={{ opacity: 0, y: 40, width: 700, height: 700 }}
-                  animate={{ opacity: 1, y: 0, width: 700, height: 700 }}
-                  transition={{ duration: 1, ease: "easeOut", delay: 0 }}
+                <motion.a
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 1, ease: "easeOut" }}
+                  className="relative font-general-sans cursor-pointer inline-flex items-center justify-center px-5 py-1.5 rounded-full border border-transparent bg-white/15 shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-gray-950 data-disabled:bg-white/15 data-disabled:opacity-40 hover:bg-gray-50 transition-colors duration-300"
                 >
-                  <Image
-                  src="/images/bottle2.png?v2"
-                  alt="Isa Kombucha Bottle"
-                  width={700}
-                  height={700}
-                  className="object-contain mx-auto transform translate-x-2"
-                  />
-                </motion.div>
+                  About
+                </motion.a>
+                <motion.a
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 1, ease: "easeOut" }}
+                  className="relative font-general-sans cursor-pointer inline-flex items-center justify-center px-5 py-1.5 rounded-full border border-transparent bg-[#241f20] shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-white data-disabled:bg-white/15 data-disabled:opacity-40  hover:bg-black/80 transition-colors duration-300"
+                >
+                  Shop Now
+                </motion.a>
+                <style jsx>{`
+                  @media (min-width: 768px) {
+                  .bottle-image {
+                    max-width: 100%;
+                  }
+                  }
+                `}</style>
+              </div>
+              {/* Absolutely positioned bottles container */}
+                <div className="absolute mt-56 flex flex-row z-0 h-[2150px] w-[1080px] overflow-hidden">
+                <Image
+                  src="/images/bottles.png"
+                  alt="Isa Kombucha Bottles"
+                  width={2150}
+                  height={980}
+                  className="object-contain"
+                />
                 </div>
             </div>
           </div>
