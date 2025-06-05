@@ -58,7 +58,7 @@ export default function Header() {
           }`}
           id="desktop-header"
         >
-          <div className="container flex items-center justify-between py-2 px-3 relative">
+          <div className="container flex items-center justify-between py-1.5 px-2.5 relative">
             <Button
               variant="ghost"
               className="block md:hidden text-black hover:text-richblack hover:bg-transparent focus:outline-none"
@@ -73,7 +73,7 @@ export default function Header() {
                 alt="Isa's Kombucha Logo"
                 width={40}
                 height={40}
-                className="h-10 w-10 pl-0 hover:opacity-60 transition-opacity duration-200"
+                className="h-9 w-9 transform -translate-x-0 hover:opacity-60 transition-opacity duration-200"
                 priority
               />
             </Link>
@@ -111,10 +111,10 @@ export default function Header() {
               <AnimatePresence>
                 {dropdownOpen && (
                   <motion.ul
-                    initial={{ opacity: 0, y: 0 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 10 }}
                     exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.3 }}
                     className="absolute right-0 mt-2 w-40 bg-white border text-black border-gray-200 rounded shadow-lg z-50"
                   >
                     {languageOptions.map((lang) => (
@@ -153,7 +153,7 @@ export default function Header() {
             animate={{ opacity: 1, y: '12%', x: "50%", width: '50%' }}
             exit={{ opacity: 0, y: '8%', x: "50%", width: '50%' }}
             transition={{ duration: 0.3 }}
-            className={`md:hidden fixed top-16 text-center bg-white/90 backdrop-blur-md z-40 shadow-md rounded-xl ${
+            className={`md:hidden fixed top-16 text-center bg-white z-40 shadow-md rounded-xl ${
               scrolled ? 'mt-0' : 'mt-0'
             }`}
             >

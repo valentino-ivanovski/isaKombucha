@@ -118,8 +118,12 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      {/* Header */}
-      <Header />
+        <Header />
+        <style>{`
+          .hero-section {
+            visibility: visible !important;
+          }
+        `}</style>
       
       <main className="flex-1">
         {/* Hero Section */}
@@ -134,7 +138,7 @@ export default function Home() {
 
           <div className="relative w-full h-[calc(100vh-10px)] max-w-10xl bg-gray-200 overflow-hidden rounded-lg">
             <div
-              className="relative z-10 h-[100%] flex flex-col items-center justify-start px-16 py-36 text-center text-white gap"
+              className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white"
               style={{
               backgroundImage: "url('/images/heroPics/3.png')",
               backgroundSize: "cover",
@@ -147,30 +151,35 @@ export default function Home() {
                 zIndex: -1,
               }}
               ></div>
-              <h1 className="font-general-sans mt-12 font-semibold text-3xl max-w-2xl text-white tracking-tight md:text-exl">
-              Full of Life. Alive with Culture, Energy, and Spirit.
+              <div className="flex flex-col items-center justify-center transform translate-y-[-25%]">
+              <h1 className="font-general-sans font-semibold text-3xl max-w-2xl text-white tracking-tight md:text-exl">
+                Full of Life. Alive with Culture, Energy, and Spirit.
               </h1>
               <p className="font-general-sans mt-6 max-w-lg sm:max-w-3xl text-md font-light text-white leading-relaxed md:text-base">
-              Every bottle of Isa Kombucha is brewed with raw ingredients, wild fermentation, and a whole lot of soul. No shortcuts, no fake fizz - just nature doing its thing.
+                Every bottle of Isa Kombucha is brewed with raw ingredients, wild fermentation, and a whole lot of soul. No shortcuts, no fake fizz - just nature doing its thing.
               </p>
-              <div className="flex flex-row gap-4 transform translate-y-8 items-center justify-center">
+
               <motion.a
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 1, ease: "easeOut" }}
-                className="relative font-general-sans cursor-pointer inline-flex items-center justify-center px-5 py-1.5 rounded-full border border-transparent bg-white shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-gray-950 data-disabled:bg-white/15 data-disabled:opacity-40 hover:bg-gray-50 transition-colors duration-300"
-              >
-                About
-              </motion.a>
-              <motion.a
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 1, ease: "easeOut" }}
-                className="relative font-general-sans cursor-pointer inline-flex items-center justify-center px-5 py-1.5 rounded-full border border-transparent bg-white shadow-md ring-1 ring-white after:absolute after:inset-0 after:rounded-full text-black whitespace-nowrap text-black data-disabled:bg-white/15 data-disabled:opacity-40 hover:bg-white transition-colors duration-300"
+                className="relative font-general-sans font-light text-sm mt-8 cursor-pointer inline-flex items-center justify-center px-5 py-2 rounded-full bg-white shadow-md text-black hover:bg-white/80 transition-colors duration-300"
               >
                 Shop Now
               </motion.a>
               </div>
+              <motion.div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: "url('/images/heroPics/3.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                zIndex: -1,
+              }}
+              initial={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 2, ease: "easeOut" }}
+              ></motion.div>
             </div>
           </div>
         </section>
@@ -179,6 +188,44 @@ export default function Home() {
             will-change: transform, opacity;
           }
         `}</style>
+
+        {/* Flavors Section */}
+        <div className="flex justify-center items-center py-24 bg-white">
+          <div className="max-w-[720px] mx-auto">
+            <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+              <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-96">
+                <Image
+                  src="/images/kombucha/1.png"
+                  alt="RAZMATAZZ flavor image"
+                  fill
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900">
+                    {flavors[0].name}
+                  </p>
+                  <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900">
+                    $4.99
+                  </p>
+                </div>
+                <p className="block font-sans text-sm font-normal leading-normal text-gray-700 opacity-75">
+                  {flavors[0].description} <br />
+                  <strong>Ingredients:</strong> {flavors[0].ingredients}
+                </p>
+              </div>
+              <div className="p-6 pt-0">
+                <button
+                  className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg shadow-gray-900/10 hover:shadow-gray-900/20 focus:opacity-[0.85] active:opacity-[0.85] active:shadow-none block w-full bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
+                  type="button"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* About Me Section */}
         <section className="py-24 bg-white">
@@ -210,39 +257,6 @@ export default function Home() {
                   />
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Flavors Section */}
-        <section className="bg-softwhite py-24">
-          <div className="container mx-auto px-4">
-            <h2 className="text-center text-4xl font-bold tracking-tight text-richblack md:text-5xl">
-              Our Signature Flavors
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-center text-richblack/70">
-              Handcrafted in small batches using only the finest organic ingredients
-            </p>
-
-            <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-              {flavors.map((flavor, index) => (
-                <Card key={flavor.name} className="overflow-hidden transition-all duration-300 hover:shadow-lg">
-                  <div className={`relative h-48 ${flavorColors[index]}`}>
-                    <Image src={flavor.image || "/placeholder.svg"} alt={flavor.name} fill className="object-cover" />
-                  </div>
-                  <CardHeader>
-                    <CardTitle>{flavor.name}</CardTitle>
-                    <CardDescription>{flavor.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-richblack/70">Ingredients:</p>
-                    <p className="text-sm">{flavor.ingredients}</p>
-                  </CardContent>
-                  <CardFooter>
-                    <Button className={`w-full text-white ${flavorButtonColors[index]}`}>Shop Now</Button>
-                  </CardFooter>
-                </Card>
-              ))}
             </div>
           </div>
         </section>
@@ -359,34 +373,34 @@ export default function Home() {
 
 const flavors = [
   {
-    name: "1",
+    name: "RAZMATAZZ",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     ingredients: "Organic tea, cane sugar, ginger, kombucha culture",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "images/kombucha/1.png",
   },
   {
-    name: "2",
+    name: "LOV(E)ANDA",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     ingredients: "Organic tea, cane sugar, lavender, lemon, kombucha culture",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "images/kombucha/2.png",
   },
   {
-    name: "3",
+    name: "HOT GRANNY",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     ingredients: "Organic tea, cane sugar, mixed berries, hibiscus, kombucha culture",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "images/kombucha/3.png",
   },
   {
-    name: "4",
+    name: "PINAKO",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     ingredients: "Organic tea, cane sugar, cucumber, mint, kombucha culture",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "images/kombucha/4.png",
   },
   {
-    name: "5",
+    name: "BASIL BREEZE",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     ingredients: "Organic tea, cane sugar, turmeric, black pepper, orange, kombucha culture",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "images/kombucha/5.png",
   },
 ]
 
