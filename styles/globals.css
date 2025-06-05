@@ -111,3 +111,84 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+.embla__button__svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+@keyframes embla-progress-bar {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.embla__progress__bar {
+  animation-name: embla-progress-bar;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.embla {
+  max-width: 42rem;
+  margin: auto;
+  --slide-height: 19rem;
+  --slide-spacing: 4rem;
+  --slide-size: 70%;
+}
+.embla__viewport {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+}
+.embla__controls {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-top: 1.8rem;
+}
+
+@keyframes embla-progress-bar {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.embla__progress__bar {
+  animation-name: embla-progress-bar;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  transform-origin: left;
+  transform: scaleX(0);
+  max-width: 100px;
+  background-color: black;
+}
+
+.embla__progress--hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}

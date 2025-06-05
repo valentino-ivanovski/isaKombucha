@@ -16,6 +16,7 @@ import VisualHighlight from "@/components/visual-highlight"
 import ScrollableReviews from "@/components/scrollable-reviews"
 import Header from "@/components/header"
 import '../styles/globals.css'
+import EmblaCarousel from "@/components/FlavorsCarousel";
 
 export default function Home() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -183,49 +184,14 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <style>{`
-          .split-word {
-            will-change: transform, opacity;
-          }
-        `}</style>
 
         {/* Flavors Section */}
-        <div className="flex justify-center items-center py-24 bg-white">
-          <div className="max-w-[720px] mx-auto">
-            <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
-              <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-96">
-                <Image
-                  src="/images/kombucha/1.png"
-                  alt="RAZMATAZZ flavor image"
-                  fill
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900">
-                    {flavors[0].name}
-                  </p>
-                  <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900">
-                    $4.99
-                  </p>
-                </div>
-                <p className="block font-sans text-sm font-normal leading-normal text-gray-700 opacity-75">
-                  {flavors[0].description} <br />
-                  <strong>Ingredients:</strong> {flavors[0].ingredients}
-                </p>
-              </div>
-              <div className="p-6 pt-0">
-                <button
-                  className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg shadow-gray-900/10 hover:shadow-gray-900/20 focus:opacity-[0.85] active:opacity-[0.85] active:shadow-none block w-full bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
-                  type="button"
-                >
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <section className="bg-white overflow-hidden relative">
+          {/* Gradient divs for edges */}
+            <div className="hidden 2xl:block absolute top-0 left-0 h-full w-52 bg-white z-10"></div>
+          <div className="hidden 2xl:block absolute top-0 right-0 h-full w-52 bg-white z-10"></div>
+          <EmblaCarousel />
+        </section>
 
         {/* About Me Section */}
         <section className="py-24 bg-white">
