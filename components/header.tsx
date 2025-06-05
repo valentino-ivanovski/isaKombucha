@@ -40,7 +40,7 @@ export default function Header() {
     { href: "#", label: "Shop" },
     { href: "#", label: "My Story" },
     { href: "#", label: "Help & FAQ" },
-    { href: "#", label: "For Offices" },
+    { href: "#", label: "B2B" },
   ];
 
   return (

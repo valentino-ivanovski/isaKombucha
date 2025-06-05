@@ -136,7 +136,7 @@ export default function Home() {
             <div
               className="relative z-10 h-[100%] flex flex-col items-center justify-start px-16 py-36 text-center text-white gap"
               style={{
-              backgroundImage: "url('/images/heroPics/1.jpeg')",
+              backgroundImage: "url('/images/heroPics/3.png')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               }}
@@ -158,7 +158,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 1, ease: "easeOut" }}
-                className="relative font-general-sans cursor-pointer inline-flex items-center justify-center px-5 py-1.5 rounded-full border border-transparent bg-white/85 shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-gray-950 data-disabled:bg-white/15 data-disabled:opacity-40 hover:bg-gray-50 transition-colors duration-300"
+                className="relative font-general-sans cursor-pointer inline-flex items-center justify-center px-5 py-1.5 rounded-full border border-transparent bg-white shadow-md ring-1 ring-[#D15052]/15 after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-gray-950 data-disabled:bg-white/15 data-disabled:opacity-40 hover:bg-gray-50 transition-colors duration-300"
               >
                 About
               </motion.a>
@@ -166,7 +166,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 1, ease: "easeOut" }}
-                className="relative font-general-sans cursor-pointer inline-flex items-center justify-center px-5 py-1.5 rounded-full border border-transparent bg-[#241f20] shadow-md ring-1 ring-[#241f20] after:absolute after:inset-0 after:rounded-full text-base whitespace-nowrap text-white data-disabled:bg-white/15 data-disabled:opacity-40 hover:bg-black/80 transition-colors duration-300"
+                className="relative font-general-sans cursor-pointer inline-flex items-center justify-center px-5 py-1.5 rounded-full border border-transparent bg-white shadow-md ring-1 ring-white after:absolute after:inset-0 after:rounded-full text-black whitespace-nowrap text-black data-disabled:bg-white/15 data-disabled:opacity-40 hover:bg-white transition-colors duration-300"
               >
                 Shop Now
               </motion.a>
@@ -298,7 +298,7 @@ export default function Home() {
                 </li>
                 <li>
                   <Link href="#" className="text-softwhite/70 hover:text-lilac transition-colors">
-                    For Offices
+                    B2B
                   </Link>
                 </li>
               </ul>
