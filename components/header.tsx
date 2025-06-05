@@ -53,8 +53,8 @@ export default function Header() {
           transition={{ duration: 0.8, ease: 'easeOut', delay:1.8 }}
           className={`block fixed top-6 z-50 left-1/2 -translate-x-1/2 will-change-transform will-change-opacity w-[91.1%] md:w-[91.1%] xl:w-[800px] rounded-full ${
             scrolled
-              ? 'bg-white/90 shadow-[0px_4px_7px_-5px_rgba(0,0,0,0.15)] backdrop-blur-md'
-              : 'bg-white/90 shadow-[0px_4px_7px_-5px_rgba(0,0,0,0.15)] backdrop-blur-md'
+              ? 'bg-white shadow-[0px_4px_7px_-5px_rgba(0,0,0,0.15)] backdrop-blur-md'
+              : 'bg-white shadow-[0px_4px_7px_-5px_rgba(0,0,0,0.15)] backdrop-blur-md'
           }`}
           id="desktop-header"
         >
