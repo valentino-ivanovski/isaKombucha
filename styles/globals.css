@@ -140,8 +140,15 @@ body {
 .embla {
   max-width: 42rem;
   margin: auto;
+
+  scale: 0.9;
+
   --slide-height: 19rem;
-  --slide-spacing: 4rem;
+  --slide-spacing: 1rem;
+
+  @media (max-width: 600px) {
+    --slide-spacing: 14rem;
+  }
   --slide-size: 70%;
 }
 .embla__viewport {

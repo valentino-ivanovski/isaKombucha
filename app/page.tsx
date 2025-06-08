@@ -187,10 +187,300 @@ export default function Home() {
 
         {/* Flavors Section */}
         <section className="bg-white overflow-hidden relative">
+          <div className="container mx-auto px-4 pt-16">
+            <h2 className="text-center text-4xl transform translate-y-6 font-bold tracking-tight text-richblack md:text-5xl">
+              Discover Our Flavors
+            </h2>
+          </div>
           {/* Gradient divs for edges */}
-            <div className="hidden 2xl:block absolute top-0 left-0 h-full w-52 bg-white z-10"></div>
-          <div className="hidden 2xl:block absolute top-0 right-0 h-full w-52 bg-white z-10"></div>
           <EmblaCarousel />
+        </section>
+
+        {/* Stores Section */}
+        <section className="bg-gray-50 py-10">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-row gap-12 sm:gap-32 items-center justify-center">
+              <div className="flex justify-center">
+          <Image
+            src="/stores/Mercator.webp"
+            alt="Store 1"
+            width={130}
+            height={130}
+            className="object-contain"
+          />
+              </div>
+              <div className="flex justify-center">
+          <Image
+            src="/stores/Tus.webp"
+            alt="Store 2"
+            width={100}
+            height={100}
+            className="object-contain"
+          />
+              </div>
+              <div className="flex justify-center">
+          <Image
+            src="/stores/Spar.webp"
+            alt="Store 3"
+            width={180}
+            height={50}
+            className="object-contain"
+          />
+              </div>
+              <div className="flex justify-center">
+          <Image
+            src="/stores/DM.webp"
+            alt="Store 4"
+            width={150}
+            height={50}
+            className="object-contain"
+          />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white py-24">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold tracking-tight text-richblack md:text-5xl mb-6">
+                Never Run Out of Your Favorite Flavors
+              </h2>
+              <p className="text-lg text-richblack/80 max-w-2xl mx-auto">
+                Subscribe and save with our flexible delivery options. Get your kombucha delivered fresh to your door,
+                exactly when you need it.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              <Card className="border-2 hover:border-lilac transition-colors duration-300">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl font-bold text-richblack">Weekly</CardTitle>
+                  <CardDescription className="text-richblack/70">Perfect for daily drinkers</CardDescription>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <div className="text-3xl font-bold text-richblack mb-4">Save 10%</div>
+                  <ul className="space-y-2 text-richblack/80">
+                    <li>• Delivered every week</li>
+                    <li>• Free shipping</li>
+                    <li>• Skip or cancel anytime</li>
+                    <li>• Mix & match flavors</li>
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full bg-lilac hover:bg-midnightblue text-richblack">
+                    Start Weekly Subscription
+                  </Button>
+                </CardFooter>
+              </Card>
+
+              <Card className="border-2 border-lilac bg-lilac/5 relative">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-lilac text-richblack px-4 py-1 rounded-full text-sm font-semibold">
+                    Most Popular
+                  </span>
+                </div>
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl font-bold text-richblack">Bi-Weekly</CardTitle>
+                  <CardDescription className="text-richblack/70">Great for regular enjoyment</CardDescription>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <div className="text-3xl font-bold text-richblack mb-4">Save 15%</div>
+                  <ul className="space-y-2 text-richblack/80">
+                    <li>• Delivered every 2 weeks</li>
+                    <li>• Free shipping</li>
+                    <li>• Skip or cancel anytime</li>
+                    <li>• Priority customer support</li>
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full bg-richblack hover:bg-richblack/80 text-softwhite">
+                    Start Bi-Weekly Subscription
+                  </Button>
+                </CardFooter>
+              </Card>
+
+              <Card className="border-2 hover:border-lilac transition-colors duration-300">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl font-bold text-richblack">Monthly</CardTitle>
+                  <CardDescription className="text-richblack/70">Casual kombucha lovers</CardDescription>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <div className="text-3xl font-bold text-richblack mb-4">Save 20%</div>
+                  <ul className="space-y-2 text-richblack/80">
+                    <li>• Delivered monthly</li>
+                    <li>• Free shipping</li>
+                    <li>• Skip or cancel anytime</li>
+                    <li>• Exclusive flavor previews</li>
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full bg-lilac hover:bg-midnightblue text-richblack">
+                    Start Monthly Subscription
+                  </Button>
+                </CardFooter>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* My Story Section */}
+        <section className="bg-gray-50 py-24">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-bold tracking-tight text-richblack md:text-5xl mb-6">My Story</h2>
+                <p className="text-xl text-richblack/80">From kitchen experiments to your favorite kombucha</p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                  <h3 className="text-2xl font-bold text-richblack mb-4">The Beginning</h3>
+                  <p className="text-lg text-richblack/80 mb-4">
+                    It all started in my tiny apartment kitchen in 2018. I was dealing with digestive issues and
+                    discovered kombucha's incredible benefits. But store-bought versions were either too sweet, too
+                    expensive, or filled with artificial ingredients.
+                  </p>
+                  <p className="text-lg text-richblack/80">
+                    So I decided to brew my own. What began as a personal health journey quickly became an obsession
+                    with perfecting the craft of fermentation.
+                  </p>
+                </div>
+                <div className="flex justify-center">
+                  <div className="relative w-80 h-64 rounded-lg overflow-hidden">
+                    <Image
+                      src="/placeholder.svg?height=400&width=500"
+                      alt="Isa in her kitchen"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div className="order-2 md:order-1 flex justify-center">
+                  <div className="relative w-80 h-64 rounded-lg overflow-hidden">
+                    <Image
+                      src="/placeholder.svg?height=400&width=500"
+                      alt="Kombucha brewing process"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="order-1 md:order-2">
+                  <h3 className="text-2xl font-bold text-richblack mb-4">The Craft</h3>
+                  <p className="text-lg text-richblack/80 mb-4">
+                    I spent months perfecting my recipes, experimenting with wild fermentation techniques and sourcing
+                    the finest organic ingredients. Each batch taught me something new about the delicate balance of
+                    flavors and probiotics.
+                  </p>
+                  <p className="text-lg text-richblack/80">
+                    Friends and family became my taste testers, and their enthusiasm convinced me that this wasn't just
+                    a hobby anymore – it was my calling.
+                  </p>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-richblack mb-4">Today</h3>
+                <p className="text-lg text-richblack/80 mb-8 max-w-3xl mx-auto">
+                  Every bottle of Isa's Kombucha is still crafted with the same passion and attention to detail that
+                  started in my kitchen. We've grown, but our commitment to quality, authenticity, and your health
+                  remains unchanged. This is more than a business – it's my life's work, and I'm honored to share it
+                  with you.
+                </p>
+                <Button className="bg-lilac hover:bg-midnightblue text-richblack text-lg px-8 py-3">
+                  Read the Full Journey
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Isa's Section */}
+        <section className="bg-white py-24">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold tracking-tight text-richblack md:text-5xl mb-6">Why Choose Isa's?</h2>
+              <p className="text-xl text-richblack/80 max-w-2xl mx-auto">
+                Not all kombucha is created equal. Here's what makes ours special.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <div className="text-center p-6 rounded-lg bg-gray-50 hover:bg-lilac/10 transition-colors duration-300">
+                <div className="w-16 h-16 bg-lilac rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">🌿</span>
+                </div>
+                <h3 className="text-xl font-bold text-richblack mb-3">100% Organic</h3>
+                <p className="text-richblack/80">
+                  We use only certified organic ingredients, from our tea leaves to our cane sugar. No shortcuts, no
+                  compromises.
+                </p>
+              </div>
+
+              <div className="text-center p-6 rounded-lg bg-gray-50 hover:bg-lilac/10 transition-colors duration-300">
+                <div className="w-16 h-16 bg-lilac rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">🧬</span>
+                </div>
+                <h3 className="text-xl font-bold text-richblack mb-3">Wild Fermentation</h3>
+                <p className="text-richblack/80">
+                  Our SCOBY cultures are naturally wild-fermented, creating complex flavors and maximum probiotic
+                  benefits.
+                </p>
+              </div>
+
+              <div className="text-center p-6 rounded-lg bg-gray-50 hover:bg-lilac/10 transition-colors duration-300">
+                <div className="w-16 h-16 bg-lilac rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">⚡</span>
+                </div>
+                <h3 className="text-xl font-bold text-richblack mb-3">No Artificial Fizz</h3>
+                <p className="text-richblack/80">
+                  Our carbonation comes naturally from the fermentation process. Real bubbles, real flavor, real
+                  benefits.
+                </p>
+              </div>
+
+              <div className="text-center p-6 rounded-lg bg-gray-50 hover:bg-lilac/10 transition-colors duration-300">
+                <div className="w-16 h-16 bg-lilac rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">🎨</span>
+                </div>
+                <h3 className="text-xl font-bold text-richblack mb-3">Artisan Crafted</h3>
+                <p className="text-richblack/80">
+                  Every batch is carefully monitored and taste-tested. We're artisans, not a factory.
+                </p>
+              </div>
+
+              <div className="text-center p-6 rounded-lg bg-gray-50 hover:bg-lilac/10 transition-colors duration-300">
+                <div className="w-16 h-16 bg-lilac rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">🌍</span>
+                </div>
+                <h3 className="text-xl font-bold text-richblack mb-3">Sustainable</h3>
+                <p className="text-richblack/80">
+                  From our glass bottles to our local sourcing, we're committed to protecting the planet we all share.
+                </p>
+              </div>
+
+              <div className="text-center p-6 rounded-lg bg-gray-50 hover:bg-lilac/10 transition-colors duration-300">
+                <div className="w-16 h-16 bg-lilac rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">❤️</span>
+                </div>
+                <h3 className="text-xl font-bold text-richblack mb-3">Made with Love</h3>
+                <p className="text-richblack/80">
+                  This isn't just business for us – it's our passion. You can taste the difference that genuine care
+                  makes.
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <Button className="bg-richblack hover:bg-richblack/80 text-softwhite text-lg px-8 py-3">
+                Experience the Difference
+              </Button>
+            </div>
+          </div>
         </section>
 
         {/* About Me Section */}

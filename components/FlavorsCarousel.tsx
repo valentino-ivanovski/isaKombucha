@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
@@ -55,6 +55,17 @@ const EmblaCarousel: React.FC = () => {
     Autoplay({ playOnInit: true, delay: 5000 })
   ])
 
+  const [selectedIndex, setSelectedIndex] = useState(0)
+
+  useEffect(() => {
+    if (!emblaApi) return
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap())
+    }
+    emblaApi.on('select', onSelect)
+    onSelect()
+  }, [emblaApi])
+
   const {
     prevBtnDisabled,
     nextBtnDisabled,
@@ -69,60 +80,66 @@ const EmblaCarousel: React.FC = () => {
 
   return (
 
-    <div className="embla py-10 bg-white relative">
+    <div className="embla py-10 relative">
       <div
         className="embla__viewport"
         ref={emblaRef}
         style={{ overflow: 'visible' }}
       >
         <div className="embla__container flex gap-6 px-6">
-          {flavors.map((flavor, index) => (
-            <div
-              className="embla__slide flex-[0_0_80%] flex justify-center"
-              key={index}
-            >
-              <div className="max-w-[720px] mx-auto">
-                <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
-                  <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-96">
-                    <Image
-                      src={`/${flavor.image}`}
-                      alt={`${flavor.name} flavor image`}
-                      fill
-                      className="object-cover w-full h-full"
-                      loading="eager"
-                      priority
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-2">
-                      <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900">
-                        {flavor.name}
-                      </p>
-                      <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900">
-                        2.50€
+          {flavors.map((flavor, index) => {
+            const isVisible = Math.abs(index - selectedIndex) <= 1 || 
+              (selectedIndex === 0 && index === flavors.length - 1) ||
+              (selectedIndex === flavors.length - 1 && index === 0)
+
+            return (
+              <div
+                className={`embla__slide flex-[0_0_80%] flex justify-center transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                key={index}
+              >
+                <div className="max-w-[720px] mx-auto">
+                  <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+                    <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-96">
+                      <Image
+                        src={`/${flavor.image}`}
+                        alt={`${flavor.name} flavor image`}
+                        fill
+                        className="object-cover w-full h-full"
+                        loading="eager"
+                        priority
+                      />
+                    </div>
+                    <div className="p-6">
+                      <div className="flex items-center justify-between mb-2">
+                        <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900">
+                          {flavor.name}
+                        </p>
+                        <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900">
+                          2.50€
+                        </p>
+                      </div>
+                      <p className="block font-sans text-sm font-normal leading-normal text-gray-700 opacity-75">
+                        {flavor.description} <br />
+                        <strong>Ingredients:</strong> {flavor.ingredients}
                       </p>
                     </div>
-                    <p className="block font-sans text-sm font-normal leading-normal text-gray-700 opacity-75">
-                      {flavor.description} <br />
-                      <strong>Ingredients:</strong> {flavor.ingredients}
-                    </p>
-                  </div>
-                  <div className="p-6 pt-0">
-                    <button
-                      className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg block w-full bg-black text-white hover:bg-gray-800 focus:bg-gray-800"
-                      type="button"
-                    >
-                      Add to Cart
-                    </button>
+                    <div className="p-6 pt-0">
+                      <button
+                        className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg block w-full bg-black text-white hover:bg-gray-800 focus:bg-gray-800"
+                        type="button"
+                      >
+                        Add to Cart
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
 
-      <div className="absolute inset-0 md:flex hidden flex justify-between items-center px-20 pointer-events-none">
+      <div className="absolute -translate-y-6 inset-0 md:flex hidden flex justify-between items-center px-20 pointer-events-none">
         <PrevButton
           className="pointer-events-auto w-10 p-3 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:scale-105 transition-transform duration-200"
           onClick={() => onAutoplayButtonClick(onPrevButtonClick)}
