@@ -139,12 +139,12 @@ export default function Home() {
                 zIndex: -1,
               }}
               ></div>
-              <div className="flex flex-col items-center justify-center transform translate-y-[-10%]">
-              <h1 className="font-general-sans font-semibold text-3xl max-w-2xl text-white tracking-tight md:text-exl">
+              <div className="flex flex-col items-center justify-center transform translate-y-[-10%] px-8">
+              <h1 className="font-general-sans font-semibold text-2xl max-w-2xl text-white tracking-tight md:text-3xl">
                 Full of Life. Alive with Culture, Energy, and Spirit.
               </h1>
               <motion.p
-                className="font-general-sans px-5 mt-6 max-w-lg sm:max-w-3xl text-md font-light text-white leading-relaxed md:text-base text-center"
+                className="font-general-sans px-5 mt-6 max-w-lg text-sm sm:text-md sm:max-w-3xl text-md font-light text-white leading-relaxed md:text-base text-center"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.6, ease: 'easeOut' }}
