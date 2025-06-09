@@ -68,6 +68,7 @@ export default function MarqueeReviews() {
           speed={40}
           gradient={true}
           gradientColor="#F9FAFB"
+          gradientWidth={10}
           pauseOnClick={true}
           style={{ scale: 1}}
         >
@@ -98,6 +99,7 @@ export default function MarqueeReviews() {
           gradient={true}
           direction="right"
           gradientColor="#F9FAFB"
+          gradientWidth={10}
           pauseOnClick={true}
           style={{ scale: 1}}
         >

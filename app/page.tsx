@@ -197,6 +197,7 @@ export default function Home() {
           className="flex gap-4 p-0"
           pauseOnHover={false}
           speed={50}
+          gradientWidth={10}
           gradient={true}
           gradientColor="#F9FAFB"
           pauseOnClick={true}
