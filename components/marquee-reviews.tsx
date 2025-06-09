@@ -65,8 +65,38 @@ export default function MarqueeReviews() {
         <Marquee 
           className="flex gap-4 p-0"
           pauseOnHover={true}
-          speed={50}
+          speed={40}
           gradient={true}
+          gradientColor="#F9FAFB"
+          pauseOnClick={true}
+          style={{ scale: 1}}
+        >
+          {allReviews.map((review, index) => (
+            <Card
+              key={`${review.id}-${index}`}
+              className="min-w-[320px] max-w-[320px] flex-shrink-0 rounded-xl border border-gray-200 bg-white shadow-sm mx-3"
+            >
+              <CardContent className="p-6">
+                <div className="flex items-center space-x-1 text-yellow-300">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={cn("h-4 w-4 fill-current", i < review.rating ? "opacity-100" : "opacity-30")}
+                    />
+                  ))}
+                </div>
+                <blockquote className="mt-3 text-base italic text-richblack">"{review.text}"</blockquote>
+                <p className="mt-3 font-semibold text-richblack">{review.name}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </Marquee>
+        <Marquee 
+          className="flex gap-4 p-0 mt-6"
+          pauseOnHover={true}
+          speed={40}
+          gradient={true}
+          direction="right"
           gradientColor="#F9FAFB"
           pauseOnClick={true}
           style={{ scale: 1}}

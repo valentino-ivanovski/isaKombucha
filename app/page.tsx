@@ -267,7 +267,7 @@ export default function Home() {
                 </CardFooter>
               </Card>
 
-              <Card className="relative border border-lilac rounded-xl bg-lilac/10 shadow-lg hover:shadow-2xl hover:scale-[1.03] transition-transform duration-300 ease-in-out">
+              <Card className="relative border border-lilac rounded-xl bg-lilac/10 shadow-lg hover:shadow-xl hover:scale-[1.01] transition-transform duration-300 ease-in-out">
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <span className="bg-lilac text-white px-5 py-1 rounded-full text-sm font-semibold shadow-lg">
                     Most Popular
