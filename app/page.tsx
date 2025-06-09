@@ -139,7 +139,7 @@ export default function Home() {
                 zIndex: -1,
               }}
               ></div>
-              <div className="flex flex-col items-center justify-center transform translate-y-[-25%]">
+              <div className="flex flex-col items-center justify-center transform translate-y-[-10%]">
               <h1 className="font-general-sans font-semibold text-3xl max-w-2xl text-white tracking-tight md:text-exl">
                 Full of Life. Alive with Culture, Energy, and Spirit.
               </h1>
@@ -244,15 +244,15 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <Card className="border-2 hover:border-lilac transition-colors duration-300">
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto px-4">
+              <Card className="border border-gray-200 rounded-xl shadow-md hover:shadow-xl hover:scale-[1.01] transition-transform duration-300 ease-in-out">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-2xl font-bold text-richblack">Weekly</CardTitle>
-                  <CardDescription className="text-richblack/70">Perfect for daily drinkers</CardDescription>
+                  <CardTitle className="text-2xl font-semibold text-richblack">Weekly</CardTitle>
+                  <CardDescription className="text-gray-600">Perfect for daily drinkers</CardDescription>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <div className="text-3xl font-bold text-richblack mb-4">Save 10%</div>
-                  <ul className="space-y-2 text-richblack/80">
+                  <div className="text-3xl font-extrabold text-richblack mb-4">Save 10%</div>
+                  <ul className="space-y-2 text-gray-600">
                     <li>• Delivered every week</li>
                     <li>• Free shipping</li>
                     <li>• Skip or cancel anytime</li>
@@ -260,25 +260,25 @@ export default function Home() {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full bg-lilac hover:bg-midnightblue text-richblack">
+                  <Button className="w-full bg-lilac hover:bg-lilac/90 text-richblack font-semibold py-3 rounded-lg transition-colors duration-300">
                     Start Weekly Subscription
                   </Button>
                 </CardFooter>
               </Card>
 
-              <Card className="border-2 border-lilac bg-lilac/5 relative">
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-lilac text-richblack px-4 py-1 rounded-full text-sm font-semibold">
+              <Card className="relative border border-lilac rounded-xl bg-lilac/10 shadow-lg hover:shadow-2xl hover:scale-[1.03] transition-transform duration-300 ease-in-out">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-lilac text-white px-5 py-1 rounded-full text-sm font-semibold shadow-lg">
                     Most Popular
                   </span>
                 </div>
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl font-bold text-richblack">Bi-Weekly</CardTitle>
-                  <CardDescription className="text-richblack/70">Great for regular enjoyment</CardDescription>
+                <CardHeader className="text-center mt-2">
+                  <CardTitle className="text-2xl font-semibold text-richblack">Bi-Weekly</CardTitle>
+                  <CardDescription className="text-gray-700">Great for regular enjoyment</CardDescription>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <div className="text-3xl font-bold text-richblack mb-4">Save 15%</div>
-                  <ul className="space-y-2 text-richblack/80">
+                  <div className="text-3xl font-extrabold text-richblack mb-4">Save 15%</div>
+                  <ul className="space-y-2 text-gray-700">
                     <li>• Delivered every 2 weeks</li>
                     <li>• Free shipping</li>
                     <li>• Skip or cancel anytime</li>
@@ -286,20 +286,20 @@ export default function Home() {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full bg-richblack hover:bg-richblack/80 text-softwhite">
+                  <Button className="w-full bg-richblack hover:bg-richblack/90 text-softwhite font-semibold py-3 rounded-lg transition-colors duration-300">
                     Start Bi-Weekly Subscription
                   </Button>
                 </CardFooter>
               </Card>
 
-              <Card className="border-2 hover:border-lilac transition-colors duration-300">
+              <Card className="border border-gray-200 rounded-xl shadow-md hover:shadow-xl hover:scale-[1.01] transition-transform duration-300 ease-in-out">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-2xl font-bold text-richblack">Monthly</CardTitle>
-                  <CardDescription className="text-richblack/70">Casual kombucha lovers</CardDescription>
+                  <CardTitle className="text-2xl font-semibold text-richblack">Monthly</CardTitle>
+                  <CardDescription className="text-gray-600">Casual kombucha lovers</CardDescription>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <div className="text-3xl font-bold text-richblack mb-4">Save 20%</div>
-                  <ul className="space-y-2 text-richblack/80">
+                  <div className="text-3xl font-extrabold text-richblack mb-4">Save 20%</div>
+                  <ul className="space-y-2 text-gray-600">
                     <li>• Delivered monthly</li>
                     <li>• Free shipping</li>
                     <li>• Skip or cancel anytime</li>
@@ -307,7 +307,7 @@ export default function Home() {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full bg-lilac hover:bg-midnightblue text-richblack">
+                  <Button className="w-full bg-lilac hover:bg-lilac/90 text-richblack font-semibold py-3 rounded-lg transition-colors duration-300">
                     Start Monthly Subscription
                   </Button>
                 </CardFooter>
