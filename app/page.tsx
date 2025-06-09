@@ -17,6 +17,8 @@ import ScrollableReviews from "@/components/scrollable-reviews"
 import Header from "@/components/header"
 import '../styles/globals.css'
 import EmblaCarousel from "@/components/FlavorsCarousel";
+import Marquee from "react-fast-marquee"
+import MarqueeReviews from "@/components/marquee-reviews"
 
 export default function Home() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -189,48 +191,47 @@ export default function Home() {
         </section>
 
         {/* Stores Section */}
-        <section className="bg-gray-50 py-10">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-row gap-12 sm:gap-32 items-center justify-center">
-              <div className="flex justify-center">
-          <Image
-            src="/stores/Mercator.webp"
-            alt="Store 1"
-            width={130}
-            height={130}
-            className="object-contain"
-          />
-              </div>
-              <div className="flex justify-center">
-          <Image
-            src="/stores/Tus.webp"
-            alt="Store 2"
-            width={100}
-            height={100}
-            className="object-contain"
-          />
-              </div>
-              <div className="flex justify-center">
-          <Image
-            src="/stores/Spar.webp"
-            alt="Store 3"
-            width={180}
-            height={50}
-            className="object-contain"
-          />
-              </div>
-              <div className="flex justify-center">
-          <Image
-            src="/stores/DM.webp"
-            alt="Store 4"
-            width={150}
-            height={50}
-            className="object-contain"
-          />
-              </div>
+        <section className="bg-gray-50 py-10 overflow-hidden">
+  <div className="container mx-auto px-4">
+    <Marquee 
+          className="flex gap-4 p-0"
+          pauseOnHover={false}
+          speed={50}
+          gradient={true}
+          gradientColor="#F9FAFB"
+          pauseOnClick={true}
+          style={{ scale: 1}}
+        >
+      {[0, 1, 2, 3].map((dupIdx) => (
+        <div
+          key={`store-set-${dupIdx}`}
+          className="flex gap-12 sm:gap-32 items-center whitespace-nowrap"
+        >
+          {[
+            "/stores/Mercator.webp",
+            "/stores/Tus.webp",
+            "/stores/Spar.webp",
+            "/stores/DM.webp",
+          ].map((src, idx) => (
+            <div
+              key={`store-${dupIdx}-${idx}`}
+              className="flex justify-center flex-shrink-0"
+              style={{ margin: idx === 0 ? "0 6px 0 80px" : idx === 3 ? "0 12px 0 6px" : "0 6px" }} // Added custom margins
+            >
+              <Image
+                src={src}
+                alt={`Store ${idx + 1}`}
+                width={idx === 2 ? 180 : idx === 3 ? 150 : idx === 0 ? 130 : 100}
+                height={idx === 2 ? 50 : idx === 3 ? 50 : 130}
+                className="object-contain"
+              />
             </div>
-          </div>
-        </section>
+          ))}
+        </div>
+      ))}
+</Marquee>    
+  </div>
+</section>
 
         <section className="bg-white py-24">
           <div className="container mx-auto px-4">
@@ -401,7 +402,7 @@ export default function Home() {
               What Our Customers Say
             </h2>
 
-            <ScrollableReviews />
+            <MarqueeReviews />
           </div>
         </section>
       </main>

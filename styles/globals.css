@@ -204,3 +204,24 @@ body {
   pointer-events: none;
   transition: opacity 0.3s ease-in-out;
 }
+
+@keyframes infinite-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%); /* Move half the width to loop seamlessly */
+    }
+  }
+
+  .animate-infinite-scroll {
+    animation: infinite-scroll 40s linear infinite; /* Adjust duration as needed */
+    display: flex;
+  }
+
+  @media (max-width: 640px) {
+  .animate-marquee {
+    --gap: 1rem;
+    --duration: 20s; /* Faster on mobile for shorter content */
+  }
+}

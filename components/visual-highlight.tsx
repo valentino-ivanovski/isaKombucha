@@ -29,7 +29,7 @@ export default function VisualHighlight() {
     <section ref={containerRef} className="relative overflow-hidden bg-richblack py-24 text-softwhite">
       <div className="container mx-auto px-4">
         <div className="grid items-center gap-12 md:grid-cols-2">
-          <div className="order-2 md:order-1">
+          <div className="order-2 md:order-1 px-10">
             <h2 className="text-4xl font-bold tracking-tight md:text-5xl">Crafted with Passion</h2>
             <p className="mt-6 text-lg leading-relaxed text-softwhite/70">
               Every bottle of Isa's Kombucha is brewed with care using traditional methods and the finest organic
@@ -68,26 +68,26 @@ export default function VisualHighlight() {
             <div className="relative h-[500px] w-full">
               <div className="absolute left-[10%] top-[35%] h-[300px] w-[120px] rotate-[-15deg]">
                 <Image
-                  src="/placeholder.svg?height=600&width=240"
+                  src="images/bottle2.png"
                   alt="Kombucha bottle"
                   fill
-                  className="object-contain"
+                  className="object-contain scale-150"
                 />
               </div>
               <div className="absolute left-[35%] top-[35%] h-[350px] w-[120px] rotate-[5deg]">
                 <Image
-                  src="/placeholder.svg?height=600&width=240"
+                  src="images/bottle2.png"
                   alt="Kombucha bottle"
                   fill
-                  className="object-contain"
+                  className="object-contain scale-150"
                 />
               </div>
               <div className="absolute left-[60%] top-[30%] h-[320px] w-[120px] rotate-[20deg]">
                 <Image
-                  src="/placeholder.svg?height=600&width=240"
+                  src="images/bottle2.png"
                   alt="Kombucha bottle"
                   fill
-                  className="object-contain"
+                  className="object-contain scale-150"
                 />
               </div>
             </div>

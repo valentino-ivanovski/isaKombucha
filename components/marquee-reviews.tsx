@@ -4,49 +4,50 @@ import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Star } from "lucide-react"
 import { cn } from "@/lib/utils"
+import Marquee from "react-fast-marquee"
 
 const reviews = [
   {
     id: 1,
-    name: "Sarah Johnson",
+    name: "Name Surname",
     rating: 5,
-    text: "Isa's Kombucha has become my daily ritual. The Lavender Lemon is absolutely divine - the perfect balance of floral and citrus notes.",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     id: 2,
-    name: "Michael Chen",
+    name: "Name Surname",
     rating: 5,
-    text: "As someone who appreciates quality craftsmanship, I'm impressed by the attention to detail in every bottle. The Classic Ginger has the perfect amount of spice.",
+    text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
     id: 3,
-    name: "Emma Rodriguez",
+    name: "Name Surname",
     rating: 4,
-    text: "The Berry Hibiscus flavor is a game-changer! It's refreshing without being too sweet, and the deep red color is gorgeous.",
+    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
   },
   {
     id: 4,
-    name: "David Thompson",
+    name: "Name Surname",
     rating: 5,
-    text: "Our office switched to Isa's Kombucha for our weekly team meetings, and it's been a hit. The variety of flavors means everyone finds something they love.",
+    text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   },
   {
     id: 5,
-    name: "Olivia Parker",
+    name: "Name Surname",
     rating: 5,
-    text: "The Cucumber Mint is like a spa day in a bottle - so refreshing and elegant. I appreciate the sustainable practices and organic ingredients.",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     id: 6,
-    name: "James Wilson",
+    name: "Name Surname",
     rating: 5,
-    text: "I've been drinking kombucha for years, and Isa's is by far the best I've tried. The flavors are complex but balanced.",
+    text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
     id: 7,
-    name: "Sophia Garcia",
+    name: "Name Surname",
     rating: 4,
-    text: "The packaging is so elegant, it makes a perfect gift. And the taste lives up to the beautiful presentation!",
+    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
   },
 ]
 
@@ -57,37 +58,39 @@ export default function MarqueeReviews() {
   const [isPaused, setIsPaused] = useState(false)
 
   return (
-    <div
-      className="w-full overflow-hidden"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
       <div
-        className={cn("flex gap-6 py-4", isPaused ? "" : "animate-marquee")}
-        style={{
-          width: `${allReviews.length * 340}px`,
-        }}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
       >
-        {allReviews.map((review, index) => (
-          <Card
-            key={`${review.id}-${index}`}
-            className="min-w-[320px] max-w-[320px] flex-shrink-0 rounded-xl border border-gray-200 bg-white shadow-sm"
-          >
-            <CardContent className="p-6">
-              <div className="flex items-center space-x-1 text-midnightblue">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={cn("h-4 w-4 fill-current", i < review.rating ? "opacity-100" : "opacity-30")}
-                  />
-                ))}
-              </div>
-              <blockquote className="mt-3 text-base italic text-richblack">"{review.text}"</blockquote>
-              <p className="mt-3 font-semibold text-richblack">{review.name}</p>
-            </CardContent>
-          </Card>
-        ))}
+        <Marquee 
+          className="flex gap-4 p-0"
+          pauseOnHover={true}
+          speed={50}
+          gradient={true}
+          gradientColor="#F9FAFB"
+          pauseOnClick={true}
+          style={{ scale: 1}}
+        >
+          {allReviews.map((review, index) => (
+            <Card
+              key={`${review.id}-${index}`}
+              className="min-w-[320px] max-w-[320px] flex-shrink-0 rounded-xl border border-gray-200 bg-white shadow-sm mx-3"
+            >
+              <CardContent className="p-6">
+                <div className="flex items-center space-x-1 text-yellow-300">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={cn("h-4 w-4 fill-current", i < review.rating ? "opacity-100" : "opacity-30")}
+                    />
+                  ))}
+                </div>
+                <blockquote className="mt-3 text-base italic text-richblack">"{review.text}"</blockquote>
+                <p className="mt-3 font-semibold text-richblack">{review.name}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </Marquee>
       </div>
-    </div>
   )
 }
