@@ -65,10 +65,10 @@ export default function MarqueeReviews() {
         <Marquee 
           className="flex gap-4 p-0"
           pauseOnHover={true}
-          speed={40}
+          speed={30}
           gradient={true}
           gradientColor="#F9FAFB"
-          gradientWidth={10}
+          gradientWidth={25}
           pauseOnClick={true}
           style={{ scale: 1}}
         >
@@ -95,11 +95,11 @@ export default function MarqueeReviews() {
         <Marquee 
           className="flex gap-4 p-0 mt-6"
           pauseOnHover={true}
-          speed={40}
+          speed={30}
           gradient={true}
           direction="right"
           gradientColor="#F9FAFB"
-          gradientWidth={10}
+          gradientWidth={25}
           pauseOnClick={true}
           style={{ scale: 1}}
         >

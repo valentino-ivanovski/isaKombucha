@@ -197,7 +197,7 @@ export default function Home() {
           className="flex gap-4 p-0"
           pauseOnHover={false}
           speed={50}
-          gradientWidth={10}
+          gradientWidth={25}
           gradient={true}
           gradientColor="#F9FAFB"
           pauseOnClick={true}
@@ -314,81 +314,6 @@ export default function Home() {
                   </Button>
                 </CardFooter>
               </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* My Story Section */}
-        <section className="bg-gray-50 py-24">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold tracking-tight text-richblack md:text-5xl mb-6">My Story</h2>
-                <p className="text-xl text-richblack/80">From kitchen experiments to your favorite kombucha</p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-                <div>
-                  <h3 className="text-2xl font-bold text-richblack mb-4">The Beginning</h3>
-                  <p className="text-lg text-richblack/80 mb-4">
-                    It all started in my tiny apartment kitchen in 2018. I was dealing with digestive issues and
-                    discovered kombucha's incredible benefits. But store-bought versions were either too sweet, too
-                    expensive, or filled with artificial ingredients.
-                  </p>
-                  <p className="text-lg text-richblack/80">
-                    So I decided to brew my own. What began as a personal health journey quickly became an obsession
-                    with perfecting the craft of fermentation.
-                  </p>
-                </div>
-                <div className="flex justify-center">
-                  <div className="relative w-80 h-64 rounded-lg overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=400&width=500"
-                      alt="Isa in her kitchen"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-                <div className="order-2 md:order-1 flex justify-center">
-                  <div className="relative w-80 h-64 rounded-lg overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=400&width=500"
-                      alt="Kombucha brewing process"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="order-1 md:order-2">
-                  <h3 className="text-2xl font-bold text-richblack mb-4">The Craft</h3>
-                  <p className="text-lg text-richblack/80 mb-4">
-                    I spent months perfecting my recipes, experimenting with wild fermentation techniques and sourcing
-                    the finest organic ingredients. Each batch taught me something new about the delicate balance of
-                    flavors and probiotics.
-                  </p>
-                  <p className="text-lg text-richblack/80">
-                    Friends and family became my taste testers, and their enthusiasm convinced me that this wasn't just
-                    a hobby anymore – it was my calling.
-                  </p>
-                </div>
-              </div>
-
-              <div className="text-center">
-                <h3 className="text-2xl font-bold text-richblack mb-4">Today</h3>
-                <p className="text-lg text-richblack/80 mb-8 max-w-3xl px-5 mx-auto">
-                  Every bottle of Isa's Kombucha is still crafted with the same passion and attention to detail that
-                  started in my kitchen. We've grown, but our commitment to quality, authenticity, and your health
-                  remains unchanged. This is more than a business – it's my life's work, and I'm honored to share it
-                  with you.
-                </p>
-                <Button className="bg-lilac hover:bg-midnightblue text-richblack text-lg px-8 py-3">
-                  Read the Full Journey
-                </Button>
-              </div>
             </div>
           </div>
         </section>
