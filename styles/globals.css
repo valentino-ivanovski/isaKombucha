@@ -146,9 +146,14 @@ body {
   --slide-height: 19rem;
   --slide-spacing: 1rem;
 
-  @media (max-width: 600px) {
+  @media (max-width: 570px) {
+    --slide-spacing: 10rem;
+  }
+
+  @media (max-width: 400px) {
     --slide-spacing: 14rem;
   }
+
   --slide-size: 70%;
 }
 .embla__viewport {

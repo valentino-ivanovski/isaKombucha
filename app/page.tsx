@@ -52,25 +52,12 @@ export default function Home() {
       heroRef.current.style.visibility = "visible"
 
       const h1 = heroRef.current.querySelector("h1")
-      const p = heroRef.current.querySelector("p")
-      if (!h1 || !p) return
+      if (!h1) return
 
       const { words: h1Words } = splitText(h1)
-      const { words: pWords } = splitText(p)
 
       animate(
         h1Words,
-        { opacity: [0, 1], y: [10, 0] },
-        {
-          type: "spring",
-          duration: 2,
-          bounce: 0,
-          delay: stagger(0.05),
-        }
-      )
-
-      animate(
-        pWords,
         { opacity: [0, 1], y: [10, 0] },
         {
           type: "spring",
@@ -156,15 +143,20 @@ export default function Home() {
               <h1 className="font-general-sans font-semibold text-3xl max-w-2xl text-white tracking-tight md:text-exl">
                 Full of Life. Alive with Culture, Energy, and Spirit.
               </h1>
-              <p className="font-general-sans mt-6 max-w-lg sm:max-w-3xl text-md font-light text-white leading-relaxed md:text-base">
+              <motion.p
+                className="font-general-sans px-5 mt-6 max-w-lg sm:max-w-3xl text-md font-light text-white leading-relaxed md:text-base text-center"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.6, ease: 'easeOut' }}
+              >
                 Every bottle of Isa Kombucha is brewed with raw ingredients, wild fermentation, and a whole lot of soul. No shortcuts, no fake fizz - just nature doing its thing.
-              </p>
+              </motion.p>
 
               <motion.a
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 1, ease: "easeOut" }}
-                className="relative font-general-sans font-light text-sm mt-8 cursor-pointer inline-flex items-center justify-center px-5 py-2 rounded-full bg-white shadow-md text-black hover:bg-white/80 transition-colors duration-300"
+                className="relative font-general-sans font-regular text-sm mt-8 cursor-pointer inline-flex items-center justify-center px-5 py-2 rounded-full bg-white shadow-md text-black hover:bg-white/80 transition-colors duration-300"
               >
                 Shop Now
               </motion.a>
@@ -385,7 +377,7 @@ export default function Home() {
 
               <div className="text-center">
                 <h3 className="text-2xl font-bold text-richblack mb-4">Today</h3>
-                <p className="text-lg text-richblack/80 mb-8 max-w-3xl mx-auto">
+                <p className="text-lg text-richblack/80 mb-8 max-w-3xl px-5 mx-auto">
                   Every bottle of Isa's Kombucha is still crafted with the same passion and attention to detail that
                   started in my kitchen. We've grown, but our commitment to quality, authenticity, and your health
                   remains unchanged. This is more than a business – it's my life's work, and I'm honored to share it
@@ -394,124 +386,6 @@ export default function Home() {
                 <Button className="bg-lilac hover:bg-midnightblue text-richblack text-lg px-8 py-3">
                   Read the Full Journey
                 </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Why Isa's Section */}
-        <section className="bg-white py-24">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold tracking-tight text-richblack md:text-5xl mb-6">Why Choose Isa's?</h2>
-              <p className="text-xl text-richblack/80 max-w-2xl mx-auto">
-                Not all kombucha is created equal. Here's what makes ours special.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              <div className="text-center p-6 rounded-lg bg-gray-50 hover:bg-lilac/10 transition-colors duration-300">
-                <div className="w-16 h-16 bg-lilac rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🌿</span>
-                </div>
-                <h3 className="text-xl font-bold text-richblack mb-3">100% Organic</h3>
-                <p className="text-richblack/80">
-                  We use only certified organic ingredients, from our tea leaves to our cane sugar. No shortcuts, no
-                  compromises.
-                </p>
-              </div>
-
-              <div className="text-center p-6 rounded-lg bg-gray-50 hover:bg-lilac/10 transition-colors duration-300">
-                <div className="w-16 h-16 bg-lilac rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🧬</span>
-                </div>
-                <h3 className="text-xl font-bold text-richblack mb-3">Wild Fermentation</h3>
-                <p className="text-richblack/80">
-                  Our SCOBY cultures are naturally wild-fermented, creating complex flavors and maximum probiotic
-                  benefits.
-                </p>
-              </div>
-
-              <div className="text-center p-6 rounded-lg bg-gray-50 hover:bg-lilac/10 transition-colors duration-300">
-                <div className="w-16 h-16 bg-lilac rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">⚡</span>
-                </div>
-                <h3 className="text-xl font-bold text-richblack mb-3">No Artificial Fizz</h3>
-                <p className="text-richblack/80">
-                  Our carbonation comes naturally from the fermentation process. Real bubbles, real flavor, real
-                  benefits.
-                </p>
-              </div>
-
-              <div className="text-center p-6 rounded-lg bg-gray-50 hover:bg-lilac/10 transition-colors duration-300">
-                <div className="w-16 h-16 bg-lilac rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🎨</span>
-                </div>
-                <h3 className="text-xl font-bold text-richblack mb-3">Artisan Crafted</h3>
-                <p className="text-richblack/80">
-                  Every batch is carefully monitored and taste-tested. We're artisans, not a factory.
-                </p>
-              </div>
-
-              <div className="text-center p-6 rounded-lg bg-gray-50 hover:bg-lilac/10 transition-colors duration-300">
-                <div className="w-16 h-16 bg-lilac rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🌍</span>
-                </div>
-                <h3 className="text-xl font-bold text-richblack mb-3">Sustainable</h3>
-                <p className="text-richblack/80">
-                  From our glass bottles to our local sourcing, we're committed to protecting the planet we all share.
-                </p>
-              </div>
-
-              <div className="text-center p-6 rounded-lg bg-gray-50 hover:bg-lilac/10 transition-colors duration-300">
-                <div className="w-16 h-16 bg-lilac rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">❤️</span>
-                </div>
-                <h3 className="text-xl font-bold text-richblack mb-3">Made with Love</h3>
-                <p className="text-richblack/80">
-                  This isn't just business for us – it's our passion. You can taste the difference that genuine care
-                  makes.
-                </p>
-              </div>
-            </div>
-
-            <div className="text-center mt-12">
-              <Button className="bg-richblack hover:bg-richblack/80 text-softwhite text-lg px-8 py-3">
-                Experience the Difference
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* About Me Section */}
-        <section className="py-24 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1">
-                <h2 className="text-3xl md:text-4xl font-bold text-richblack mb-6">Hi, I'm Isa</h2>
-                <p className="text-lg text-richblack/80 mb-4">
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.
-
-
-                </p>
-                <p className="text-lg text-richblack/80 mb-6">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-
-                </p>
-                <div>
-                  <Button className="bg-lilac hover:bg-midnightblue text-richblack">Read My Full Story</Button>
-                </div>
-              </div>
-              <div className="order-1 md:order-2 flex justify-center">
-                <div className="relative w-64 h-80 md:w-80 md:h-96 rounded-lg overflow-hidden">
-                  <Image
-                    src="/placeholder.svg?height=600&width=480"
-                    alt="Pic1"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
               </div>
             </div>
           </div>

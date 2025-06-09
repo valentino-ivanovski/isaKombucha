@@ -13,27 +13,42 @@ export default function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [selectedLanguage, setSelectedLanguage] = useState("EN")
-  const [scrolled, setScrolled] = useState(false);
+  const [showHeader, setShowHeader] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
+  const [scrolled, setScrolled] = useState(false)
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setHasMounted(true), 10);
+    return () => clearTimeout(timeout);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 4;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
-      }
-    };
+      const currentScrollY = window.scrollY
 
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrolled]);
+      if (currentScrollY > lastScrollY && currentScrollY > 4) {
+        setShowHeader(false) // Hide header when scrolling down past 4px
+      } else if (currentScrollY < lastScrollY) {
+        setShowHeader(true) // Show header when scrolling up
+      }
+
+      setScrolled(currentScrollY > 4);
+      setLastScrollY(currentScrollY)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    // On mount, set initial scrolled state
+    setScrolled(window.scrollY > 4);
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [lastScrollY])
 
   const languageOptions = [
     { code: "EN", name: "English", flag: "/flags/sh.svg" },
     { code: "SI", name: "Slovenian", flag: "/flags/si.svg" },
     { code: "HR", name: "Croatian", flag: "/flags/hr.svg" },
     { code: "DE", name: "German", flag: "/flags/de.svg" },
-  ];
+  ]
 
   const navItems = [
     { href: "#", label: "Home" },
@@ -41,23 +56,30 @@ export default function Header() {
     { href: "#", label: "My Story" },
     { href: "#", label: "Help & FAQ" },
     { href: "#", label: "B2B" },
-  ];
+  ]
 
   return (
     <div className="font-general-sans">
       <>
       {/* Desktop Header */}
-        <motion.header
-          initial={{ opacity: 0, y: -20, x: '-50%' }}
-          animate={{ opacity: 1, y: 0, x: '-50%' }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay:1.8 }}
-          className={`block fixed top-6 z-50 left-1/2 -translate-x-1/2 will-change-transform will-change-opacity w-[91.1%] md:w-[91.1%] xl:w-[800px] rounded-full ${
-            scrolled
-              ? 'bg-white shadow-[0px_4px_7px_-5px_rgba(0,0,0,0.15)] backdrop-blur-md'
-              : 'bg-white shadow-[0px_4px_7px_-5px_rgba(0,0,0,0.15)] backdrop-blur-md'
-          }`}
-          id="desktop-header"
-        >
+        <AnimatePresence>
+          {showHeader && (
+            <motion.header
+              initial={{ opacity: 0, y: -40, x: '-50%'}}
+              animate={{ opacity: 1, y: 0, x: '-50%' }}
+              exit={{ opacity: 0, y: -40, x: '-50%' }}
+              transition={{
+                duration: hasMounted ? 0.3 : 0.8,
+                ease: "easeInOut",
+                delay: hasMounted ? 0 : 1.8,
+              }}
+              className={`block fixed top-6 z-50 left-1/2 -translate-x-1/2 will-change-transform will-change-opacity w-[91.1%] md:w-[91.1%] xl:w-[800px] rounded-full ${
+                scrolled
+                  ? 'bg-white shadow-[0px_4px_7px_-5px_rgba(0,0,0,0.15)] backdrop-blur-md'
+                  : 'bg-white shadow-[0px_4px_7px_-5px_rgba(0,0,0,0.15)] backdrop-blur-md'
+              }`}
+              id="desktop-header"
+            >
           <div className="container flex items-center justify-between py-1.5 px-2.5 relative">
             <Button
               variant="ghost"
@@ -69,7 +91,7 @@ export default function Header() {
             </Button>
             <Link href="/" className="absolute left-1/2 transform -translate-x-1/2 md:static md:transform-none md:flex md:items-center md:space-x-2">
               <Image
-                src={scrolled ? '/logos/logo.svg' : '/logos/logo-light.svg'}
+                src={'/logos/logo.svg'}
                 alt="Isa's Kombucha Logo"
                 width={40}
                 height={40}
@@ -144,6 +166,8 @@ export default function Header() {
             </div>
           </div>
         </motion.header>
+          )}
+        </AnimatePresence>
 
       {/* Mobile Hamburger Dropdown */}
       <AnimatePresence>
@@ -153,8 +177,7 @@ export default function Header() {
             animate={{ opacity: 1, y: '12%', x: "50%", width: '50%' }}
             exit={{ opacity: 0, y: '8%', x: "50%", width: '50%' }}
             transition={{ duration: 0.3 }}
-            className={`md:hidden fixed top-16 text-center bg-white z-40 shadow-md rounded-xl ${
-              scrolled ? 'mt-0' : 'mt-0'
+            className={`md:hidden fixed top-16 text-center bg-white z-40 shadow-md rounded-xl
             }`}
             >
             <ul className="flex flex-col p-4 space-y-4">

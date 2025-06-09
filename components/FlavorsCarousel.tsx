@@ -52,7 +52,7 @@ const options: EmblaOptionsType = {
 const EmblaCarousel: React.FC = () => {
   const progressNode = useRef<HTMLDivElement>(null)
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    Autoplay({ playOnInit: true, delay: 5000 })
+    Autoplay({ playOnInit: true, delay: 4000 })
   ])
 
   const [selectedIndex, setSelectedIndex] = useState(0)
