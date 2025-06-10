@@ -19,7 +19,15 @@ const config = {
         "2xl": "1400px",
       },
     },
+    safelist: [
+  'bg-hero-mobile',
+  'bg-hero-desktop',
+],
     extend: {
+      backgroundImage:{
+        'hero-mobile': "url('/images/heroPics/1.png')",
+        'hero-desktop': "url('/images/heroPics/3.png')",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

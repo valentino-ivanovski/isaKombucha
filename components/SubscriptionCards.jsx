@@ -19,7 +19,7 @@ export default function SubscriptionCards() {
             bgColor: "bg-white",
             buttonColor: "bg-slate-900 hover:bg-slate-800",
             savings: 14,
-            features: ["6 Bottles", "Free Delivery", "Cancel Anytime", "Mix & Match Flavors"]
+            features: ["Mix & Match Flavors", "12 Bottles", "Cancel Anytime", "Free Delivery"]
         },
         {
             id: "biweekly",
@@ -34,7 +34,7 @@ export default function SubscriptionCards() {
             buttonColor: "bg-black hover:bg-slate-800",
             bestSeller: true,
             savings: 24,
-            features: ["8 Bottles", "Free Priority Delivery", "Cancel Anytime", "20% Off Regular Price"]
+            features: ["Mix & Match Flavors", "12 Bottles", "Cancel Anytime", "Free Delivery"]
         },
         {
             id: "monthly",
@@ -48,7 +48,7 @@ export default function SubscriptionCards() {
             bgColor: "bg-white",
             buttonColor: "bg-slate-900 hover:bg-slate-800",
             savings: 16,
-            features: ["4 Bottles", "Free Delivery", "Cancel Anytime", "Seasonal Specials"]
+            features: ["Mix & Match Flavors", "12 Bottles", "Cancel Anytime", "Free Delivery"]
         }
     ];
 
@@ -99,9 +99,9 @@ export default function SubscriptionCards() {
                 <div className="text-center mb-16">
                     <h1 className="text-5xl font-bold text-black mb-4">
                         Best way to get some
-                        <span className="text-slate-700"> Isa's Kombucha?</span>
+                        <span className="text-black"> Isa's Kombucha?</span>
                     </h1>
-                    <h2 className="text-4xl underline font-semibold text-black mb-6">
+                    <h2 className="text-4xl underline font-semibold text-[#d9b547] mb-6">
                         A Subscription!
                     </h2>
                     <p className="text-xl text-slate-700 max-w-2xl mx-auto">
@@ -113,13 +113,13 @@ the drink and the price 😉)
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-center">
+                <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-center px-4 sm:px-0">
                     {plans.map((plan, index) => (
-                        <div key={plan.id} className="relative">
+                        <div key={plan.id} className="relative max-w-sm w-full mx-auto">
                             {plan.bestSeller && (
                                 <div 
                                     className="absolute -top-4 left-1/2 transform -translate-x-1/2 -translate-y-4 z-20"
-                                    style={{ top: '-1.7rem' }} // Adjust this value to move it further up
+                                    style={{ top: '-0.7rem' }} // Adjust this value to move it further up
                                 >
                                     <div className="bg-black text-white px-4 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 shadow-lg border border-slate-200">
                                         BEST VALUE
