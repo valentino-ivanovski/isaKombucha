@@ -246,7 +246,7 @@ export default function Home() {
                 Full of Life. Alive with Culture, Energy, and Spirit.
               </h1>
               <motion.p
-                className="font-general-sans px-5 mt-6 max-w-lg text-sm sm:text-md sm:max-w-3xl text-md font-light text-white leading-relaxed md:text-base text-center"
+                className="font-general-sans px-5 mt-6 max-w-lg text-sm sm:text-md sm:max-w-3xl text-md font-regular text-white leading-relaxed md:text-base text-center"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.6, ease: 'easeOut' }}
