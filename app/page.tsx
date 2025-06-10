@@ -465,7 +465,29 @@ export default function Home() {
         <VisualHighlight />
 
         {/* My Story */}
-        <MyStory />
+          <section className="bg-white">
+            <div className='flex flex-col h-full w-full items-center justify-center'>
+            <div className='flex flex-col w-full py-6 px-1 items-center justify-center'>
+                <blockquote className='font-medium text-center'>
+                    <p className="text-white">Rooted in Goodness</p>
+                    <p className="text-white">Alive with Purpose</p>
+                </blockquote>
+            </div> {/* top part of view */}
+            <div className='w-full px-1' style={{ aspectRatio: '23 / 9' }}>
+                <img
+                    src='/images/aboutme.jpeg'
+                    alt='About Me'
+                    className='w-full h-full object-cover rounded-sm'
+                />
+            </div> {/* image */}
+            <div className="w-full flex  justify-center items-center">
+              <div className="flex justify-center items-center w-1/4 min-h-[200px] bg-blue-200 text-4xl text-left pl-6 font-medium">This is some interesting sentence</div>
+              <div className="w-1/4 min-h-[200px] bg-green-200 flex justify-center items-center px-4 text-sm">Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae pellentesque sem placerat in id. Placerat in id cursus mi pretium tellus duis. Pretium tellus duis convallis tempus leo eu aenean.</div>
+              <div className="w-1/4 min-h-[200px] bg-yellow-200 flex justify-center items-center px-4 text-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus ricies nec, pellentesque eu quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</div>
+              <div className="w-1/4 min-h-[200px] bg-red-200 flex justify-center items-center px-4 text-sm">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicaboricies nec, pellentesque eu quis enim. Donec pede justo. </div>
+            </div>
+        </div>
+            </section>
 
         {/* Reviews Section */}
         <section className="bg-gray-50 py-24">

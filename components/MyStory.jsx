@@ -16,30 +16,12 @@ const MyStory = () => {
                     className='w-full h-full object-cover rounded-sm'
                 />
             </div> {/* image */}
-            <div className='flex flex-row w-full py-24 h-full justify-center items-center px-8 gap-3 space-x-4'>
-                <p className=' text-left text-xl font-light'>
-                    Rooted in Goodness.
-                    Alive with Purpose"Rooted in Goodness.
-                    Alive with Purpose"Rooted in Goodness.
-                    Alive with Purpose"Rooted in Goodness.
-                    Alive with Purpose"Rooted in Goodness.
-                    Alive with Purpose"Rooted in Goodness.
-                    Alive with Purpose"Rooted in Goodness.
-                    Alive with Purpose"Rooted in Goodness.
-                    Alive with Purpose"Rooted in Goodness.
-                    Alive with Purpose"
-                </p>
-                <div className='h-full'>
-                <p className='text-left text-sm font-light'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p></div>
-                <p className='text-left text-sm font-light'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <p className='text-left text-sm font-light'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                </p>
-            </div>
+            <div className="w-full flex">
+      <div className="w-1/4 p-4 min-h-[200px] bg-blue-200"></div>
+      <div className="w-1/4 p-4 min-h-[200px] bg-green-200">Placeholder Content 1</div>
+      <div className="w-1/4 p-4 min-h-[200px] bg-yellow-200">Placeholder Content 2</div>
+      <div className="w-1/4 p-4 min-h-[200px] bg-red-200">Placeholder Content 3</div>
+    </div>
         </div>
     );
 };
