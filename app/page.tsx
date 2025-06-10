@@ -19,6 +19,7 @@ import '../styles/globals.css'
 import EmblaCarousel from "@/components/FlavorsCarousel";
 import Marquee from "react-fast-marquee"
 import MarqueeReviews from "@/components/marquee-reviews"
+import SubscriptionCards from "@/components/SubscriptionCards"
 
 export default function Home() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -30,6 +31,66 @@ export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null)
   const bottleRef = useRef<HTMLDivElement>(null)
   const heroSectionRef = useRef<HTMLDivElement>(null)
+  const plans = [
+        {
+            id: "weekly",
+            title: "Weekly",
+            description: "Perfect for kombucha enthusiasts",
+            price: 31,
+            originalPrice: 36,
+            period: "week",
+            bottles: 6,
+            gradient: "from-slate-50 to-slate-100",
+            bgColor: "bg-white",
+            buttonColor: "bg-slate-900 hover:bg-slate-800",
+            savings: 14,
+            features: ["6 Bottles", "Free Delivery", "Cancel Anytime", "Mix & Match Flavors"]
+        },
+        {
+            id: "biweekly",
+            title: "Bi-Weekly",
+            description: "Most popular choice - Best Value!",
+            price: 25,
+            originalPrice: 33,
+            period: "2 weeks", 
+            bottles: 8,
+            gradient: "from-slate-50 to-slate-100",
+            bgColor: "bg-white",
+            buttonColor: "bg-black hover:bg-slate-800",
+            bestSeller: true,
+            savings: 24,
+            features: ["8 Bottles", "Free Priority Delivery", "Cancel Anytime", "20% Off Regular Price"]
+        },
+        {
+            id: "monthly",
+            title: "Monthly",
+            description: "Great for occasional sippers",
+            price: 21,
+            originalPrice: 25,
+            period: "month",
+            bottles: 4,
+            gradient: "from-slate-50 to-slate-100",
+            bgColor: "bg-white",
+            buttonColor: "bg-slate-900 hover:bg-slate-800",
+            savings: 16,
+            features: ["4 Bottles", "Free Delivery", "Cancel Anytime", "Seasonal Specials"]
+        }
+    ];
+
+    const fruitIcons = [
+        "/icons/SVG/fruit1.svg",
+        "/icons/SVG/fruit2.svg", 
+        "/icons/SVG/fruit3.svg",
+        "/icons/SVG/fruit4.svg",
+        "/icons/SVG/fruit5.svg",
+        "/icons/SVG/fruit6.svg",
+        "/icons/SVG/fruit7.svg",
+        "/icons/SVG/fruit8.svg",
+        "/icons/SVG/fruit9.svg",
+        "/icons/SVG/fruit10.svg",
+        "/icons/SVG/fruit11.svg",
+        "/icons/SVG/fruit12.svg"
+    ];
 
   // Scroll-driven animation frame update (stops after hero section)
   useEffect(() => {
@@ -234,89 +295,7 @@ export default function Home() {
   </div>
 </section>
 
-        <section className="bg-white py-24">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold tracking-tight text-richblack md:text-5xl mb-6">
-                Never Run Out of Your Favorite Flavors
-              </h2>
-              <p className="text-lg text-richblack/80 max-w-2xl mx-auto">
-                Subscribe and save with our flexible delivery options. Get your kombucha delivered fresh to your door,
-                exactly when you need it.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto px-4">
-              <Card className="border border-gray-200 rounded-xl shadow-md hover:shadow-xl hover:scale-[1.01] transition-transform duration-300 ease-in-out">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl font-semibold text-richblack">Weekly</CardTitle>
-                  <CardDescription className="text-gray-600">Perfect for daily drinkers</CardDescription>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <div className="text-3xl font-extrabold text-richblack mb-4">Save 10%</div>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Delivered every week</li>
-                    <li>• Free shipping</li>
-                    <li>• Skip or cancel anytime</li>
-                    <li>• Mix & match flavors</li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-lilac hover:bg-lilac/90 text-richblack font-semibold py-3 rounded-lg transition-colors duration-300">
-                    Start Weekly Subscription
-                  </Button>
-                </CardFooter>
-              </Card>
-
-              <Card className="relative border border-lilac rounded-xl bg-lilac/10 shadow-lg hover:shadow-xl hover:scale-[1.01] transition-transform duration-300 ease-in-out">
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-lilac text-white px-5 py-1 rounded-full text-sm font-semibold shadow-lg">
-                    Most Popular
-                  </span>
-                </div>
-                <CardHeader className="text-center mt-2">
-                  <CardTitle className="text-2xl font-semibold text-richblack">Bi-Weekly</CardTitle>
-                  <CardDescription className="text-gray-700">Great for regular enjoyment</CardDescription>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <div className="text-3xl font-extrabold text-richblack mb-4">Save 15%</div>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>• Delivered every 2 weeks</li>
-                    <li>• Free shipping</li>
-                    <li>• Skip or cancel anytime</li>
-                    <li>• Priority customer support</li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-richblack hover:bg-richblack/90 text-softwhite font-semibold py-3 rounded-lg transition-colors duration-300">
-                    Start Bi-Weekly Subscription
-                  </Button>
-                </CardFooter>
-              </Card>
-
-              <Card className="border border-gray-200 rounded-xl shadow-md hover:shadow-xl hover:scale-[1.01] transition-transform duration-300 ease-in-out">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl font-semibold text-richblack">Monthly</CardTitle>
-                  <CardDescription className="text-gray-600">Casual kombucha lovers</CardDescription>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <div className="text-3xl font-extrabold text-richblack mb-4">Save 20%</div>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Delivered monthly</li>
-                    <li>• Free shipping</li>
-                    <li>• Skip or cancel anytime</li>
-                    <li>• Exclusive flavor previews</li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-lilac hover:bg-lilac/90 text-richblack font-semibold py-3 rounded-lg transition-colors duration-300">
-                    Start Monthly Subscription
-                  </Button>
-                </CardFooter>
-              </Card>
-            </div>
-          </div>
-        </section>
+        <SubscriptionCards />
 
         {/* Visual Highlight Section */}
         <VisualHighlight />
