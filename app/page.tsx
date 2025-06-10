@@ -334,10 +334,132 @@ export default function Home() {
           </div>
         </section>
 
+        {/* <section className="bg-white py-10">
+          <div className="min-h-screen bg-white to-slate-100 py-16 px-4 relative overflow-hidden">
+          
+            <div className="absolute inset-0 pointer-events-none">
+                {fruitStyles.length > 0 &&
+                  fruitIcons.map((fruit, index) => (
+                    <img
+                      key={index}
+                      src={fruit}
+                      alt=""
+                      className="absolute w-10 h-10 opacity-50 animate-bounce"
+                      style={fruitStyles[index]}
+                    />
+                  ))}
+            </div>
+
+            <div className="max-w-7xl mx-auto relative z-10">
+                <div className="text-center mb-16">
+                    <h1 className="text-5xl font-bold text-black mb-4">
+                        Best way to get some
+                        <span className="text-[#d9b547]"> Isa's Kombucha?</span>
+                    </h1>
+                    <h2 className="text-4xl underline font-semibold text-[#d9b547] mb-6">
+                        A Subscription!
+                    </h2>
+                    <p className="text-xl text-slate-700 max-w-2xl mx-auto">
+                        Get a box of Isa's Kombucha
+                        automatically delivered to
+                        your home or office every
+                        month. So refreshing... (both
+                        the drink and the price 😉)
+                    </p>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-center">
+                    {plans.map((plan, index) => (
+                        <div key={plan.id} className="relative">
+                            {plan.bestSeller && (
+                                <div 
+                                    className="absolute -top-4 left-1/2 transform -translate-x-1/2 -translate-y-4 z-20"
+                                    style={{ top: '-0.7rem' }} // Adjust this value to move it further up
+                                >
+                                    <div className="bg-black text-white px-4 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 shadow-lg border border-slate-200">
+                                        BEST VALUE
+                                    </div>
+                                </div>
+                            )}
+                            
+                            <Card className={`
+                                relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl
+                                ${plan.bestSeller ? 'ring-2 ring-black shadow-xl scale-105' : 'shadow-lg hover:shadow-xl'}
+                                ${plan.bgColor} border border-slate-200
+                            `}>
+
+                                <div className={`absolute inset-0 bg-gradient-to-br ${plan.gradient} opacity-50`} />
+
+                                <CardHeader className="relative z-10 text-center pb-4">
+                                    {plan.bestSeller && (
+                                        <div className="flex justify-center mb-2">
+                                            <Star className="text-yellow-500 fill-current" size={20} />
+                                        </div>
+                                    )}
+                                    <CardTitle className="text-2xl font-bold text-black mb-2">
+                                        {plan.title}
+                                    </CardTitle>
+                                    <CardDescription className="text-slate-600 font-medium">
+                                        {plan.description}
+                                    </CardDescription>
+                                </CardHeader>
+
+                                <CardContent className="relative z-10 text-center pb-6">
+                                    <div className="mb-6">
+                                        <div className="flex items-center justify-center gap-2 mb-2">
+                                            <span className="text-4xl font-bold text-black">
+                                                €{plan.price}
+                                            </span>
+                                            <div className="text-left">
+                                                <div className="text-sm text-slate-400 line-through">
+                                                    €{plan.originalPrice}
+                                                </div>
+                                                <div className="text-sm text-slate-600">
+                                                    per {plan.period}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-green-100 text-green-700 border border-green-200">
+                                            Save up {plan.savings}%
+                                        </div>
+                                    </div>
+
+                                    <ul className="space-y-3 mb-6 text-left md:text-left sm:text-center">
+                                        {plan.features.map((feature, featureIndex) => (
+                                            <li key={featureIndex} className="flex items-center gap-3 justify-center md:justify-start">
+                                                <Check className="text-green-600 flex-shrink-0" size={16} />
+                                                <span className="text-slate-700 text-sm">{feature}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
+
+                                <CardFooter className="relative z-10">
+                                    <Button 
+                                        className={"align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg block w-full bg-black text-white hover:bg-gray-800 focus:bg-gray-800"}
+                                    >
+                                        Start {plan.title} Plan
+                                    </Button>
+                                </CardFooter>
+                            </Card>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="text-center mt-12">
+                    <p className="text-slate-600 text-sm">
+                        All plans include free shipping • Cancel or pause anytime • 100% satisfaction guarantee
+                    </p>
+                </div>
+            </div>
+        </div>
+        </section>*/}
+
         <SubscriptionCards />
 
         {/* Visual Highlight Section */}
-       {/*<VisualHighlight /> */}
+        <VisualHighlight />
 
         {/* Reviews Section */}
         <section className="bg-gray-50 py-24">
