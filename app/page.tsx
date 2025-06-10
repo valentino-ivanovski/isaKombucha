@@ -22,6 +22,7 @@ import MarqueeReviews from "@/components/marquee-reviews"
 import SubscriptionCards from "@/components/SubscriptionCards"
 import { Star, Check } from "lucide-react";
 import { Sub } from "@radix-ui/react-context-menu";
+import MyStory from "@/components/MyStory"
 
 export default function Home() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -462,6 +463,9 @@ export default function Home() {
 
         {/* Visual Highlight Section */}
         <VisualHighlight />
+
+        {/* My Story */}
+        <MyStory />
 
         {/* Reviews Section */}
         <section className="bg-gray-50 py-24">

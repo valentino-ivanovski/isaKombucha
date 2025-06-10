@@ -11,14 +11,14 @@ export default function SubscriptionCards() {
             id: "weekly",
             title: "Weekly",
             description: "Perfect for kombucha enthusiasts",
-            price: 31,
-            originalPrice: 36,
+            price: 25,
+            originalPrice: 33,
             period: "week",
             bottles: 6,
             gradient: "from-slate-50 to-slate-100",
             bgColor: "bg-white",
             buttonColor: "bg-slate-900 hover:bg-slate-800",
-            savings: 14,
+            savings: 24,
             features: ["Mix & Match Flavors", "12 Bottles", "Cancel Anytime", "Free Delivery"]
         },
         {
@@ -40,14 +40,14 @@ export default function SubscriptionCards() {
             id: "monthly",
             title: "Monthly",
             description: "Great for occasional sippers",
-            price: 21,
-            originalPrice: 25,
+            price: 25,
+            originalPrice: 33,
             period: "month",
             bottles: 4,
             gradient: "from-slate-50 to-slate-100",
             bgColor: "bg-white",
             buttonColor: "bg-slate-900 hover:bg-slate-800",
-            savings: 16,
+            savings: 24,
             features: ["Mix & Match Flavors", "12 Bottles", "Cancel Anytime", "Free Delivery"]
         }
     ];
