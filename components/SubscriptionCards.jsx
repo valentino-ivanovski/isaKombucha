@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
 import { Star, Check } from "lucide-react";
@@ -66,24 +67,32 @@ export default function SubscriptionCards() {
         "/icons/SVG/fruit12.svg"
     ];
 
+    const [fruitStyles, setFruitStyles] = useState([]);
+
+    useEffect(() => {
+      const styles = fruitIcons.map(() => ({
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        animationDelay: `${Math.random() * 3}s`,
+        animationDuration: `${3 + Math.random() * 2}s`
+      }));
+      setFruitStyles(styles);
+    }, []);
+
     return (
         <div className="min-h-screen bg-white to-slate-100 py-16 px-4 relative overflow-hidden">
 
             <div className="absolute inset-0 pointer-events-none">
-                {fruitIcons.map((fruit, index) => (
+                {fruitStyles.length > 0 &&
+                  fruitIcons.map((fruit, index) => (
                     <img
-                        key={index}
-                        src={fruit}
-                        alt=""
-                        className={`absolute w-10 h-10 opacity-50 animate-bounce`}
-                        style={{
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
-                            animationDelay: `${Math.random() * 3}s`,
-                            animationDuration: `${3 + Math.random() * 2}s`
-                        }}
+                      key={index}
+                      src={fruit}
+                      alt=""
+                      className="absolute w-10 h-10 opacity-50 animate-bounce"
+                      style={fruitStyles[index]}
                     />
-                ))}
+                  ))}
             </div>
 
             <div className="max-w-7xl mx-auto relative z-10">
@@ -92,8 +101,8 @@ export default function SubscriptionCards() {
                         Best way to get some
                         <span className="text-slate-700"> Isa's Kombucha?</span>
                     </h1>
-                    <h2 className="text-4xl font-semibold text-black mb-6">
-                        A Subsctiption!
+                    <h2 className="text-4xl underline font-semibold text-black mb-6">
+                        A Subscription!
                     </h2>
                     <p className="text-xl text-slate-700 max-w-2xl mx-auto">
                         Get a box of Isa's Kombucha
