@@ -281,12 +281,14 @@ export default function Home() {
 
         {/* Flavors Section */}
         <section className="bg-white overflow-hidden relative">
-          <div className="container mx-auto px-4 pt-10 sm:pt-16">
+          <div className="container transform translate-y-10 mx-auto px-4">
             <h2 className="text-center text-4xl transform translate-y-6 font-bold tracking-tight text-richblack md:text-5xl">
-              Discover Our Flavors
+              Discover Our Flavours
             </h2>
+            <p className="text-center text-lg text-richblack/80 mt-10 ">
+              Each flavor is a unique blend of organic ingredients, wild fermentation, and a whole lot of love.
+            </p>
           </div>
-          {/* Gradient divs for edges */}
           <EmblaCarousel />
         </section>
 
