@@ -1,4 +1,3 @@
-/* eslint-disable */
 "use client"
 
 import Image from "next/image"
@@ -36,6 +35,18 @@ export default function Home() {
   const heroSectionRef = useRef<HTMLDivElement>(null)
   const [gradientWidth, setGradientWidth] = useState(150)
   const [bgImage, setBgImage] = useState("/images/heroPics/3.png")
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Set on mount
+    const checkWidth = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    checkWidth(); // Initial check
+    window.addEventListener('resize', checkWidth); // Listen to resize
+    return () => window.removeEventListener('resize', checkWidth); // Cleanup
+  }, []);
 
   useEffect(() => {
     const updateBackground = () => {
@@ -461,34 +472,39 @@ export default function Home() {
 
         <SubscriptionCards />
 
-        {/* Visual Highlight Section */}
-        <VisualHighlight />
-
         {/* My Story */}
           <section className="bg-[#fffaf0]">
             <div className='flex flex-col h-full w-full items-center justify-center'>
-            <div className='flex flex-col w-full py-6 px-1 items-center justify-center'>
+            <div className='flex flex-col w-full py-8 px-1 items-center justify-center'>
                 <div className='font-medium text-center flex flex-col items-center justify-center w-full gap-2'>
-                    <p className="text-4xl">The story of Isa's Kombucha</p>
+                    <p className="text-4xl"></p>
                     <Link href="/mystory" className="text-richblack underline text-sm">
-                        Read more </Link>
+                         </Link>
                 </div>
             </div> {/* top part of view */}
-            <div className='w-full px-1' style={{ aspectRatio: '25 / 9' }}>
-                <img
-                    src='/images/aboutme.jpeg'
-                    alt='About Me'
-                    className='w-full h-full object-cover rounded-sm'
-                />
-            </div> {/* image */}
-            <div className="w-full flex bg-[#fffaf0] justify-center items-center">
-              <div className="flex justify-center items-center w-1/4 min-h-[200px] bg-[#fffaf0] text-4xl text-left pl-12 font-medium italic">"Rooted in goodness. Alive with purpose."</div>
-              <div className="w-1/4 min-h-[200px] bg-[#fffaf0] flex justify-center items-center px-4 text-sm">Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae pellentesque sem placerat in id. Placerat in id cursus mi pretium tellus duis. Pretium tellus duis convallis tempus leo eu aenean.</div>
-              <div className="w-1/4 min-h-[200px] bg-[#fffaf0] flex justify-center items-center px-4 text-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus ricies nec, pellentesque eu quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</div>
-              <div className="w-1/4 min-h-[200px] bg-[#fffaf0] flex justify-center items-center px-4 text-sm">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicaboricies nec, pellentesque eu quis enim. Donec pede justo. </div>
+            <div
+              className='w-full px-1'
+              style={{
+                aspectRatio: isMobile ? '3 / 2' : '25 / 9',
+              }}
+            >
+              <img
+                src='/images/aboutme.jpeg'
+                alt='About Me'
+                className='w-full h-full object-cover rounded-sm'
+              />
+            </div>{/* image */}
+            <div className="w-full flex sm:flex-row pb-5 flex-col bg-[#fffaf0] justify-center items-center">
+              <div className="flex justify-center items-center sm:w-1/4 w-full sm:min-h-[200px] min-h-[150px] bg-[#fffaf0] text-4xl sm:text-3xl md:text-4xl text-left sm:pl-8 pl-8 py-2 font-medium italic">"Rooted in goodness. Alive with purpose."</div>
+              <div className="sm:w-1/4 w-full sm:min-h-[200px] min-h-[100px] bg-[#fffaf0] flex justify-center items-center px-4 py-2 text-sm">Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae pellentesque sem placerat in id. Placerat in id cursus mi pretium tellus duis. Pretium tellus duis convallis tempus leo eu aenean.</div>
+              <div className="sm:w-1/4 w-full sm:min-h-[200px] min-h-[100px] bg-[#fffaf0] flex justify-center items-center px-4 py-2 text-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus ricies nec, pellentesque eu quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</div>
+              <div className="sm:w-1/4 w-full sm:min-h-[200px] min-h-[100px] bg-[#fffaf0] flex justify-center items-center px-4 py-2 text-sm">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicaboricies nec, pellentesque eu quis enim. Donec pede justo. </div>
             </div>
         </div>
             </section>
+
+            {/* Visual Highlight Section */}
+        <VisualHighlight />
 
         {/* Reviews Section */}
         <section className="bg-gray-50 py-24">

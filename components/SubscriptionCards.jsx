@@ -101,7 +101,7 @@ export default function SubscriptionCards() {
                         Best way to get
                         <span className="text-black"> Isa's Kombucha?</span>
                     </h1>
-                    <h2 className="text-4xl underline font-semibold text-[#d9b547] mb-6">
+                    <h2 className="text-4xl underline font-semibold mb-6">
                         A Subscription!
                     </h2>
                     <p className="text-xl text-slate-700 max-w-2xl mx-auto">
