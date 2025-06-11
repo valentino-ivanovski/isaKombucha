@@ -159,7 +159,7 @@ export default function VisualHighlight() {
         <div className="flex flex-col md:grid md:grid-cols-2 max-w-6xl">
           {/* Text content with mobile image inside */}
           <div className="px-4 md:px-10 relative z-10 pb-20 md:pb-0">
-            <h2 className="text-4xl font-bold tracking-tight md:text-5xl relative z-10">Crafted with Passion</h2>
+            <h2 className="text-4xl font-bold tracking-tight md:text-5xl relative z-10">Why Isa's Kombucha?</h2>
             <p className="mt-6 text-lg leading-relaxed text-softwhite/70 relative z-10">
               Every bottle of Isa's Kombucha is brewed with care using traditional methods and the finest organic
               ingredients. Our small-batch approach ensures quality and flavor in every sip.
@@ -213,7 +213,7 @@ export default function VisualHighlight() {
               </li>
             </ul>
             <Button className="mt-8 ml-3 bg-white rounded-full hover:bg-white/80 text-richblack relative z-10">
-              Why Isa&apos;s Kombucha
+              Discover More
             </Button>
 
             {/* Mobile-only image positioned in bottom right corner */}
