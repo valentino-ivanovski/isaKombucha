@@ -212,7 +212,7 @@ export default function VisualHighlight() {
                 <span>No Artificial Additives</span>
               </li>
             </ul>
-            <Button className="mt-8 ml-3 bg-white rounded-full hover:bg-midnightblue text-richblack relative z-10">
+            <Button className="mt-8 ml-3 bg-white rounded-full hover:bg-white/80 text-richblack relative z-10">
               Why Isa&apos;s Kombucha
             </Button>
 

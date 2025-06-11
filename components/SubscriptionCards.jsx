@@ -106,10 +106,10 @@ export default function SubscriptionCards() {
                     </h2>
                     <p className="text-xl text-slate-700 max-w-2xl mx-auto">
                         Get a box of Isa's Kombucha
-automatically delivered to
-your home or office every
-month. So refreshing... (both
-the drink and the price 😉)
+                        automatically delivered to
+                        your home or office every
+                        month. So refreshing... (both
+                        the drink and the price 😉)
                     </p>
                 </div>
 
