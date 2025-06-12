@@ -53,7 +53,7 @@ export default function Home() {
       if (window.innerWidth < 768) {
         setBgImage("/images/heroPics/1.webp")
       } else {
-        setBgImage("/images/heroPics/3.png")
+        setBgImage("/images/heroPics/3.webp")
       }
     }
 
