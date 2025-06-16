@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Check, ChevronDown } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 
 const SubscriptionCard = () => {
@@ -119,24 +119,32 @@ const SubscriptionCard = () => {
               <span className="font-medium text-gray-900">{plans[selectedPlan].label} Delivery</span>
               <ChevronDown className={`w-5 h-5 text-gray-500 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
-            
-            {isDropdownOpen && (
-              <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
-                {Object.entries(plans).map(([key, plan]) => (
-                  <button
-                    key={key}
-                    onClick={() => {
-                      setSelectedPlan(key as keyof typeof plans);
-                      setIsDropdownOpen(false);
-                    }}
-                    className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0"
-                  >
-                    <div className="font-medium text-gray-900">{plan.label}</div>
-                    <div className="text-sm text-gray-500">${plan.price} {plan.frequencyText} - Save {plan.savings}</div>
-                  </button>
-                ))}
-              </div>
-            )}
+
+            <AnimatePresence>
+              {isDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10"
+                >
+                  {Object.entries(plans).map(([key, plan]) => (
+                    <button
+                      key={key}
+                      onClick={() => {
+                        setSelectedPlan(key as keyof typeof plans);
+                        setIsDropdownOpen(false);
+                      }}
+                      className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0"
+                    >
+                      <div className="font-medium text-gray-900">{plan.label}</div>
+                      <div className="text-sm text-gray-500">${plan.price} {plan.frequencyText} - Save {plan.savings}</div>
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
           
           {/* Features Checklist */}
