@@ -22,6 +22,9 @@ import { Star, Check } from "lucide-react";
 import { Sub } from "@radix-ui/react-context-menu";
 import MyStory from "@/components/MyStory"
 import SubscriptionCards from "@/components/SubscriptionCards"
+import StoresMarquee from "@/components/StoresMarquee";
+import AboutMeSection from "@/components/AboutMeSection";
+import Footer from "@/components/Footer"
 
 export default function Home() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -247,17 +250,17 @@ export default function Home() {
               </motion.a>
               </div>
               <motion.div
-      className="absolute inset-0"
-      style={{
-        backgroundImage: `url('${bgImage}')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        zIndex: -1,
-      }}
-      initial={{ scale: 1.1 }}
-      animate={{ scale: 1 }}
-      transition={{ duration: 2, ease: "easeOut" }}
-    ></motion.div>
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: `url('${bgImage}')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  zIndex: -1,
+                }}
+                initial={{ scale: 1.1 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 2, ease: "easeOut" }}
+              ></motion.div>
             </div>
           </div>
         </section>
@@ -276,172 +279,9 @@ export default function Home() {
         </section>
 
         {/* Stores Section */}
-        <section className="bg-gray-50 py-10 overflow-hidden">
-          <div className="container mx-auto px-4">
-            <Marquee
-              className="flex gap-4 p-0"
-              pauseOnHover={false}
-              speed={50}
-              gradientWidth={gradientWidth}
-              gradient={true}
-              gradientColor="#F9FAFB"
-              pauseOnClick={true}
-              style={{ scale: 1 }}
-            >
-              {[0, 1, 2, 3].map((dupIdx) => (
-              <div
-                key={`store-set-${dupIdx}`}
-                className="flex gap-12 sm:gap-32 items-center whitespace-nowrap"
-              >
-                {[
-                "/stores/Mercator.webp",
-                "/stores/Tus.webp",
-                "/stores/Spar.webp",
-                "/stores/DM.webp",
-                ].map((src, idx) => (
-                <div
-                  key={`store-${dupIdx}-${idx}`}
-                  className="flex justify-center flex-shrink-0"
-                  style={{ margin: idx === 0 ? "0 6px 0 80px" : idx === 3 ? "0 12px 0 6px" : "0 6px" }} // Added custom margins
-                >
-                  <Image
-                  src={src}
-                  alt={`Store ${idx + 1}`}
-                  width={idx === 2 ? 180 : idx === 3 ? 150 : idx === 0 ? 130 : 100}
-                  height={idx === 2 ? 50 : idx === 3 ? 50 : 130}
-                  className="object-contain"
-                  />
-                </div>
-                ))}
-              </div>
-              ))}
-          </Marquee>    
-          </div>
-        </section>
+        <StoresMarquee />
 
-        {/* <section className="bg-white py-10">
-          <div className="min-h-screen bg-white to-slate-100 py-16 px-4 relative overflow-hidden">
-          
-            <div className="absolute inset-0 pointer-events-none">
-                {fruitStyles.length > 0 &&
-                  fruitIcons.map((fruit, index) => (
-                    <img
-                      key={index}
-                      src={fruit}
-                      alt=""
-                      className="absolute w-10 h-10 opacity-50 animate-bounce"
-                      style={fruitStyles[index]}
-                    />
-                  ))}
-            </div>
-
-            <div className="max-w-7xl mx-auto relative z-10">
-                <div className="text-center mb-16">
-                    <h1 className="text-5xl font-bold text-black mb-4">
-                        Best way to get some
-                        <span className="text-[#d9b547]"> Isa's Kombucha?</span>
-                    </h1>
-                    <h2 className="text-4xl underline font-semibold text-[#d9b547] mb-6">
-                        A Subscription!
-                    </h2>
-                    <p className="text-xl text-slate-700 max-w-2xl mx-auto">
-                        Get a box of Isa's Kombucha
-                        automatically delivered to
-                        your home or office every
-                        month. So refreshing... (both
-                        the drink and the price 😉)
-                    </p>
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-center">
-                    {plans.map((plan, index) => (
-                        <div key={plan.id} className="relative">
-                            {plan.bestSeller && (
-                                <div 
-                                    className="absolute -top-4 left-1/2 transform -translate-x-1/2 -translate-y-4 z-20"
-                                    style={{ top: '-0.7rem' }} // Adjust this value to move it further up
-                                >
-                                    <div className="bg-black text-white px-4 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 shadow-lg border border-slate-200">
-                                        BEST VALUE
-                                    </div>
-                                </div>
-                            )}
-                            
-                            <Card className={`
-                                relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl
-                                ${plan.bestSeller ? 'ring-2 ring-black shadow-xl scale-105' : 'shadow-lg hover:shadow-xl'}
-                                ${plan.bgColor} border border-slate-200
-                            `}>
-
-                                <div className={`absolute inset-0 bg-gradient-to-br ${plan.gradient} opacity-50`} />
-
-                                <CardHeader className="relative z-10 text-center pb-4">
-                                    {plan.bestSeller && (
-                                        <div className="flex justify-center mb-2">
-                                            <Star className="text-yellow-500 fill-current" size={20} />
-                                        </div>
-                                    )}
-                                    <CardTitle className="text-2xl font-bold text-black mb-2">
-                                        {plan.title}
-                                    </CardTitle>
-                                    <CardDescription className="text-slate-600 font-medium">
-                                        {plan.description}
-                                    </CardDescription>
-                                </CardHeader>
-
-                                <CardContent className="relative z-10 text-center pb-6">
-                                    <div className="mb-6">
-                                        <div className="flex items-center justify-center gap-2 mb-2">
-                                            <span className="text-4xl font-bold text-black">
-                                                €{plan.price}
-                                            </span>
-                                            <div className="text-left">
-                                                <div className="text-sm text-slate-400 line-through">
-                                                    €{plan.originalPrice}
-                                                </div>
-                                                <div className="text-sm text-slate-600">
-                                                    per {plan.period}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-green-100 text-green-700 border border-green-200">
-                                            Save up {plan.savings}%
-                                        </div>
-                                    </div>
-
-                                    <ul className="space-y-3 mb-6 text-left md:text-left sm:text-center">
-                                        {plan.features.map((feature, featureIndex) => (
-                                            <li key={featureIndex} className="flex items-center gap-3 justify-center md:justify-start">
-                                                <Check className="text-green-600 flex-shrink-0" size={16} />
-                                                <span className="text-slate-700 text-sm">{feature}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </CardContent>
-
-                                <CardFooter className="relative z-10">
-                                    <Button 
-                                        className={"align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg block w-full bg-black text-white hover:bg-gray-800 focus:bg-gray-800"}
-                                    >
-                                        Start {plan.title} Plan
-                                    </Button>
-                                </CardFooter>
-                            </Card>
-                        </div>
-                    ))}
-                </div>
-
-                <div className="text-center mt-12">
-                    <p className="text-slate-600 text-sm">
-                        All plans include free shipping • Cancel or pause anytime • 100% satisfaction guarantee
-                    </p>
-                </div>
-            </div>
-        </div>
-        </section>*/}
-
-
+        {/* Subscription Cards Section */}
         <SubscriptionCards />
 
         {/* Visual Highlight Section */}
@@ -461,147 +301,12 @@ export default function Home() {
 
 
         {/* My Story */}
-          <section className="bg-white">
-            <div className='flex flex-col h-full w-full items-center justify-center'>
-              <div className='flex flex-col w-full py-8 px-1 items-center justify-center'>
-                <div className='font-medium text-center flex flex-col items-center justify-center w-full gap-2'>
-                  <p className="text-4xl"></p>
-                  <Link href="/mystory" className="text-richblack underline text-sm">
-                  </Link>
-                </div>
-              </div>
-              
-              {/* Image Container - Simplified */}
-              <div className='w-full px-1 relative' style={{ aspectRatio: isMobile ? '3 / 2' : '25 / 9' }}>
-                <img
-                  src='/images/aboutme.jpeg'
-                  alt='About Me'
-                  className='w-full h-full object-cover rounded-sm'
-                />
-                
-                {/* Single Read Full Story Button - Desktop */}
-                {!isMobile && (
-                  <div className="absolute bottom-4 left-3">
-                    <Link 
-                      href="/mystory"
-                      className="bg-transparent backdrop-blur-sm border border-white text-white px-6 py-2 rounded-full hover:bg-white/10 transition-all duration-300"
-                    >
-                      Read Full Story
-                    </Link>
-                  </div>
-                )}
-              </div>
-              
-              {/* Content Section - Improved for mobile */}
-              <div className="w-full flex sm:flex-row pb-5 flex-col bg-white justify-center items-center">
-                <div className="flex justify-center items-center sm:w-1/4 w-full sm:min-h-[200px] min-h-[150px] bg-white text-4xl sm:text-3xl md:text-4xl text-left sm:pl-8 pl-8 py-2 font-medium italic">"Rooted in goodness. Alive with purpose."</div>
-                <div className="sm:w-1/4 w-full sm:min-h-[200px] min-h-[100px] bg-white flex justify-center items-center px-4 py-2 text-sm">Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae pellentesque sem placerat in id. Placerat in id cursus mi pretium tellus duis. Pretium tellus duis convallis tempus leo eu aenean.</div>
-                <div className="sm:w-1/4 w-full sm:min-h-[200px] min-h-[100px] bg-white flex justify-center items-center px-4 py-2 text-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus ricies nec, pellentesque eu quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</div>
-                <div className="sm:w-1/4 w-full sm:min-h-[200px] min-h-[100px] bg-white flex justify-center items-center px-4 py-2 text-sm">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicaboricies nec, pellentesque eu quis enim. Donec pede justo. </div>
-              </div>
-              
-              {/* Single Read Full Story Button - Mobile */}
-              {isMobile && (
-                <div className="w-full flex justify-center pb-10 pt-">
-                  <Link 
-                    href="/mystory"
-                    className="bg-transparent backdrop-blur-sm border border-black text-black px-6 py-2 rounded-full hover:bg-black/10 transition-all"
-                  >
-                    Read Full Story
-                  </Link>
-                </div>
-              )}
-            </div>    
-          </section>
+         <AboutMeSection isMobile={isMobile} />
       </main>
 
       {/* Footer */}
-      <footer className="bg-richblack py-12 text-softwhite">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-8 md:grid-cols-4">
-            <div>
-              <h3 className="text-xl font-bold">Isa&apos;s Kombucha</h3>
-              <p className="mt-4 text-softwhite/70">
-                Premium kombucha crafted with organic ingredients and traditional brewing methods.
-              </p>
-            </div>
+      <Footer />
 
-            <div>
-              <h4 className="font-bold">Navigation</h4>
-              <ul className="mt-4 space-y-2">
-                <li>
-                  <Link href="#" className="text-softwhite/70 hover:text-lilac transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-softwhite/70 hover:text-lilac transition-colors">
-                    Shop
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-softwhite/70 hover:text-lilac transition-colors">
-                    My Story
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-softwhite/70 hover:text-lilac transition-colors">
-                    Help & FAQ
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-softwhite/70 hover:text-lilac transition-colors">
-                    B2B
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold">Contact</h4>
-              <address className="mt-4 not-italic text-softwhite/70">
-                <p>test test test</p>
-                <p>test test test</p>
-                <p className="mt-2">hello@email.com</p>
-                <p>(123) 123-4567</p>
-              </address>
-            </div>
-
-            <div>
-              <h4 className="font-bold">Follow Us</h4>
-              <div className="mt-4 flex space-x-4">
-                <Link href="#" className="text-softwhite/70 hover:text-lilac transition-colors">
-                  <Instagram className="h-6 w-6" />
-                  <span className="sr-only">Instagram</span>
-                </Link>
-                <Link href="#" className="text-softwhite/70 hover:text-lilac transition-colors">
-                  <Facebook className="h-6 w-6" />
-                  <span className="sr-only">Facebook</span>
-                </Link>
-              </div>
-              <div className="mt-6">
-                <p className="text-sm text-softwhite/70">
-                  Subscribe to our newsletter for updates and exclusive offers.
-                </p>
-                <form className="mt-2 flex">
-                  <input
-                    type="email"
-                    placeholder="Your email"
-                    className="w-full rounded-l-md border-0 bg-softwhite/10 px-3 py-2 text-softwhite placeholder-softwhite/50 focus:outline-none focus:ring-2 focus:ring-lilac"
-                  />
-                  <Button type="submit" className="rounded-l-none bg-lilac hover:bg-midnightblue text-richblack">
-                    Subscribe
-                  </Button>
-                </form>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-12 border-t border-softwhite/10 pt-8 text-center text-sm text-softwhite/70">
-            <p>&copy; {new Date().getFullYear()} Isa&apos;s Kombucha. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
