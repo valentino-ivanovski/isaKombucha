@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Check, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+
 const SubscriptionCard = () => {
   const [selectedPlan, setSelectedPlan] = useState('weekly');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

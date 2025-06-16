@@ -160,7 +160,7 @@ export default function Home() {
             img.onload = resolve
             img.onerror = resolve
           })
-        )
+        )  
       }
 
       await Promise.all(promises)
@@ -441,7 +441,7 @@ export default function Home() {
         </div>
         </section>*/}
 
-        
+
         <SubscriptionCards />
 
         {/* Visual Highlight Section */}

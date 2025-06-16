@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Star, Check, ChevronDown } from "lucide-react";
 import SubscriptionCard from "@/components/SubscriptionCard"
 
+
 export default function SubscriptionCards() {
 
     const [selectedPlan, setSelectedPlan] = useState('weekly');

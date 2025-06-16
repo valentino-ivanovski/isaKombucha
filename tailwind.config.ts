@@ -8,6 +8,8 @@ const config = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
+    "../../packages/ui/**/*.{ts,tsx}", // Add if using a monorepo structure
+    "./node_modules/@your-ui-library/**/*.{js,ts,jsx,tsx}", // Add if using UI library
     "*.{js,ts,jsx,tsx,mdx}",
   ],
   prefix: "",
@@ -20,11 +22,30 @@ const config = {
       },
     },
     safelist: [
-  'bg-hero-mobile',
-  'bg-hero-desktop',
-],
+      'bg-hero-mobile',
+      'bg-hero-desktop',
+      // Add dynamic classes that might be used
+      'bg-richblack',
+      'bg-softwhite',
+      'bg-lilac',
+      'bg-midnightblue',
+      'bg-flavor-beige',
+      'bg-flavor-green',
+      'bg-flavor-yellow',
+      'bg-flavor-purple',
+      'bg-flavor-gold',
+      'bg-flavor-pink',
+      'bg-flavor-mauve',
+      'bg-flavor-orange',
+      // Add pattern for dynamic colors if needed
+      { pattern: /bg-(richblack|softwhite|lilac|midnightblue)/ },
+      { pattern: /bg-flavor-(beige|green|yellow|purple|gold|pink|mauve|orange)/ },
+      // Ensure animations are included
+      'animate-marquee',
+      'animate-marquee-vertical'
+    ],
     extend: {
-      backgroundImage:{
+      backgroundImage: {
         'hero-mobile': "url('/images/heroPics/1.png')",
         'hero-desktop': "url('/images/heroPics/3.png')",
       },
@@ -116,7 +137,13 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    // Optional: Add plugins for better component support
+    function({ addVariant }: { addVariant: (name: string, selector: string) => void }) {
+      addVariant('child', '& > *')
+    }
+  ],
 } satisfies Config
 
 export default config
