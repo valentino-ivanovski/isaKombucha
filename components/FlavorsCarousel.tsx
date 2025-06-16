@@ -114,9 +114,6 @@ const EmblaCarousel: React.FC = () => {
                         <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900">
                           {flavor.name}
                         </p>
-                        <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900">
-                          2.50€
-                        </p>
                       </div>
                       <p className="block font-sans text-sm font-normal leading-normal text-gray-700 opacity-75">
                         {flavor.description} <br />
@@ -128,7 +125,7 @@ const EmblaCarousel: React.FC = () => {
                         className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg block w-full bg-black text-white hover:bg-gray-800 focus:bg-gray-800"
                         type="button"
                       >
-                        Add to Cart
+                        Shop Now
                       </button>
                     </div>
                   </div>

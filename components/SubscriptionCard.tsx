@@ -96,7 +96,7 @@ const SubscriptionCard = () => {
           
           {/* Price */}
           <div className="mb-3 flex items-end gap-2">
-            <span className="text-3xl font-bold text-gray-900">${plans[selectedPlan].price}</span>
+            <span className="text-3xl font-bold text-gray-900">{plans[selectedPlan].price}€</span>
             <div className="flex flex-col items-start">
               <span className="text-sm text-gray-400 line-through">33€</span>
               <span className="text-gray-500 text-sm">{plans[selectedPlan].frequencyText}</span>
@@ -139,7 +139,7 @@ const SubscriptionCard = () => {
                       className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0"
                     >
                       <div className="font-medium text-gray-900">{plan.label}</div>
-                      <div className="text-sm text-gray-500">${plan.price} {plan.frequencyText} - Save {plan.savings}</div>
+                      <div className="text-sm text-gray-500">${plan.price} {plan.frequencyText}</div>
                     </button>
                   ))}
                 </motion.div>

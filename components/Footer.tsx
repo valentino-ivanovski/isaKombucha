@@ -17,17 +17,22 @@ const Footer: React.FC = () => {
         </p>
         <nav>
         <div className="flex justify-center mb-5 gap-2">
-          <a href="#" aria-label="Twitter" className="mx-1">
+          <a href="https://www.facebook.com/isakombucha/" aria-label="Twitter" className="mx-1">
             <FaFacebook className="w-6 h-6 fill-current" />
           </a>
-          <a href="#" aria-label="YouTube" className="mx-1">
+          <a href="https://www.instagram.com/isakombucha/?hl=en" aria-label="YouTube" className="mx-1">
             <FaInstagram className="w-6 h-6 fill-current" />
           </a>
-          <a href="#" aria-label="Facebook" className="mx-1">
+          <a href="https://www.linkedin.com/company/isa-s-kombucha/?originalSubdomain=si" aria-label="Facebook" className="mx-1">
             <FaLinkedin className="w-6 h-6 fill-current" />
           </a>
         </div>
       </nav>
+      <div className="mb-5">
+        <a href="mailto:hello@isakombucha.com" className=" underline">
+          hello@isakombucha.com
+        </a>
+      </div>
         <p>Isa Kombucha d.o.o. <br />
         Šmartinska cesta 28 <br />
         1000 Ljubljana, Slovenia</p>
