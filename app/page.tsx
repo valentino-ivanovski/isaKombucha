@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import {Facebook, Instagram, Twitter, Globe } from "lucide-react"
+import {Facebook, Instagram, Twitter, Globe, ChevronDown } from "lucide-react"
 import { GoArrowUpRight } from "react-icons/go";
 import { RxChevronRight, RxChevronLeft } from "react-icons/rx";
 import { Button } from "@/components/ui/button"
@@ -18,10 +18,10 @@ import '../styles/globals.css'
 import EmblaCarousel from "@/components/FlavorsCarousel";
 import Marquee from "react-fast-marquee"
 import MarqueeReviews from "@/components/marquee-reviews"
-import SubscriptionCards from "@/components/SubscriptionCards"
 import { Star, Check } from "lucide-react";
 import { Sub } from "@radix-ui/react-context-menu";
 import MyStory from "@/components/MyStory"
+import SubscriptionCards from "@/components/SubscriptionCards"
 
 export default function Home() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -36,6 +36,49 @@ export default function Home() {
   const [gradientWidth, setGradientWidth] = useState(150)
   const [bgImage, setBgImage] = useState("/images/heroPics/3.png")
   const [isMobile, setIsMobile] = useState(false);
+
+  const [selectedPlan, setSelectedPlan] = useState<keyof typeof plans>('weekly');
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const plans = {
+        weekly: { label: 'Weekly', price: '12.99€', savings: '24%' },
+        biweekly: { label: 'Bi-weekly', price: '22.99€', savings: '18%' },
+        monthly: { label: 'Monthly', price: '39.99€', savings: '12%' }
+    };
+
+    const features = [
+        'Free delivery on all orders',
+        'Premium kombucha selection',
+        'Flexible delivery schedule',
+        'Cancel anytime, no commitment'
+    ];
+
+    const fruitIcons = [
+        "/icons/SVG/fruit1.svg",
+        "/icons/SVG/fruit2.svg", 
+        "/icons/SVG/fruit3.svg",
+        "/icons/SVG/fruit4.svg",
+        "/icons/SVG/fruit5.svg",
+        "/icons/SVG/fruit6.svg",
+        "/icons/SVG/fruit7.svg",
+        "/icons/SVG/fruit8.svg",
+        "/icons/SVG/fruit9.svg",
+        "/icons/SVG/fruit10.svg",
+        "/icons/SVG/fruit11.svg",
+        "/icons/SVG/fruit12.svg"
+    ];
+
+    const [fruitStyles, setFruitStyles] = useState<{ left: string; top: string; animationDelay: string; animationDuration: string; }[]>([]);
+
+    useEffect(() => {
+      const styles = fruitIcons.map(() => ({
+        left: `${3 * 100}%`,
+        top: `${2 * 100}%`,
+        animationDelay: `${5 * 3}s`,
+        animationDuration: `${3 + 6 * 2}s`
+      }));
+      setFruitStyles(styles);
+    }, []);
 
   useEffect(() => {
     // Set on mount
@@ -62,78 +105,6 @@ export default function Home() {
     return () => window.removeEventListener("resize", updateBackground)
   }, [])
 
-  const plans = [
-        {
-            id: "weekly",
-            title: "Weekly",
-            description: "Perfect for kombucha enthusiasts",
-            price: 31,
-            originalPrice: 36,
-            period: "week",
-            bottles: 6,
-            gradient: "from-slate-50 to-slate-100",
-            bgColor: "bg-white",
-            buttonColor: "bg-slate-900 hover:bg-slate-800",
-            savings: 14,
-            features: ["6 Bottles", "Free Delivery", "Cancel Anytime", "Mix & Match Flavors"]
-        },
-        {
-            id: "biweekly",
-            title: "Bi-Weekly",
-            description: "Most popular choice - Best Value!",
-            price: 25,
-            originalPrice: 33,
-            period: "2 weeks", 
-            bottles: 8,
-            gradient: "from-slate-50 to-slate-100",
-            bgColor: "bg-white",
-            buttonColor: "bg-black hover:bg-slate-800",
-            bestSeller: true,
-            savings: 24,
-            features: ["8 Bottles", "Free Priority Delivery", "Cancel Anytime", "20% Off Regular Price"]
-        },
-        {
-            id: "monthly",
-            title: "Monthly",
-            description: "Great for occasional sippers",
-            price: 21,
-            originalPrice: 25,
-            period: "month",
-            bottles: 4,
-            gradient: "from-slate-50 to-slate-100",
-            bgColor: "bg-white",
-            buttonColor: "bg-slate-900 hover:bg-slate-800",
-            savings: 16,
-            features: ["4 Bottles", "Free Delivery", "Cancel Anytime", "Seasonal Specials"]
-        }
-    ];
-
-   const fruitIcons = [
-        "/icons/SVG/fruit1.svg",
-        "/icons/SVG/fruit2.svg", 
-        "/icons/SVG/fruit3.svg",
-        "/icons/SVG/fruit4.svg",
-        "/icons/SVG/fruit5.svg",
-        "/icons/SVG/fruit6.svg",
-        "/icons/SVG/fruit7.svg",
-        "/icons/SVG/fruit8.svg",
-        "/icons/SVG/fruit9.svg",
-        "/icons/SVG/fruit10.svg",
-        "/icons/SVG/fruit11.svg",
-        "/icons/SVG/fruit12.svg"
-    ];
-
-    const [fruitStyles, setFruitStyles] = useState<{ left: string; top: string; animationDelay: string; animationDuration: string; }[]>([]);
-
-    useEffect(() => {
-      const styles = fruitIcons.map(() => ({
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        animationDelay: `${Math.random() * 3}s`,
-        animationDuration: `${3 + Math.random() * 2}s`
-      }));
-      setFruitStyles(styles);
-    }, []);
 
   // Scroll-driven animation frame update (stops after hero section)
   useEffect(() => {
@@ -470,13 +441,11 @@ export default function Home() {
         </div>
         </section>*/}
 
+        
         <SubscriptionCards />
 
         {/* Visual Highlight Section */}
         <VisualHighlight />
-
-        
-
             
 
         {/* Reviews Section */}
