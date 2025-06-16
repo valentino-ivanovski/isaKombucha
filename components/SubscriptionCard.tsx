@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 
 const SubscriptionCard = () => {
-  const [selectedPlan, setSelectedPlan] = useState('weekly');
+  const [selectedPlan, setSelectedPlan] = useState<keyof typeof plans>('weekly');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -126,7 +126,7 @@ const SubscriptionCard = () => {
                   <button
                     key={key}
                     onClick={() => {
-                      setSelectedPlan(key);
+                      setSelectedPlan(key as keyof typeof plans);
                       setIsDropdownOpen(false);
                     }}
                     className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0"

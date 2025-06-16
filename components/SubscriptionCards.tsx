@@ -51,7 +51,7 @@ export default function SubscriptionCards() {
         "/icons/SVG/fruit12.svg"
     ];
 
-    const [fruitStyles, setFruitStyles] = useState([]);
+    const [fruitStyles, setFruitStyles] = useState<{ left: string; top: string; animationDelay: string; animationDuration: string; }[]>([]);
 
 useEffect(() => {
   const predefinedPositions = [
