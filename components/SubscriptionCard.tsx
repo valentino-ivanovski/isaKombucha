@@ -91,7 +91,7 @@ const SubscriptionCard = () => {
           
           {/* Description */}
           <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-            Get premium kombucha delivered fresh to your door. Choose your perfect delivery schedule and enjoy artisanal flavors.
+            Get premium kombucha delivered fresh to your door. Choose your perfect delivery schedule and enjoy our delicious flavors.
           </p>
           
           {/* Price */}
