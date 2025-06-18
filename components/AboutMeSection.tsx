@@ -8,7 +8,7 @@ interface AboutMeSectionProps {
 const AboutMeSection: React.FC<AboutMeSectionProps> = ({ isMobile }) => {
   return (
     <section className="bg-white">
-      <div className="flex flex-col ring-1 ring-slate-200 h-full w-full items-center justify-center">
+      <div className="flex flex-col h-full w-full items-center justify-center">
         <div className="flex flex-col w-full py-8 px-1 items-center justify-center">
           <div className="font-medium text-center flex flex-col items-center justify-center w-full gap-2">
             <p className="text-4xl"></p>
