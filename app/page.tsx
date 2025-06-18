@@ -281,6 +281,9 @@ export default function Home() {
         {/* Stores Section */}
         <StoresMarquee />
 
+        {/* My Story */}
+         <AboutMeSection isMobile={isMobile} />
+
         {/* Subscription Cards Section */}
         <SubscriptionCards />
 
@@ -299,9 +302,6 @@ export default function Home() {
           </div>
         </section>
 
-
-        {/* My Story */}
-         <AboutMeSection isMobile={isMobile} />
       </main>
 
       {/* Footer */}
