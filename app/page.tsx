@@ -27,34 +27,15 @@ import AboutMeSection from "@/components/AboutMeSection";
 import Footer from "@/components/Footer"
 
 export default function Home() {
-  const [dropdownOpen, setDropdownOpen] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [selectedLanguage, setSelectedLanguage] = useState("EN")
+
   const [imagesLoaded, setImagesLoaded] = useState(false)
   const [currentFrame, setCurrentFrame] = useState(0)
   const totalFrames = 30 // 0000.png to 0180.png
   const heroRef = useRef<HTMLDivElement>(null)
-  const bottleRef = useRef<HTMLDivElement>(null)
   const heroSectionRef = useRef<HTMLDivElement>(null)
   const [gradientWidth, setGradientWidth] = useState(150)
   const [bgImage, setBgImage] = useState("/images/heroPics/3.png")
   const [isMobile, setIsMobile] = useState(false);
-
-  const [selectedPlan, setSelectedPlan] = useState<keyof typeof plans>('weekly');
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-    const plans = {
-        weekly: { label: 'Weekly', price: '12.99€', savings: '24%' },
-        biweekly: { label: 'Bi-weekly', price: '22.99€', savings: '18%' },
-        monthly: { label: 'Monthly', price: '39.99€', savings: '12%' }
-    };
-
-    const features = [
-        'Free delivery on all orders',
-        'Premium kombucha selection',
-        'Flexible delivery schedule',
-        'Cancel anytime, no commitment'
-    ];
 
     const fruitIcons = [
         "/icons/SVG/fruit1.svg",
@@ -109,32 +90,21 @@ export default function Home() {
   }, [])
 
 
-  // Scroll-driven animation frame update (stops after hero section)
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY
-
-      // Stop scroll animation after hero section
-      const heroBottom = heroSectionRef.current?.offsetHeight ?? 0
-      if (scrollTop > heroBottom) return
-
-      const scrollFraction = Math.max(0, Math.min(1, scrollTop / heroBottom))
-      const newFrame = Math.min(totalFrames - 1, Math.floor(scrollFraction * totalFrames))
-      setCurrentFrame(newFrame)
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+ // Load images and set loaded state
   useEffect(() => {
     document.fonts.ready.then(() => {
-      if (!heroRef.current) return
-      heroRef.current.style.visibility = "visible"
+      if (!heroRef.current) return;
+      heroRef.current.style.visibility = "visible";
+      setTimeout(() => {
+        if (heroRef.current) {
+          heroRef.current.style.opacity = "1";
+        }
+      }, 100);
 
-      const h1 = heroRef.current.querySelector("h1")
-      if (!h1) return
+      const h1 = heroRef.current.querySelector("h1");
+      if (!h1) return;
 
-      const { words: h1Words } = splitText(h1)
+      const { words: h1Words } = splitText(h1);
 
       animate(
         h1Words,
@@ -145,43 +115,9 @@ export default function Home() {
           bounce: 0,
           delay: stagger(0.05),
         }
-      )
-    })
-  }, [])
-
-  useEffect(() => {
-    let isCancelled = false
-
-    const preloadImages = async () => {
-      const promises = []
-      for (let i = 0; i < totalFrames; i++) {
-        const src = getImagePath(i)
-        const img = new window.Image()
-        img.src = src
-        promises.push(
-          new Promise((resolve) => {
-            img.onload = resolve
-            img.onerror = resolve
-          })
-        )  
-      }
-
-      await Promise.all(promises)
-      if (!isCancelled) setImagesLoaded(true)
-    }
-
-    preloadImages()
-
-    return () => {
-      isCancelled = true
-    }
-  }, [])
-
-  // The scroll-driven effect above replaces the interval animation.
-
-  const getImagePath = (frame: number): string => {
-    return `/images/bottleBasilBreeze/${String(frame).padStart(4, "0")}.webp`
-  }
+      );
+    });
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -214,11 +150,10 @@ export default function Home() {
             heroRef.current = el as HTMLDivElement | null
             heroSectionRef.current = el as HTMLDivElement | null
           }}
-          style={{ visibility: "hidden" }}
+          style={{ visibility: "hidden", opacity: 0, transition: "opacity 1s ease-out" }}
           className="font-general-sans relative flex min-h-screen items-center font-general-sans bg-white justify-center pt-0 px-1"
         >
-
-          <div className="relative w-full h-[calc(100vh-10px)] max-w-10xl bg-gray-200 overflow-hidden rounded-lg">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, ease: "easeOut" }} className="relative w-full h-[calc(100vh-10px)] max-w-10xl bg-gray-200 overflow-hidden rounded-lg">
             <div
               className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white">
               <div
@@ -262,7 +197,7 @@ export default function Home() {
                 transition={{ duration: 2, ease: "easeOut" }}
               ></motion.div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Flavors Section */}

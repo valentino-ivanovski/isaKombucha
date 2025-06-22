@@ -65,13 +65,14 @@ export default function Header() {
         <AnimatePresence>
           {showHeader && (
             <motion.header
-              initial={{ opacity: 0, y: -40, x: '-50%'}}
-              animate={{ opacity: 1, y: 0, x: '-50%' }}
+              initial={{ opacity: 0, y: -40, x: '-50%', scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, x: '-50%', scale: 1 }}
               exit={{ opacity: 0, y: -40, x: '-50%' }}
               transition={{
-                duration: hasMounted ? 0.3 : 0.8,
-                ease: "easeInOut",
-                delay: hasMounted ? 0 : 1.8,
+                type: "spring",
+                stiffness: 120,
+                damping: 10,
+                delay: hasMounted ? 0 : 1.5
               }}
               className={`block fixed top-6 z-50 left-1/2 -translate-x-1/2 will-change-transform will-change-opacity w-[91.1%] md:w-[91.1%] xl:w-[800px] rounded-full ${
                 scrolled
