@@ -90,32 +90,21 @@ export default function Home() {
   }, [])
 
 
-  // Scroll-driven animation frame update (stops after hero section)
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY
-
-      // Stop scroll animation after hero section
-      const heroBottom = heroSectionRef.current?.offsetHeight ?? 0
-      if (scrollTop > heroBottom) return
-
-      const scrollFraction = Math.max(0, Math.min(1, scrollTop / heroBottom))
-      const newFrame = Math.min(totalFrames - 1, Math.floor(scrollFraction * totalFrames))
-      setCurrentFrame(newFrame)
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+ // Load images and set loaded state
   useEffect(() => {
     document.fonts.ready.then(() => {
-      if (!heroRef.current) return
-      heroRef.current.style.visibility = "visible"
+      if (!heroRef.current) return;
+      heroRef.current.style.visibility = "visible";
+      setTimeout(() => {
+        if (heroRef.current) {
+          heroRef.current.style.opacity = "1";
+        }
+      }, 100);
 
-      const h1 = heroRef.current.querySelector("h1")
-      if (!h1) return
+      const h1 = heroRef.current.querySelector("h1");
+      if (!h1) return;
 
-      const { words: h1Words } = splitText(h1)
+      const { words: h1Words } = splitText(h1);
 
       animate(
         h1Words,
@@ -126,43 +115,9 @@ export default function Home() {
           bounce: 0,
           delay: stagger(0.05),
         }
-      )
-    })
-  }, [])
-
-  useEffect(() => {
-    let isCancelled = false
-
-    const preloadImages = async () => {
-      const promises = []
-      for (let i = 0; i < totalFrames; i++) {
-        const src = getImagePath(i)
-        const img = new window.Image()
-        img.src = src
-        promises.push(
-          new Promise((resolve) => {
-            img.onload = resolve
-            img.onerror = resolve
-          })
-        )  
-      }
-
-      await Promise.all(promises)
-      if (!isCancelled) setImagesLoaded(true)
-    }
-
-    preloadImages()
-
-    return () => {
-      isCancelled = true
-    }
-  }, [])
-
-  // The scroll-driven effect above replaces the interval animation.
-
-  const getImagePath = (frame: number): string => {
-    return `/images/bottleBasilBreeze/${String(frame).padStart(4, "0")}.webp`
-  }
+      );
+    });
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -195,11 +150,10 @@ export default function Home() {
             heroRef.current = el as HTMLDivElement | null
             heroSectionRef.current = el as HTMLDivElement | null
           }}
-          style={{ visibility: "hidden" }}
+          style={{ visibility: "hidden", opacity: 0, transition: "opacity 1s ease-out" }}
           className="font-general-sans relative flex min-h-screen items-center font-general-sans bg-white justify-center pt-0 px-1"
         >
-
-          <div className="relative w-full h-[calc(100vh-10px)] max-w-10xl bg-gray-200 overflow-hidden rounded-lg">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, ease: "easeOut" }} className="relative w-full h-[calc(100vh-10px)] max-w-10xl bg-gray-200 overflow-hidden rounded-lg">
             <div
               className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white">
               <div
@@ -209,9 +163,19 @@ export default function Home() {
               }}
               ></div>
               <div className="flex flex-col items-center justify-center transform translate-y-[-10%] px-8">
-              <h1 className="font-general-sans font-semibold text-2xl max-w-2xl text-white tracking-tight md:text-3xl">
+              <motion.h1
+                className="font-general-sans font-semibold text-2xl max-w-2xl text-white tracking-tight md:text-3xl"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 15,
+                  delay: 0.2
+                }}
+              >
                 Full of Life. Alive with Culture, Energy, and Spirit.
-              </h1>
+              </motion.h1>
               <motion.p
                 className="font-general-sans px-5 mt-6 max-w-lg text-sm sm:text-md sm:max-w-3xl text-md font-regular text-white leading-relaxed md:text-base text-center"
                 initial={{ opacity: 0, y: 10 }}
@@ -243,7 +207,7 @@ export default function Home() {
                 transition={{ duration: 2, ease: "easeOut" }}
               ></motion.div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Flavors Section */}
