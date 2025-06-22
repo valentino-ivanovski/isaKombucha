@@ -72,7 +72,7 @@ export default function Header() {
                 type: "spring",
                 stiffness: 80,
                 damping: 10,
-                delay: hasMounted ? 0 : 1.5
+                delay: hasMounted ? 0 : 1.8
               }}
               className={`block fixed top-6 z-50 left-1/2 -translate-x-1/2 will-change-transform will-change-opacity w-[91.1%] md:w-[91.1%] xl:w-[800px] rounded-full ${
                 scrolled
