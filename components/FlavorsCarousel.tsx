@@ -44,6 +44,7 @@ const OPTIONS: EmblaOptionsType = {
   loop: true,
   containScroll: 'trimSnaps',
   align: 'center',
+  slidesToScroll: 1, // Ensure one slide moves at a time
 };
 
 const EmblaCarousel: React.FC = () => {
@@ -52,16 +53,16 @@ const EmblaCarousel: React.FC = () => {
       <Carousel 
         options={OPTIONS} 
         isAutoPlay={true} 
-        className="xl:w-3/4 w-full mx-auto"
+        className=" w-full mx-auto"
       >
-        <SliderContainer className="gap-4 md:gap-6 lg:gap-4 px-4 md:px-6">
+        <SliderContainer className="gap-6 md:gap-8 lg:gap-10 px-4 md:px-6">
           {flavors.map((flavor, index) => (
             <Slider 
               key={index} 
-              className="flex-[0_0_90%] md:flex-[0_0_45%] lg:flex-[0_0_33.33%] flex justify-center"
+              className="flex-[0_0_auto] w-[90%] sm:w-[45%] md:w-[360px] lg:w-[400px] flex justify-center"
             >
-              <div className="max-w-[720px] mx-auto">
-                <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+              <div className="max-w-[400px] mx-auto scale-90 transition-transform duration-300">
+                <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-full max-w-[400px]">
                   <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-96">
                     <Image
                       src={`/${flavor.image}`}
@@ -96,7 +97,7 @@ const EmblaCarousel: React.FC = () => {
             </Slider>
           ))}
         </SliderContainer>
-        <div className="flex justify-center pt-10 pb-0">
+        <div className="flex justify-center sm:pt-10 sm:pb-0 pt-3 pb-0">
           <SliderDotButton />
         </div>
       </Carousel>
