@@ -70,7 +70,7 @@ export default function Header() {
               exit={{ opacity: 0, y: -40, x: '-50%' }}
               transition={{
                 type: "spring",
-                stiffness: 80,
+                stiffness: 100,
                 damping: 10,
                 delay: hasMounted ? 0 : 1.8
               }}

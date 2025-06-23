@@ -94,12 +94,6 @@ export default function Home() {
   useEffect(() => {
     document.fonts.ready.then(() => {
       if (!heroRef.current) return;
-      heroRef.current.style.visibility = "visible";
-      setTimeout(() => {
-        if (heroRef.current) {
-          heroRef.current.style.opacity = "1";
-        }
-      }, 100);
 
       const h1 = heroRef.current.querySelector("h1");
       if (!h1) return;
@@ -132,8 +126,6 @@ export default function Home() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-
-
   return (
     <div className="flex min-h-screen flex-col">
         <Header />
@@ -145,13 +137,15 @@ export default function Home() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section
+        <motion.section
           ref={el => {
             heroRef.current = el as HTMLDivElement | null
             heroSectionRef.current = el as HTMLDivElement | null
           }}
-          style={{ visibility: "hidden", opacity: 0, transition: "opacity 1s ease-out" }}
-          className="font-general-sans relative flex min-h-screen items-center font-general-sans bg-white justify-center pt-0 px-1"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.4, ease: [0.25, 1, 0.5, 1] }}
+          className="font-general-sans relative flex min-h-screen items-center bg-white justify-center pt-0 px-1"
         >
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, ease: "easeOut" }} className="relative w-full h-[calc(100vh-10px)] max-w-10xl bg-gray-200 overflow-hidden rounded-lg">
             <div
@@ -208,7 +202,7 @@ export default function Home() {
               ></motion.div>
             </div>
           </motion.div>
-        </section>
+        </motion.section>
 
         {/* Flavors Section */}
         <section className="bg-white overflow-hidden relative">
