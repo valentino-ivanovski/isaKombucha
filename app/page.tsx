@@ -197,7 +197,7 @@ export default function Home() {
                 style={{ zIndex: -1 }}
               >
                 <Image
-                  src="/images/heroPics/1.webp"
+                  src="/images/heroPics/1.webp?v2"
                   alt="Hero background mobile"
                   fill
                   priority

@@ -6,7 +6,7 @@ import { ChevronDown, ShoppingCart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation'; // Import usePathname
+import { usePathname } from 'next/navigation';
 import '../styles/globals.css'
 import { SlMenu } from "react-icons/sl";
 
@@ -19,7 +19,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [hasMounted, setHasMounted] = useState(false)
 
-  const pathname = usePathname(); // Get current pathname
+  const pathname = usePathname();
 
   useEffect(() => {
     const timeout = setTimeout(() => setHasMounted(true), 10);
@@ -30,18 +30,18 @@ export default function Header() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
 
-      if (currentScrollY > lastScrollY && currentScrollY > 4) {
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
         setShowHeader(false)
-      } else if (currentScrollY < lastScrollY) {
+      } else if (currentScrollY < lastScrollY || currentScrollY <= 50) {
         setShowHeader(true)
       }
 
-      setScrolled(currentScrollY > 4);
+      setScrolled(currentScrollY > 50);
       setLastScrollY(currentScrollY)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
-    setScrolled(window.scrollY > 4);
+    setScrolled(window.scrollY > 50);
     return () => window.removeEventListener('scroll', handleScroll)
   }, [lastScrollY])
 
@@ -60,7 +60,6 @@ export default function Header() {
     { href: "/b2b", label: "B2B" },
   ];
 
-  // Set delay based on whether the current page is the homepage
   const isHomePage = pathname === '/';
   const headerDelay = hasMounted ? 0 : (isHomePage ? 1.8 : 0);
 
@@ -177,111 +176,126 @@ export default function Header() {
       </AnimatePresence>
 
       {/* Mobile Header */}
-      <div className="block md:hidden fixed top-0 left-0 w-full z-40 bg-white shadow-md">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex items-center justify-between px-4 py-8 relative"
-        >
-          <Button
-            variant="ghost"
-            className="text-black hover:text-richblack hover:bg-transparent focus:outline-none"
-            aria-label="Menu"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      <AnimatePresence>
+        {showHeader && (
+          <motion.div
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: -3 }}
+            exit={{ opacity: 0, y: -100 }}
+            transition={{
+              type: "spring",
+              stiffness: 120,
+              damping: 15,
+              delay: headerDelay,
+              duration: 0.4
+            }}
+            className="block md:hidden fixed top-0 left-0 w-full z-40 bg-white shadow-md will-change-transform will-change-opacity"
           >
-            <SlMenu />
-          </Button>
-
-          <Link href="/" className="absolute left-1/2 transform -translate-x-1/2">
-            <Image
-              src={'/logos/logo.svg'}
-              alt="Isa's Kombucha Logo"
-              width={90}
-              height={90}
-              className="h-20 w-20 hover:opacity-60 transition-opacity duration-200"
-              priority
-            />
-          </Link>
-
-          <div className="flex items-center gap-3">
-            <div className="relative">
-              <button
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="flex items-center gap-2 text-sm font-medium px-3 py-1 text-richblack"
+            <div className="flex items-center justify-between px-4 pb-8 pt-9 relative">
+              <Button
+                variant="ghost"
+                className="text-black hover:text-richblack hover:bg-transparent focus:outline-none"
+                aria-label="Menu"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
-                <motion.div animate={{ rotate: dropdownOpen ? 180 : 0 }} transition={{ duration: 0.15 }}>
-                  <ChevronDown className="w-4 h-4" />
-                </motion.div>
-                <Image
-                  src={languageOptions.find((lang) => lang.code === selectedLanguage)?.flag || '/flags/sh.svg'}
-                  alt={`${selectedLanguage} flag`}
-                  width={20}
-                  height={14}
-                  className="inline-block mr-0 rounded-sm"
-                  priority={false}
-                />
-              </button>
-              <AnimatePresence>
-                {dropdownOpen && (
-                  <motion.ul
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 10 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute right-0 mt-2 w-40 bg-white border text-black border-gray-200 rounded shadow-lg z-50"
-                  >
-                    {languageOptions.map((lang) => (
-                      <li key={lang.code}>
-                        <button
-                          className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors flex items-center gap-2"
-                          onClick={() => {
-                            setSelectedLanguage(lang.code);
-                            setDropdownOpen(false);
-                          }}
-                        >
-                          <Image
-                            src={lang.flag}
-                            alt={`${lang.name} flag`}
-                            width={20}
-                            height={14}
-                            className="inline-block mr-1 rounded-sm"
-                            priority={false}
-                          />
-                          {lang.name}
-                        </button>
-                      </li>
-                    ))}
-                  </motion.ul>
-                )}
-              </AnimatePresence>
-            </div>
+                <SlMenu />
+              </Button>
 
-            <Button
-              variant="ghost"
-              className="text-black hover:text-richblack hover:bg-transparent focus:outline-none"
-              aria-label="Cart"
-            >
-              <ShoppingCart />
-            </Button>
-          </div>
-        </motion.div>
-      </div>
+              <Link href="/" className="absolute left-1/2 transform -translate-x-1/2">
+                <Image
+                  src={'/logos/logo.svg'}
+                  alt="Isa's Kombucha Logo"
+                  width={90}
+                  height={90}
+                  className="h-20 w-20 hover:opacity-60 transition-opacity duration-200"
+                  priority
+                />
+              </Link>
+
+              <div className="flex items-center gap-3">
+                <div className="relative">
+                  <button
+                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                    className="flex items-center gap-2 text-sm font-medium px-3 py-1 text-richblack"
+                  >
+                    <motion.div animate={{ rotate: dropdownOpen ? 180 : 0 }} transition={{ duration: 0.15 }}>
+                      <ChevronDown className="w-4 h-4" />
+                    </motion.div>
+                    <Image
+                      src={languageOptions.find((lang) => lang.code === selectedLanguage)?.flag || '/flags/sh.svg'}
+                      alt={`${selectedLanguage} flag`}
+                      width={20}
+                      height={14}
+                      className="inline-block mr-0 rounded-sm"
+                      priority={false}
+                    />
+                  </button>
+                  <AnimatePresence>
+                    {dropdownOpen && (
+                      <motion.ul
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 10 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.3 }}
+                        className="absolute right-0 mt-2 w-40 bg-white border text-black border-gray-200 rounded shadow-lg z-50"
+                      >
+                        {languageOptions.map((lang) => (
+                          <li key={lang.code}>
+                            <button
+                              className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors flex items-center gap-2"
+                              onClick={() => {
+                                setSelectedLanguage(lang.code);
+                                setDropdownOpen(false);
+                              }}
+                            >
+                              <Image
+                                src={lang.flag}
+                                alt={`${lang.name} flag`}
+                                width={20}
+                                height={14}
+                                className="inline-block mr-1 rounded-sm"
+                                priority={false}
+                              />
+                              {lang.name}
+                            </button>
+                          </li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                <Button
+                  variant="ghost"
+                  className="text-black hover:text-richblack hover:bg-transparent focus:outline-none"
+                  aria-label="Cart"
+                >
+                  <ShoppingCart />
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Mobile Menu Dropdown */}
       <AnimatePresence>
-        {mobileMenuOpen && (
+        {mobileMenuOpen && showHeader && (
           <motion.div
-            initial={{ opacity: 0, y: '8%' }}
-            animate={{ opacity: 1, y: '12%' }}
-            exit={{ opacity: 0, y: '8%' }}
-            transition={{ duration: 0.3 }}
-            className={`md:hidden fixed top-20 w-full text-center bg-white z-30 shadow-md rounded-b-xl`}
+            initial={{ opacity: 0, y: '-100%' }}
+            animate={{ opacity: 1, y: '0%' }}
+            exit={{ opacity: 0, y: '-100%' }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden fixed top-[104px] w-full text-center bg-white z-30 shadow-md rounded-b-xl"
           >
             <ul className="flex flex-col p-4 space-y-4">
               {navItems.map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-richblack hover:text-black/60 transition-colors duration-200">
+                  <Link
+                    href={item.href}
+                    className="text-richblack hover:text-black/60 transition-colors duration-200"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     {item.label}
                   </Link>
                 </li>
