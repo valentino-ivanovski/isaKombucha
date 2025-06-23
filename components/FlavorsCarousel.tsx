@@ -61,7 +61,7 @@ const EmblaCarousel: React.FC = () => {
               key={index} 
               className="flex-[0_0_auto] w-[400px] flex justify-center"
             >
-              <div className="max-w-[400px] scale-95 mx-auto">
+              <div className="max-w-[400px] scale-90 sm:scale-95 mx-auto">
                 <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-full max-w-[400px]">
                   <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-96">
                     <Image
