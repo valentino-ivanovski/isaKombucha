@@ -206,7 +206,7 @@ export default function Home() {
 
         {/* Flavors Section */}
         <section className="bg-white overflow-hidden relative">
-          <div className="container transform translate-y-10 mx-auto px-4">
+          <div className="container transform translate-y-10 mx-auto px-4 pb-4">
             <h2 className="text-center text-4xl transform translate-y-6 font-bold tracking-tight text-richblack md:text-5xl">
               Discover Our Flavours
             </h2>
