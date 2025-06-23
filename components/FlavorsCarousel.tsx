@@ -97,7 +97,7 @@ const EmblaCarousel: React.FC = () => {
             </Slider>
           ))}
         </SliderContainer>
-        <div className="flex justify-center sm:pt-10 sm:pb-0 pt-3 pb-0">
+        <div className="flex justify-center pt-3 pb-0">
           <SliderDotButton />
         </div>
       </Carousel>
