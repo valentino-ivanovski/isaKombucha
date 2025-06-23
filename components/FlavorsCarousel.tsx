@@ -106,7 +106,7 @@ const EmblaCarousel: React.FC = () => {
                         fill
                         className="object-cover w-full h-full"
                         loading="eager"
-                        priority
+                        priority={index === selectedIndex}
                       />
                     </div>
                     <div className="p-6">
