@@ -219,7 +219,7 @@ export default function VisualHighlight() {
             {/* Mobile-only image positioned in bottom right corner */}
             <div className="md:hidden absolute -bottom-28 -right-16 w-72 h-72">
               <Image
-                src="/icons/SVG/123.png"
+                src="/images/whyIsaPic.webp?v3"
                 alt="Bottles of Isa's Kombucha"
                 width={600}
                 height={600}
@@ -229,9 +229,9 @@ export default function VisualHighlight() {
           </div>
 
           {/* Desktop-only image (hidden on mobile) */}
-          <div className="hidden md:block absolute right-20 -bottom-28 z-10 transform -translate-x-16">
+          <div className="hidden md:block absolute right-10 -bottom-72 z-10 transform -translate-x-16">
                 <Image
-                  src="/icons/SVG/123.png?v2"
+                  src="/images/whyIsaPic.webp?v3"
                   alt="Bottles of Isa's Kombucha"
                   width={600}
                   height={600}

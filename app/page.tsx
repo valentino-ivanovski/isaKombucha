@@ -25,6 +25,7 @@ import SubscriptionCards from "@/components/SubscriptionCards"
 import StoresMarquee from "@/components/StoresMarquee";
 import AboutMeSection from "@/components/AboutMeSection";
 import Footer from "@/components/Footer"
+import WovenImageList from "@/components/gallery";
 
 export default function Home() {
 
@@ -190,27 +191,37 @@ export default function Home() {
               </div>
               <motion.div
                 className="absolute inset-0"
-                style={{
-                  backgroundImage: `url('${bgImage}')`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  zIndex: -1,
-                }}
                 initial={{ scale: 1.1 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 2, ease: "easeOut" }}
-              ></motion.div>
+                style={{ zIndex: -1 }}
+              >
+                <Image
+                  src="/images/heroPics/1.webp"
+                  alt="Hero background mobile"
+                  fill
+                  priority
+                  className="object-cover md:hidden"
+                />
+                <Image
+                  src="/images/heroPics/3.webp"
+                  alt="Hero background desktop"
+                  fill
+                  priority
+                  className="object-cover hidden md:block"
+                />
+              </motion.div>
             </div>
           </motion.div>
         </motion.section>
 
         {/* Flavors Section */}
         <section className="bg-white overflow-hidden relative">
-          <div className="container transform translate-y-10 mx-auto px-4 pb-4">
-            <h2 className="text-center text-4xl transform translate-y-6 font-bold tracking-tight text-richblack md:text-5xl">
+          <div className="container transform translate-y-10 mx-auto px-4 pb-0">
+            <h2 className="text-center text-3xl transform translate-y-6 font-bold tracking-tight text-richblack md:text-5xl">
               Discover Our Flavours
             </h2>
-            <p className="text-center text-lg text-richblack/80 mt-10 ">
+            <p className="text-center text-xl text-richblack/80 mt-10 ">
               Each flavor is a unique blend of organic ingredients, wild fermentation, and a whole lot of love.
             </p>
           </div>
@@ -226,6 +237,7 @@ export default function Home() {
         {/* Visual Highlight Section */}
         <VisualHighlight />
             
+        <WovenImageList />
 
         {/* Reviews Section */}
         <section className="bg-gray-50 py-24">

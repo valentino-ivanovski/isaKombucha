@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
         <p className="font-bold mb-5">
           Isa's Kombucha
           <br />
-          Placeholder text, maybe some quotea
+          In a world full of dead drinks - be alive. Be raw.
         </p>
         <nav>
         <div className="flex justify-center mb-5 gap-2">
