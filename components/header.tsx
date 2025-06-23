@@ -67,7 +67,7 @@ export default function Header() {
             <motion.header
               initial={{ opacity: 0, y: -40, x: '-50%', scale: 0.98 }}
               animate={{ opacity: 1, y: 0, x: '-50%', scale: 1 }}
-              exit={{ opacity: 0, y: -40, x: '-50%' }}
+              exit={{ opacity: 0, y: -40, x: '-50%', scale: 0.98 }}
               transition={{
                 type: "spring",
                 stiffness: 100,
