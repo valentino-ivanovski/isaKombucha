@@ -44,28 +44,17 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ isMobile }) => {
 
         {/* Content Section */}
         <div className="w-full flex sm:flex-row pb-3 flex-col bg-white justify-center items-center">
-          <div className="flex justify-center items-center sm:w-1/4 w-full sm:min-h-[200px] min-h-[150px] bg-white text-4xl sm:text-3xl md:text-4xl text-left sm:pl-8 pl-8 py-2 font-medium italic">
-            "Rooted in goodness. Alive with purpose."
+          <div className="flex justify-center items-center sm:w-1/4 w-full sm:min-h-[200px] min-h-[150px] bg-white text-4xl sm:text-3xl md:text-4xl text-center sm:text-left sm:pl-8 pl-8 py-2 font-medium italic">
+            Trust your gut. <br/> That’s where this started.
           </div>
           <div className="sm:w-1/4 w-full sm:min-h-[200px] min-h-[100px] bg-white flex justify-center items-center px-4 py-2 text-sm">
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur
-            adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae
-            pellentesque sem placerat in id. Placerat in id cursus mi pretium
-            tellus duis. Pretium tellus duis convallis tempus leo eu aenean.
+            I’m Isa. I’m 22. I was raised between Colorado, India, and Slovenia - unschooled, hands-on, constantly creating. At eight, I was running lemonade stands. At fifteen, I was blowing up kombucha bottles in my dad’s office. I didn’t grow up playing by the rules - I grew up following my gut.
           </div>
           <div className="sm:w-1/4 w-full sm:min-h-[200px] min-h-[100px] bg-white flex justify-center items-center px-4 py-2 text-sm">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus
-            ricies nec, pellentesque eu quis enim. Donec pede justo, fringilla
-            vel, aliquet nec, vulputate
+            Slovenia shook my rhythm - suddenly I was in a school I didn’t understand, in a language I didn’t speak. So I made something that spoke for me: kombucha. It was wild, alive, and full of magic. Fermentation taught me patience, intuition, and how to build something real from the inside out.
           </div>
           <div className="sm:w-1/4 w-full sm:min-h-[200px] min-h-[100px] bg-white flex justify-center items-center px-4 py-2 text-sm">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicaboricies nec, pellentesque eu quis enim. Donec
-            pede justo.
+            I started Isa Kombucha at 17 - not because it was trendy, but because it felt necessary. Today we’re still brewing small-batch in Ljubljana, with raw juice, no fake fizz, and zero bs*. Every bottle is made with culture, energy, and spirit - just like the people it’s meant for.
           </div>
         </div>
 

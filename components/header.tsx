@@ -61,7 +61,7 @@ export default function Header() {
   ];
 
   const isHomePage = pathname === '/';
-  const headerDelay = hasMounted ? 0 : (isHomePage ? 1.8 : 0);
+  const headerDelay = hasMounted ? 0 : (isHomePage ? 1.8 : 0.78);
 
   return (
     <div className="font-general-sans">
@@ -189,7 +189,7 @@ export default function Header() {
               delay: headerDelay,
               duration: 0.4
             }}
-            className="block md:hidden fixed top-0 left-0 w-full z-40 bg-white shadow-md will-change-transform will-change-opacity"
+            className="block md:hidden fixed top-0 left-0 w-full z-40 bg-white shadow-sm rounded-b-xl will-change-transform will-change-opacity"
           >
             <div className="flex items-center justify-between px-4 pb-8 pt-9 relative">
               <Button
