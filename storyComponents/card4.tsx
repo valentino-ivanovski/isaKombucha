@@ -62,19 +62,21 @@ function card2() {
           animate="visible"
         >
           <motion.div
-            className="flex justify-center items-center w-full lg:w-1/3 min-h-[100px] lg:min-h-[200px] bg-white text-4xl sm:text-3xl md:text-4xl text-center lg:text-left px-4 py-0 font-medium italic"
+            className="flex justify-center items-center w-full lg:w-1/3 min-h-[100px] lg:min-h-[200px] bg-white text-4xl sm:text-3xl md:text-4xl text-center lg:text-left px-4 py-2 font-medium italic"
             variants={itemVariants}
           >
-            "The Shift."
+            "From Jars to a Living Brand."
           </motion.div>
           <motion.div
             className="w-full lg:w-1/3 min-h-[100px] lg:min-h-[200px] bg-white flex justify-center items-center px-4 pb-5 sm:py-6 sm:pt-8 text-sm"
             variants={itemVariants}
           >
-          When we moved to Slovenia, I landed in a formal school for the first time — a Waldorf school, in a language I didn’t speak. It was structured, uniform, quiet. I had to learn cursive, memorize poems, follow someone else’s rhythm. It was jarring. Beautiful in some ways, but I missed the freedom. The play. The doing.
+          By 17, I had launched Isa Kombucha. No investors, no fancy launch. Just me, a tiny team, and a strong sense that this needed to exist.
 
-          <br/> <br/>  So I made my own outlet: kombucha.
-</motion.div>
+            <br/> <br/> Today, we’re still small and intentional — brewing in Ljubljana, Slovenia, in 6-liter glass jars with raw cold-pressed juice, no additives, and no artificial carbonation. Every batch is alive. Every bottle holds flavor, fizz, and function — the way it’s meant to be.
+
+
+          </motion.div>
         </motion.div>
       </>
     </>

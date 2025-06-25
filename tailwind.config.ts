@@ -11,6 +11,7 @@ const config = {
     "../../packages/ui/**/*.{ts,tsx}", // Add if using a monorepo structure
     "./node_modules/@your-ui-library/**/*.{js,ts,jsx,tsx}", // Add if using UI library
     "*.{js,ts,jsx,tsx,mdx}",
+    "./storyComponents/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {

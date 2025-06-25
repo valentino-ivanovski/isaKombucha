@@ -62,19 +62,20 @@ function card2() {
           animate="visible"
         >
           <motion.div
-            className="flex justify-center items-center w-full lg:w-1/3 min-h-[100px] lg:min-h-[200px] bg-white text-4xl sm:text-3xl md:text-4xl text-center lg:text-left px-4 py-0 font-medium italic"
+            className="flex justify-center items-center w-full lg:w-1/3 min-h-[100px] lg:min-h-[200px] bg-white text-4xl sm:text-3xl md:text-4xl text-center lg:text-left px-4 py-2 font-medium italic"
             variants={itemVariants}
           >
-            "The Shift."
+            "Fermentation as Expression."
           </motion.div>
           <motion.div
             className="w-full lg:w-1/3 min-h-[100px] lg:min-h-[200px] bg-white flex justify-center items-center px-4 pb-5 sm:py-6 sm:pt-8 text-sm"
             variants={itemVariants}
           >
-          When we moved to Slovenia, I landed in a formal school for the first time — a Waldorf school, in a language I didn’t speak. It was structured, uniform, quiet. I had to learn cursive, memorize poems, follow someone else’s rhythm. It was jarring. Beautiful in some ways, but I missed the freedom. The play. The doing.
+          At 15, I ordered a SCOBY online and started brewing in my dad’s office. It was a mess at first — bottles exploded, fruit got weird — but something about it lit me up. Fermentation was alive. It was intuitive. It taught me to be patient, to pay attention, to let things evolve in their own time.
 
-          <br/> <br/>  So I made my own outlet: kombucha.
-</motion.div>
+          <br/> <br/> I didn’t realize it yet, but it was the beginning of my real work.
+
+          </motion.div>
         </motion.div>
       </>
     </>

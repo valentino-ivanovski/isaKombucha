@@ -179,9 +179,9 @@ export default function Header() {
       <AnimatePresence>
         {showHeader && (
           <motion.div
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: -3 }}
-            exit={{ opacity: 0, y: -100 }}
+            initial={{ opacity: 0, y: -100, x: '0.85%' }}
+            animate={{ opacity: 1, y: 5, x: '0.85%' }}
+            exit={{ opacity: 0, y: -100, x: '0.85%' }}
             transition={{
               type: "spring",
               stiffness: 120,
@@ -189,7 +189,7 @@ export default function Header() {
               delay: headerDelay,
               duration: 0.4
             }}
-            className="block md:hidden fixed top-0 left-0 w-full z-40 bg-white shadow-sm rounded-b-xl will-change-transform will-change-opacity"
+            className="block md:hidden fixed top-0 w-[97%] z-40 bg-white shadow-sm rounded-lg will-change-transform will-change-opacity"
           >
             <div className="flex items-center justify-between px-4 pb-8 pt-9 relative">
               <Button
@@ -233,9 +233,9 @@ export default function Header() {
                   <AnimatePresence>
                     {dropdownOpen && (
                       <motion.ul
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 10 }}
-                        exit={{ opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 10, x: '25%' }}
+                        animate={{ opacity: 1, y: 10, x: '25%' }}
+                        exit={{ opacity: 0, y: 10, x: '25%' }}
                         transition={{ duration: 0.3 }}
                         className="absolute right-0 mt-2 w-40 bg-white border text-black border-gray-200 rounded shadow-lg z-50"
                       >
@@ -281,27 +281,27 @@ export default function Header() {
       {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {mobileMenuOpen && showHeader && (
-          <motion.div
-            initial={{ opacity: 0, y: '-100%' }}
-            animate={{ opacity: 1, y: '0%' }}
-            exit={{ opacity: 0, y: '-100%' }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden fixed top-[104px] w-full text-center bg-white z-30 shadow-md rounded-b-xl"
-          >
+            <motion.div
+            initial={{ opacity: 0, y: '-100%', x: '5%' }}
+            animate={{ opacity: 1, y: '8%', x: '5%' }}
+            exit={{ opacity: 0, y: '-100%' , x: '5%' }}
+            transition={{ type: "spring", stiffness: 120, damping: 15 }}
+            className="md:hidden fixed top-[104px] w-[90%] mx-auto text-center bg-white z-30 shadow-md rounded-xl"
+            >
             <ul className="flex flex-col p-4 space-y-4">
               {navItems.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    className="text-richblack hover:text-black/60 transition-colors duration-200"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
+              <li key={item.label}>
+                <Link
+                href={item.href}
+                className="text-richblack hover:text-black/60 transition-colors duration-200"
+                onClick={() => setMobileMenuOpen(false)}
+                >
+                {item.label}
+                </Link>
+              </li>
               ))}
             </ul>
-          </motion.div>
+            </motion.div>
         )}
       </AnimatePresence>
     </div>

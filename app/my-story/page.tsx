@@ -2,15 +2,19 @@
 
 import React, { useEffect, useState } from 'react';
 import Header from '@/components/header';
-import AboutMeSection1 from '@/storyComponents/card1';
+import Card1 from '@/storyComponents/card1';
 import Card2 from '@/storyComponents/card2';
+import Card3 from '@/storyComponents/card3';
+import Card4 from '@/storyComponents/card4';
+import Card5 from '@/storyComponents/card5';
+import Footer from '@/components/Footer';
 
 const MyStoryPage: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkWidth = () => {
-      setIsMobile(window.innerWidth < 640);
+      setIsMobile(window.innerWidth < 1000);
     };
 
     checkWidth();
@@ -19,11 +23,15 @@ const MyStoryPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen px-1">
       <Header />
-      <main style={{ paddingTop: isMobile ? '110px' : '4px', paddingLeft: '4px', paddingRight: '4px' }}>
-        <AboutMeSection1 isMobile={isMobile} />
-        <Card2 />     
+      <main>
+        <Card1 isMobile={isMobile} />
+        <Card2 /> 
+        <Card3 />
+        <Card4 />
+        <Card5 /> 
+        <Footer />
       </main>
     </div>
   );

@@ -62,19 +62,23 @@ function card2() {
           animate="visible"
         >
           <motion.div
-            className="flex justify-center items-center w-full lg:w-1/3 min-h-[100px] lg:min-h-[200px] bg-white text-4xl sm:text-3xl md:text-4xl text-center lg:text-left px-4 py-0 font-medium italic"
+            className="flex justify-center items-center w-full lg:w-1/3 min-h-[100px] lg:min-h-[200px] bg-white text-4xl sm:text-3xl md:text-4xl text-center lg:text-left px-4 py-2 font-medium italic"
             variants={itemVariants}
           >
-            "The Shift."
+            "Alive with Culture, Energy, and Spirit."
           </motion.div>
           <motion.div
             className="w-full lg:w-1/3 min-h-[100px] lg:min-h-[200px] bg-white flex justify-center items-center px-4 pb-5 sm:py-6 sm:pt-8 text-sm"
             variants={itemVariants}
           >
-          When we moved to Slovenia, I landed in a formal school for the first time — a Waldorf school, in a language I didn’t speak. It was structured, uniform, quiet. I had to learn cursive, memorize poems, follow someone else’s rhythm. It was jarring. Beautiful in some ways, but I missed the freedom. The play. The doing.
+          Isa Kombucha is more than a drink. It’s a reflection of how I live: instinct-first, hands-on, not afraid to do things differently. I’ve always lived between places — between cultures, between expectations. That space between has become my superpower.
 
-          <br/> <br/>  So I made my own outlet: kombucha.
-</motion.div>
+<br/> <br/>I created this brand for people who want more from what they drink. Who crave presence. Who trust their bodies. Who believe that the things we consume should be full of life — not just shelf life.
+
+<br/> <br/>Thanks for being here.
+
+
+          </motion.div>
         </motion.div>
       </>
     </>
