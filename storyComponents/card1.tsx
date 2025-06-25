@@ -29,7 +29,7 @@ export default function HeroSection({ isMobile }: HeroSectionProps) {
   };
 
   return (
-    <section className="bg-white pt-[123px] md:pt-1 lg:pt-1">
+    <section className="bg-white pt-[125px] md:pt-1 lg:pt-1">
       <div className="flex flex-col h-full w-full items-center justify-center">
         {/* Image Container */}
         <div

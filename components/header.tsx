@@ -180,7 +180,7 @@ export default function Header() {
         {showHeader && (
           <motion.div
           initial={{ opacity: 0, y: -100 }}
-          animate={{ opacity: 1, y: 4 }}
+          animate={{ opacity: 1, y: 10 }}
           exit={{ opacity: 0, y: -100 }}
           transition={{
             type: "spring",
