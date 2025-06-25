@@ -179,9 +179,9 @@ export default function Header() {
       <AnimatePresence>
         {showHeader && (
           <motion.div
-            initial={{ opacity: 0, y: -100, x: '0.85%' }}
-            animate={{ opacity: 1, y: 5, x: '0.85%' }}
-            exit={{ opacity: 0, y: -100, x: '0.85%' }}
+            initial={{ opacity: 0, y: -100, x: 8 }}
+            animate={{ opacity: 1, y: 8, x: 8 }}
+            exit={{ opacity: 0, y: -100, x: 8 }}
             transition={{
               type: "spring",
               stiffness: 120,
@@ -189,7 +189,7 @@ export default function Header() {
               delay: headerDelay,
               duration: 0.4
             }}
-            className="block md:hidden fixed top-0 w-[97%] z-40 bg-white shadow-sm rounded-lg will-change-transform will-change-opacity"
+            className="block md:hidden fixed top-0 w-[96%] z-40 bg-white shadow-sm rounded-lg will-change-transform will-change-opacity"
           >
             <div className="flex items-center justify-between px-4 pb-8 pt-9 relative">
               <Button
@@ -282,10 +282,10 @@ export default function Header() {
       <AnimatePresence>
         {mobileMenuOpen && showHeader && (
             <motion.div
-            initial={{ opacity: 0, y: '-100%', x: '5%' }}
+            initial={{ opacity: 0, y: '-70%', x: '5%' }}
             animate={{ opacity: 1, y: '8%', x: '5%' }}
-            exit={{ opacity: 0, y: '-100%' , x: '5%' }}
-            transition={{ type: "spring", stiffness: 120, damping: 15 }}
+            exit={{ opacity: 0, y: '-70%' , x: '5%' }}
+            transition={{ type: "spring", stiffness: 110, damping: 13 }}
             className="md:hidden fixed top-[104px] w-[90%] mx-auto text-center bg-white z-30 shadow-md rounded-xl"
             >
             <ul className="flex flex-col p-4 space-y-4">

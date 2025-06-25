@@ -33,7 +33,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ isMobile }) => {
           {!isMobile && (
             <div className="absolute bottom-4 left-3">
               <Link
-                href="/mystory"
+                href="/my-story"
                 className="bg-transparent backdrop-blur-sm border border-white text-white px-6 py-2 rounded-full hover:bg-white/10 transition-all duration-300"
               >
                 Read Full Story

@@ -62,7 +62,7 @@ function card2() {
           animate="visible"
         >
           <motion.div
-            className="flex justify-center items-center w-full lg:w-1/3 min-h-[100px] lg:min-h-[200px] bg-white text-4xl sm:text-3xl md:text-4xl text-center lg:text-left px-4 py-2 font-medium italic"
+            className="flex justify-center items-center w-full lg:w-1/3 min-h-[100px] lg:min-h-[200px] bg-white text-4xl sm:text-3xl md:text-4xl text-center lg:text-left px-4 py-4 pt-8 font-medium italic"
             variants={itemVariants}
           >
             "From Jars to a Living Brand."
