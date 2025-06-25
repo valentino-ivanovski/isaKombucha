@@ -179,18 +179,18 @@ export default function Header() {
       <AnimatePresence>
         {showHeader && (
           <motion.div
-            initial={{ opacity: 0, y: -100, x:"1.1%" }}
-            animate={{ opacity: 1, y: 10, x:"1.1%" }}
-            exit={{ opacity: 0, y: -100, x:"1.1%" }}
-            transition={{
-              type: "spring",
-              stiffness: 120,
-              damping: 15,
-              delay: headerDelay,
-              duration: 0.4
-            }}
-            className="block md:hidden fixed top-0 w-[96%] z-40 bg-white shadow-sm rounded-lg will-change-transform will-change-opacity"
-          >
+          initial={{ opacity: 0, y: -100 }}
+          animate={{ opacity: 1, y: 10 }}
+          exit={{ opacity: 0, y: -100 }}
+          transition={{
+            type: "spring",
+            stiffness: 120,
+            damping: 15,
+            delay: headerDelay,
+            duration: 0.4,
+          }}
+          className="block md:hidden fixed top-0 left-0 right-0 mx-auto w-[96%] z-40 bg-white shadow-sm rounded-lg will-change-transform will-change-opacity"
+        >
             <div className="flex items-center justify-between px-4 pb-8 pt-9 relative">
               <Button
                 variant="ghost"
