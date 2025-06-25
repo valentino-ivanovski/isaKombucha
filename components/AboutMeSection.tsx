@@ -62,7 +62,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ isMobile }) => {
         {isMobile && (
           <div className="w-full flex justify-center pb-10">
             <Link
-              href="/mystory"
+              href="/my-story"
               className="bg-transparent backdrop-blur-sm border border-black text-black px-6 py-2 rounded-full hover:bg-black/10 transition-all"
             >
               Read Full Story

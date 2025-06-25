@@ -179,9 +179,9 @@ export default function Header() {
       <AnimatePresence>
         {showHeader && (
           <motion.div
-            initial={{ opacity: 0, y: -100, x: 8 }}
-            animate={{ opacity: 1, y: 8, x: 8 }}
-            exit={{ opacity: 0, y: -100, x: 8 }}
+            initial={{ opacity: 0, y: -100, x:"2%" }}
+            animate={{ opacity: 1, y: 10, x:"2%" }}
+            exit={{ opacity: 0, y: -100, x:"2%" }}
             transition={{
               type: "spring",
               stiffness: 120,
@@ -283,9 +283,9 @@ export default function Header() {
         {mobileMenuOpen && showHeader && (
             <motion.div
             initial={{ opacity: 0, y: '-70%', x: '5%' }}
-            animate={{ opacity: 1, y: '8%', x: '5%' }}
+            animate={{ opacity: 1, y: '10%', x: '5%' }}
             exit={{ opacity: 0, y: '-70%' , x: '5%' }}
-            transition={{ type: "spring", stiffness: 110, damping: 13 }}
+            transition={{ type: "spring", stiffness: 120, damping: 13 }}
             className="md:hidden fixed top-[104px] w-[90%] mx-auto text-center bg-white z-30 shadow-md rounded-xl"
             >
             <ul className="flex flex-col p-4 space-y-4">
