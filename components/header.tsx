@@ -92,7 +92,7 @@ export default function Header() {
                   alt="Isa's Kombucha Logo"
                   width={40}
                   height={40}
-                  className="h-9 w-9 hover:opacity-60 transition-opacity duration-200"
+                  className="h-9 w-9 hover:opacity-80 transition-all duration-600"
                   priority
                 />
               </Link>
@@ -207,7 +207,7 @@ export default function Header() {
                   alt="Isa's Kombucha Logo"
                   width={90}
                   height={90}
-                  className="h-20 w-20 hover:opacity-60 transition-opacity duration-200"
+                  className="h-20 w-20 hover:opacity-80 transition-all duration-600"
                   priority
                 />
               </Link>
