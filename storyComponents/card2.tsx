@@ -33,22 +33,16 @@ function card2() {
         <Carousel options={OPTIONS} className='relative'>
           <SliderContainer className='gap-1'>
             <Slider className='w-[60%]'>
-              <div className='bg-red-500 h-[500px] w-full rounded-xl'></div>
-            </Slider>
-            <Slider className='w-[50%]'>
-              <div className='bg-green-500  h-[500px] w-full rounded-xl'></div>
-            </Slider>
-            <Slider className='w-[50%]'>
-              <div className='bg-blue-500  h-[500px] w-full rounded-xl'></div>
-            </Slider>
-            <Slider className='w-[80%]'>
-              <div className='bg-yellow-500  h-[500px] w-full rounded-xl'></div>
-            </Slider>
-            <Slider className='w-[50%]'>
-              <div className='bg-orange-500  h-[500px] w-full rounded-xl'></div>
+              <Image src='/images/aboutPics/1.webp' alt='about image 1' width={800} height={500} className='rounded-xl w-full h-[500px] object-cover' />
             </Slider>
             <Slider className='w-[70%]'>
-              <div className='bg-teal-500  h-[500px] w-full rounded-xl'></div>
+              <Image src='/images/aboutPics/2.webp' alt='about image 2' width={800} height={500} className='rounded-xl w-full h-[500px] object-cover' />
+            </Slider>
+            <Slider className='w-[40%]'>
+              <Image src='/images/aboutPics/3.webp' alt='about image 3' width={800} height={500} className='rounded-xl w-full h-[500px] object-cover' />
+            </Slider>
+            <Slider className='w-[60%]'>
+              <Image src='/images/aboutPics/4.webp' alt='about image 4' width={800} height={500} className='rounded-xl w-full h-[500px] object-cover' />
             </Slider>
           </SliderContainer>
           <div className='absolute bottom-3 right-3 text-white rounded-lg w-20 h-12 grid place-content-center font-semibold border-2 z-10 dark:bg-black bg-white'>

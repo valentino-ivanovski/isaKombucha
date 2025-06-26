@@ -6,7 +6,7 @@ const AccordionFAQ = () => {
   const itemClasses = {
     base: "py-0 w-full",
     title: "font-normal text-xl text-black/75",
-    trigger: "px-4 py-3 hover:underline rounded-lg h-12 flex items-center transition-colors",
+    trigger: "px-4 py-3 hover:underline rounded-lg sm:h-12 h-16 flex items-center transition-colors",
     indicator: "text-lg transition-transform duration-300 data-[open=true]:-rotate-90",
     content: "text-center text-black/75 px-4 w-full max-w-lg mx-auto py-4 text-lg",
   };
