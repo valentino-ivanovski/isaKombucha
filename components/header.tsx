@@ -80,8 +80,8 @@ export default function Header() {
             }}
             className={`hidden md:block fixed top-6 z-50 left-1/2 -translate-x-1/2 will-change-transform will-change-opacity w-[91.1%] xl:w-[800px] rounded-full ${
               scrolled
-                ? 'bg-white shadow-[0px_4px_7px_-5px_rgba(0,0,0,0.15)] backdrop-blur-md'
-                : 'bg-white shadow-[0px_4px_7px_-5px_rgba(0,0,0,0.15)] backdrop-blur-md'
+                ? 'bg-white/80 shadow-[0px_4px_7px_-5px_rgba(0,0,0,0.15)] backdrop-blur-md'
+                : 'bg-white/80 shadow-[0px_4px_7px_-5px_rgba(0,0,0,0.15)] backdrop-blur-md'
             }`}
             id="desktop-header"
           >
@@ -189,7 +189,7 @@ export default function Header() {
             delay: headerDelay,
             duration: 0.4,
           }}
-          className="block md:hidden fixed top-0 left-0 right-0 mx-auto w-[96%] z-40 bg-white shadow-sm rounded-lg will-change-transform will-change-opacity"
+          className="block md:hidden fixed top-0 left-0 right-0 mx-auto w-[96%] z-40 bg-white/80 backdrop-blur-md shadow-sm rounded-lg will-change-transform will-change-opacity"
         >
             <div className="flex items-center justify-between px-4 pb-8 pt-9 relative">
               <Button
