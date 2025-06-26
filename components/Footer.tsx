@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer footer-horizontal ring-1 ring-slate-200 footer-center bg-white text-black-content p-10">
+    <footer className="footer footer-horizontal ring-1 ring-slate-200 footer-center bg-white text-black-content w-full p-10">
       <aside className="flex flex-col items-center text-center">
         <img
           src="/logos/logo.svg"
