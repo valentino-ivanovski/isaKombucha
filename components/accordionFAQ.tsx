@@ -42,7 +42,7 @@ const answers = {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="bg-white/5 rounded-2xl mt-8 mb-8"
+      className=" bg-white/5 rounded-2xl mt-8 mb-8"
     >
     <Accordion
       className="p-4 flex flex-col gap-2 w-full mx-auto"
