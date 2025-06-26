@@ -14,9 +14,9 @@ const HelpPage: React.FC = () => {
       <div className="fixed inset-0 -z-10">
 
         <div className="relative w-full h-full">
-          <div className="absolute top-10 left-10 w-96 h-96 bg-[#D15052]/60 rounded-full blur-3xl opacity-50"></div>
+          <div className="absolute top-10 left-10 w-96 h-96 bg-[#D15052]/60 rounded-full blur-xl opacity-50"></div>
           <div className="absolute bottom-20 right-20 w-72 h-72 bg-[#241f20]/40 rounded-full blur-2xl opacity-50"></div>
-          <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-[#D2D2D2]/50 rounded-full blur-3xl opacity-50"></div>
+          <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-[#D2D2D2]/50 rounded-full blur-xl opacity-50"></div>
         </div>
 
       </div>
