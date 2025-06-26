@@ -6,7 +6,7 @@ const AccordionFAQ = () => {
   const itemClasses = {
     base: "py-0 w-full",
     title: "font-normal text-xl",
-    trigger: "px-4 py-3 data-[hover=true]:bg-default-100 hover:underline rounded-lg h-16 flex items-center hover:bg-white/40 transition-colors",
+    trigger: "px-4 py-3 hover:underline rounded-lg h-16 flex items-center transition-colors",
     indicator: "text-lg transition-transform duration-300 data-[open=true]:-rotate-90",
     content: "text-center px-4 w-full max-w-lg mx-auto py-4 text-lg",
   };
@@ -42,7 +42,7 @@ const answers = {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="backdrop-blur-lg rounded-2xl mt-8 mb-8"
+      className="backdrop-blur-xl bg-white/5 rounded-2xl mt-8 mb-8"
     >
     <Accordion
       className="p-4 flex flex-col gap-2 w-full mx-auto"
