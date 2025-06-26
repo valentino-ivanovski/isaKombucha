@@ -30,7 +30,9 @@ const HelpPage: React.FC = () => {
       >
         Frequently Asked Questions
       </motion.h1>
+      <div className='px-3 lg:px-0'>
       <AccordionFAQ />
+      </div>
       <Footer />
     </main>
   );

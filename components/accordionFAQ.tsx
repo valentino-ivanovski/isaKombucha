@@ -6,7 +6,7 @@ const AccordionFAQ = () => {
   const itemClasses = {
     base: "py-0 w-full",
     title: "font-normal text-xl text-black/75",
-    trigger: "px-4 py-3 hover:underline rounded-lg h-16 flex items-center transition-colors",
+    trigger: "px-4 py-3 hover:underline rounded-lg h-12 flex items-center transition-colors",
     indicator: "text-lg transition-transform duration-300 data-[open=true]:-rotate-90",
     content: "text-center text-black/75 px-4 w-full max-w-lg mx-auto py-4 text-lg",
   };
@@ -42,7 +42,7 @@ const answers = {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className=" bg-white/5 rounded-2xl mt-8 mb-8"
+      className=" bg-white/18 ring-1 ring-slate-200 shadow-sm backdrop-blur-xl rounded-2xl mt-8 mb-8"
     >
     <Accordion
       className="p-4 flex flex-col gap-2 w-full mx-auto"
@@ -50,49 +50,49 @@ const answers = {
       showDivider={true}
       selectionMode="multiple"
     >
-      <AccordionItem key="1" aria-label="What is Kombucha?" title="WHAT IS KOMBUCHA?" className="text-center">
+      <AccordionItem key="1" aria-label="What is Kombucha?" title="What is kombucha?" className="text-center">
         {answers.question1}
       </AccordionItem>
-      <AccordionItem key="2" aria-label="How much alcohol is in kombucha?" title="HOW MUCH ALCOHOL IS IN KOMBUCHA?" className="text-center">
+      <AccordionItem key="2" aria-label="How much alcohol is in kombucha?" title="How much alcohol is in kombucha?" className="text-center">
         {answers.question2}
       </AccordionItem>
-      <AccordionItem key="3" aria-label="What is the sediment at the bottom of my bottle?" title="WHAT IS THE SEDIMENT AT THE BOTTOM OF MY BOTTLE?" className="text-center">
+      <AccordionItem key="3" aria-label="What is the sediment at the bottom of my bottle?" title="What is the sediment at the bottom of my bottle?" className="text-center">
         {answers.question3}
       </AccordionItem>
-      <AccordionItem key="4" aria-label="Why does some kombucha taste really sour?" title="WHY DOES SOME KOMBUCHA TASTE REALLY SOUR?" className="text-center">
+      <AccordionItem key="4" aria-label="Why does some kombucha taste really sour?" title="Why does some kombucha taste really sour?" className="text-center">
         {answers.question4}
       </AccordionItem>
-      <AccordionItem key="5" aria-label="Is it vegan?" title="IS IT VEGAN?" className="text-center">
+      <AccordionItem key="5" aria-label="Is it vegan?" title="Is it vegan?" className="text-center">
         {answers.question5}
       </AccordionItem>
-      <AccordionItem key="6" aria-label="Where can I find Isa’s?" title="WHERE CAN I FIND ISA’S?" className="text-center">
+      <AccordionItem key="6" aria-label="Where can I find Isa’s?" title="Where can I find Isa’s?" className="text-center">
         {answers.question6}
       </AccordionItem>
-      <AccordionItem key="7" aria-label="Is our kombucha pasteurized?" title="IS OUR KOMBUCHA PASTEURIZED?" className="text-center">
+      <AccordionItem key="7" aria-label="Is our kombucha pasteurized?" title="Is our kombucha pasteurized?" className="text-center">
         {answers.question7}
       </AccordionItem>
-      <AccordionItem key="8" aria-label="Do you carbonate?" title="DO YOU CARBONATE?" className="text-center">
+      <AccordionItem key="8" aria-label="Do you carbonate?" title="Do you carbonate?" className="text-center">
         {answers.question8}
       </AccordionItem>
-      <AccordionItem key="9" aria-label="What is the shelf life?" title="WHAT IS THE SHELF LIFE?" className="text-center">
+      <AccordionItem key="9" aria-label="What is the shelf life?" title="What is the shelf life?" className="text-center">
         {answers.question9}
       </AccordionItem>
-      <AccordionItem key="10" aria-label="How long will an open bottle of Isa’s last?" title="HOW LONG WILL AN OPEN BOTTLE OF ISA’S LAST?" className="text-center">
+      <AccordionItem key="10" aria-label="How long will an open bottle of Isa’s last?" title="How long will an open bottle of Isa’s last?" className="text-center">
         {answers.question10}
       </AccordionItem>
-      <AccordionItem key="11" aria-label="Why does my bottle of Isa’s taste different than it normally does?" title="WHY DOES MY BOTTLE OF ISA’S TASTE DIFFERENT THAN IT NORMALLY DOES?" className="text-center">
+      <AccordionItem key="11" aria-label="Why does my bottle of Isa’s taste different than it normally does?" title="Why does my bottle of Isa’s taste different than it normally does?" className="text-center">
         {answers.question11}
       </AccordionItem>
-      <AccordionItem key="12" aria-label="How did you choose your flavor palate?" title="HOW DID YOU CHOOSE YOUR FLAVOR PALATE?" className="text-center">
+      <AccordionItem key="12" aria-label="How did you choose your flavor palate?" title="How did you choose your flavor palate?" className="text-center">
         {answers.question12}
       </AccordionItem>
-      <AccordionItem key="13" aria-label="How is Isa’s kombucha different from its competitors?" title="HOW IS ISA’S KOMBUCHA DIFFERENT FROM ITS COMPETITORS?" className="text-center">
+      <AccordionItem key="13" aria-label="How is Isa’s kombucha different from its competitors?" title="How is Isa’s kombucha different from its competitors?" className="text-center">
         {answers.question13}
       </AccordionItem>
-      <AccordionItem key="14" aria-label="Can I buy a SCOBY from you?" title="CAN I BUY A SCOBY FROM YOU?" className="text-center">
+      <AccordionItem key="14" aria-label="Can I buy a SCOBY from you?" title="Can I buy a SCOBY from you?" className="text-center">
         {answers.question14}
       </AccordionItem>
-      <AccordionItem key="15" aria-label="Can I return bottles to you?" title="CAN I RETURN BOTTLES TO YOU?" className="text-center">
+      <AccordionItem key="15" aria-label="Can I return bottles to you?" title="Can I return bottles to you?" className="text-center">
         {answers.question15}
       </AccordionItem>
     </Accordion>
