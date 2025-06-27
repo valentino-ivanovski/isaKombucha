@@ -286,7 +286,7 @@ export default function Header() {
             animate={{ opacity: 1, y: '10%', x: '5%' }}
             exit={{ opacity: 0, y: '-70%' , x: '5%' }}
             transition={{ type: "spring", stiffness: 120, damping: 13 }}
-            className="md:hidden fixed top-[104px] w-[90%] mx-auto text-center bg-white z-30 shadow-md rounded-xl"
+            className="md:hidden fixed top-[104px] w-[90%] mx-auto text-center bg-white/80 backdrop-blur-md z-30 shadow-md rounded-xl"
             >
             <ul className="flex flex-col p-4 space-y-4">
               {navItems.map((item) => (
