@@ -44,7 +44,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ isMobile }) => {
 
         {/* Content Section */}
         <div className="w-full flex sm:flex-row pb-3 flex-col bg-white justify-center items-center">
-          <div className="flex justify-center items-center sm:w-1/4 w-full sm:min-h-[200px] min-h-[150px] bg-white text-4xl sm:text-3xl md:text-4xl text-center sm:text-left sm:pl-8 pl-8 py-2 font-medium italic">
+          <div className="flex justify-center items-center sm:w-1/4 w-full sm:min-h-[200px] min-h-[150px] bg-white text-4xl sm:text-3xl md:text-4xl text-center sm:text-left sm:pl-8 pl-0 py-2 font-medium italic">
             Trust your gut. <br/> That’s where this started.
           </div>
           <div className="sm:w-1/4 w-full sm:min-h-[200px] min-h-[100px] bg-white flex justify-center items-center px-4 py-2 text-sm">

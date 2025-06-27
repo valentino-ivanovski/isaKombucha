@@ -32,17 +32,30 @@ function card2() {
       <>
         <Carousel options={OPTIONS} className='relative'>
           <SliderContainer className='gap-1'>
-            <Slider className='w-[60%]'>
+            <Slider className='w-[95%] sm:w-[60%]'>
               <Image src='/images/aboutPics/1.webp' alt='about image 1' width={800} height={500} className='rounded-xl w-full h-[500px] object-cover' />
             </Slider>
-            <Slider className='w-[70%]'>
+            <Slider className='w-[95%] sm:w-[70%]'>
               <Image src='/images/aboutPics/2.webp' alt='about image 2' width={800} height={500} className='rounded-xl w-full h-[500px] object-cover' />
             </Slider>
-            <Slider className='w-[40%]'>
+            <Slider className='w-[95%] sm:w-[40%]'>
               <Image src='/images/aboutPics/3.webp' alt='about image 3' width={800} height={500} className='rounded-xl w-full h-[500px] object-cover' />
             </Slider>
-            <Slider className='w-[60%]'>
-              <Image src='/images/aboutPics/4.webp' alt='about image 4' width={800} height={500} className='rounded-xl w-full h-[500px] object-cover' />
+            <Slider className='w-[95%] sm:w-[60%]'>
+              <Image 
+              src='/images/aboutPics/4.webp' 
+              alt='about image 4' 
+              width={800} 
+              height={500} 
+              className='rounded-xl w-full h-[500px] object-cover hidden sm:block' 
+              />
+              <Image 
+              src='/images/aboutPics/13.webp' 
+              alt='about image 13' 
+              width={800} 
+              height={500} 
+              className='rounded-xl w-full h-[500px] object-cover sm:hidden' 
+              />
             </Slider>
           </SliderContainer>
           <div className='absolute bottom-3 right-3 text-white rounded-lg w-20 h-12 grid place-content-center font-semibold border-2 z-10 dark:bg-black bg-white'>

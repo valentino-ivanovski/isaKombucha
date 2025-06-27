@@ -229,13 +229,13 @@ export default function VisualHighlight() {
           </div>
 
           {/* Desktop-only image (hidden on mobile) */}
-          <div className="hidden md:block absolute right-10 -bottom-72 z-10 transform -translate-x-16">
-                <Image
-                  src="/images/whyIsaPic.webp?v3"
-                  alt="Bottles of Isa's Kombucha"
-                  width={600}
-                  height={600}
-                />
+          <div className="hidden md:block absolute lg:right-10 -right-10 lg:-bottom-72 -bottom-32 z-10 transform -translate-x-16 w-[500px] lg:w-[600px]">
+            <Image
+              src="/images/whyIsaPic.webp?v3"
+              alt="Bottles of Isa's Kombucha"
+              width={600}
+              height={600}
+            />
           </div>
         </div>
       </div>
