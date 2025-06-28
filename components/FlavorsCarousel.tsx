@@ -61,8 +61,8 @@ const EmblaCarousel: React.FC = () => {
               key={index} 
               className="flex-[0_0_auto] w-[400px] flex justify-center"
             >
-              <div className="max-w-[400px] scale-[85%] sm:scale-95 mx-auto">
-                <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-full max-w-[400px]">
+              <div className="max-w-[400px] scale-[85%] sm:scale-95 mx-auto cursor-default lg:cursor-grab">
+                <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-full max-w-[400px] select-none">
                   <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-96">
                     <Image
                       src={`/${flavor.image}`}
@@ -71,15 +71,16 @@ const EmblaCarousel: React.FC = () => {
                       className="object-cover w-full h-full select-none pointer-events-none"
                       loading="eager"
                       priority={index === 0}
+                      draggable={false}
                     />
                   </div>
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-2">
-                      <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900">
+                      <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900" style={{ userSelect: 'none' }}>
                         {flavor.name}
                       </p>
                     </div>
-                    <p className="block font-sans text-sm font-normal leading-normal text-gray-700 opacity-75">
+                    <p className="block font-sans text-sm font-normal leading-normal text-gray-700 opacity-75" style={{ userSelect: 'none' }}>
                       {flavor.description} <br />
                       <strong>Ingredients:</strong> {flavor.ingredients}
                     </p>
