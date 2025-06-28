@@ -32,10 +32,10 @@ function card2() {
       <>
         <Carousel options={OPTIONS} className='relative'>
           <SliderContainer className='gap-1'>
-            <Slider className='w-[95%] sm:w-[60%]'>
+            <Slider className='w-[95%] sm:w-[40%]'>
               <Image src='/images/aboutPics/6.webp' alt='about image 6' width={800} height={500} className='rounded-xl w-full h-[500px] object-cover' />
             </Slider>
-            <Slider className='w-[95%] sm:w-[70%]'>
+            <Slider className='w-[95%] sm:w-[60%]'>
               <Image src='/images/aboutPics/5.webp' alt='about image 5' width={800} height={500} className='rounded-xl w-full h-[500px] object-cover' />
             </Slider>
           </SliderContainer>
