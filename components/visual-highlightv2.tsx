@@ -84,7 +84,7 @@ export default function VisualHighlight() {
   return (
     <section 
       ref={sectionRef}
-      className="relative h-screen overflow-hidden bg-[#c78887] pb-24 pt-44 text-softwhite"
+      className="relative h-screen overflow-hidden bg-[#FEFAF1] pb-24 pt-44 text-softwhite"
     >
       {/* Decorative rotating icons with different SVGs */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -122,43 +122,89 @@ export default function VisualHighlight() {
 
       {/* Rest of your component remains the same */}
       <div className="container flex justify-center mx-auto px-4 relative z-10">
-        <div className="flex flex-col items-center justify-center text-center max-w-6xl mx-auto">
-          {/* Text content with mobile image inside */}
-          <div className="px-4 md:px-10 relative z-10 pb-20 md:pb-0">
-            <motion.h2 
-              className="text-4xl font-bold tracking-tight md:text-5xl relative z-10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-            >
-              What is Kombucha?
-            </motion.h2>
-            <motion.p 
-              className="mt-6 text-4xl w-[700px] leading-relaxed font-medium text-softwhite/70 relative z-10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-            >
-              Kombucha is an ancient fermented drink. Kombucha fermentation begins
-            with tea,
-            sugar,
-            and
-            a scoby.
-            In the process it
-            changes,
-            from a normal
-            to a tea that
-            is full of life.
-            </motion.p>
+        <div className="relative w-full max-w-7xl h-[700px]">
+        {/* Rotated Bottle Image */}
+        <div className="absolute left-[51%] top-[51%] transform -translate-x-1/2 -translate-y-1/2 -rotate-12 z-10">
+          <Image
+            src="/images/bottleBasilBreeze/0000.webp"
+            alt="Isa's Kombucha Bottle"
+            width={200}
+            height={400}
+            className="w-48 h-auto md:w-[200px] lg:w-[370px]"
+            priority
+          />
+        </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
-            >
-            </motion.div>
+        {/* Title - What is Kombucha? */}
+        <div className="absolute top-[-5%] left-0 right-0 z-0">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 text-center max-w-full">
+            What is Kombucha?
+          </h1>
+        </div>
+        {/* Text Container */}
+        <div className="absolute inset-0 flex flex-col items-center transform -translate-y-7 justify-center z-0">
+          {/* Text Div 1 */}
+          <div className="absolute top-[12%] left-0 right-0">
+            <p className="text-2xl md:text-3xl lg:text-5xl font-bold text-[#241f20] text-center max-w-full">
+              Kombucha is an ancient fermented tea.
+            </p>
+          </div>
+
+          {/* Text Div 2 */}
+          <div className="absolute top-[21%] left-0 right-0">
+            <p className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-800 text-center max-w-full">
+              Kombucha fermentation begins
+            </p>
+          </div>
+
+          {/* Text Div 3 */}
+          <div className="absolute bottom-[64%] left-[26%]">
+            <p className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-800 max-w-full">with tea,</p>
+          </div>
+
+          {/* Text Div 4 */}
+          <div className="absolute bottom-[64%] right-[32%]">
+            <p className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-800 max-w-full">sugar,</p>
+          </div>
+
+          {/* Text Div 5 */}
+          <div className="absolute bottom-[56%] left-[32%]">
+            <p className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-800 max-w-full">and</p>
+          </div>
+
+          {/* Text Div 6 */}
+          <div className="absolute bottom-[56%] right-[26%]">
+            <p className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-800 max-w-full">a scoby.</p>
+          </div>
+
+          {/* Text Div 7 */}
+          <div className="absolute bottom-[48%] left-[10%]">
+            <p className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-800 max-w-full">In the process it</p>
+          </div>
+
+          {/* Text Div 8 */}
+          <div className="absolute bottom-[48%] right-[23%]">
+            <p className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-800 max-w-full">changes,</p>
+          </div>
+
+          {/* Text Div 9 */}
+          <div className="absolute bottom-[40%] left-[10%]">
+            <p className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-800 max-w-full">from a normal tea</p>
+          </div>
+
+          {/* Text Div 10 */}
+          <div className="absolute bottom-[40%] right-[18%]">
+            <p className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-800 max-w-full">to a tea that</p>
+          </div>
+
+          {/* Text Div 11 */}
+          <div className="absolute bottom-[30%] left-[22%]">
+            <p className="text-3xl underline underline-offset-[6px] md:text-4xl lg:text-5xl font-bold text-gray-800 text-center max-w-full">
+              is full of life.
+            </p>
           </div>
         </div>
+      </div>
       </div>
     </section>
   )
