@@ -198,12 +198,12 @@ export default function VisualHighlight() {
 
       {/* Main content */}
       <div className="container flex justify-center mx-auto px-4 relative z-10">
-        <div className="relative w-[95%] sm:w-[90%] md:mt-0 mt-8 lg:w-[100%] max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl h-[700px]">
+        <div className="relative w-[95%] sm:w-[90%] md:mt-0 mt-8 lg:w-[100%] max-w-[350px] sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl h-[700px]">
           {/* Animated Bottle Image */}
           <div
             className={`absolute transform -translate-x-1/2 -translate-y-1/2 -rotate-12 z-10 ${
               screenSize === "sm"
-              ? "left-[50%] bottom-[2%]"
+              ? "left-[50%] bottom-[3%]"
               : screenSize === "md"
               ? "left-[50%] top-[56.5%]"
               : screenSize === "lg"
@@ -223,7 +223,7 @@ export default function VisualHighlight() {
           </div>
 
           {/* Title - What is Kombucha? */}
-          <div className="absolute left-0 right-0 z-0 transform -translate-y-10 sm:-translate-y-0">
+          <div className="absolute left-0 right-0 z-0 transform -translate-y-12 sm:-translate-y-0">
             <h1
               className={`text-3xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-6xl font-bold text-[#241f20] text-center max-w-full`}
             >
@@ -231,7 +231,7 @@ export default function VisualHighlight() {
             </h1>
           </div>
           {/* Text Container */}
-          <div className="absolute inset-0 flex flex-col items-center transform -translate-y-10 sm:-translate-y-0 justify-center z-0">
+          <div className="absolute inset-0 flex flex-col items-center transform -translate-y-12 sm:-translate-y-0 justify-center z-0">
             {/* Original 11 paragraphs hidden except in lg, xl, 2xl, 3xl views */}
             <div
               className={`hidden md:hidden lg:block xl:block 2xl:block 3xl:block`}
