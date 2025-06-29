@@ -203,7 +203,7 @@ export default function VisualHighlight() {
           <div
             className={`absolute transform -translate-x-1/2 -translate-y-1/2 -rotate-12 z-10 ${
               screenSize === "sm"
-              ? "left-[50%] top-[64%]"
+              ? "left-[50%] bottom-[2%]"
               : screenSize === "md"
               ? "left-[50%] top-[56.5%]"
               : screenSize === "lg"
@@ -225,13 +225,13 @@ export default function VisualHighlight() {
           {/* Title - What is Kombucha? */}
           <div className="absolute left-0 right-0 z-0 transform -translate-y-10 sm:-translate-y-0">
             <h1
-              className={`text-5xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-6xl font-bold text-[#241f20] text-center max-w-full`}
+              className={`text-3xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-6xl font-bold text-[#241f20] text-center max-w-full`}
             >
               What is Kombucha?
             </h1>
           </div>
           {/* Text Container */}
-          <div className="absolute inset-0 flex flex-col items-center transform translate-y-5 sm:-translate-y-0 justify-center z-0">
+          <div className="absolute inset-0 flex flex-col items-center transform -translate-y-10 sm:-translate-y-0 justify-center z-0">
             {/* Original 11 paragraphs hidden except in lg, xl, 2xl, 3xl views */}
             <div
               className={`hidden md:hidden lg:block xl:block 2xl:block 3xl:block`}
@@ -367,7 +367,7 @@ export default function VisualHighlight() {
                 className={`absolute top-[10%] sm:top-[11%] md:top-[12%] left-0 right-0`}
               >
                 <p
-                  className={`text-3xl sm:text-3xl md:text-4xl font-bold text-[#241f20] text-center max-w-full`}
+                  className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#241f20] text-center max-w-full`}
                 >
                   Kombucha is a living fermented tea.
                 </p>
@@ -378,7 +378,7 @@ export default function VisualHighlight() {
                 className={`absolute top-[20%] sm:top-[16%] md:top-[18%] left-0 right-0`}
               >
                 <p
-                  className={`text-3xl sm:text-3xl md:text-4xl font-bold text-[#241f20] text-center max-w-full`}
+                  className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#241f20] text-center max-w-full`}
                 >
                   Kombucha fermentation
                 </p>
@@ -389,7 +389,7 @@ export default function VisualHighlight() {
                 className={`absolute top-[25%] sm:top-[21%] md:top-[24%] left-0 right-0`}
               >
                 <p
-                  className={`text-3xl sm:text-3xl md:text-4xl font-bold text-[#241f20] text-center max-w-full`}
+                  className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#241f20] text-center max-w-full`}
                 >
                    begins with tea, sugar, 
                 </p>
@@ -400,7 +400,7 @@ export default function VisualHighlight() {
                 className={`absolute top-[30%] sm:top-[26%] md:top-[30%] left-0 right-0`}
               >
                 <p
-                  className={`text-3xl sm:text-3xl md:text-4xl font-bold text-[#241f20] text-center max-w-full`}
+                  className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#241f20] text-center max-w-full`}
                 >
                   and a scoby.
                 </p>
@@ -412,7 +412,7 @@ export default function VisualHighlight() {
                 className={`absolute top-[35%] sm:top-[31%] md:top-[35.5%] left-0 right-0`}
               >
                 <p
-                  className={`text-3xl sm:text-3xl md:text-4xl font-bold text-[#241f20] text-center max-w-full`}
+                  className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#241f20] text-center max-w-full`}
                 >
                   In the process it
                 </p>
@@ -423,7 +423,7 @@ export default function VisualHighlight() {
                 className={`absolute top-[39.9%] sm:top-[36.5%] md:top-[41%] -left-[2%] sm:left-[14%] md:left-[16%]`}
               >
                 <p
-                  className={`text-3xl sm:text-3xl md:text-4xl font-bold text-[#241f20] max-w-full`}
+                  className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#241f20] max-w-full`}
                 >
                   changes,
                 </p>
@@ -434,7 +434,7 @@ export default function VisualHighlight() {
                 className={`absolute bottom-[50%] sm:bottom-[53.3%] md:bottom-[47.5%] left-[1%] sm:left-[18%] md:left-[18%]`}
               >
                 <p
-                  className={`text-3xl sm:text-3xl md:text-4xl font-bold text-[#241f20] max-w-full`}
+                  className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#241f20] max-w-full`}
                 >
                   normal
                 </p>
@@ -445,7 +445,7 @@ export default function VisualHighlight() {
                 className={`absolute bottom-[45.5%] sm:bottom-[48.5%] md:bottom-[41.6%] left-[0%] sm:left-[15%] md:left-[19%]`}
               >
                 <p
-                  className={`text-3xl sm:text-3xl md:text-4xl font-bold text-[#241f20] max-w-full`}
+                  className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#241f20] max-w-full`}
                 >
                   to a tea
                 </p>
@@ -456,7 +456,7 @@ export default function VisualHighlight() {
                 className={`absolute bottom-[40.5%] sm:bottom-[43.5%] md:bottom-[35%] -right-[5%] sm:right-[8%] md:right-[11%]`}
               >
                 <p
-                  className={`text-3xl sm:text-3xl md:text-4xl font-bold underline underline-offset-[5px] text-[#241f20] max-w-full`}
+                  className={`text-2xl sm:text-3xl md:text-4xl font-bold underline underline-offset-[5px] text-[#241f20] max-w-full`}
                 >
                   full of life.
                 </p>
@@ -468,7 +468,7 @@ export default function VisualHighlight() {
                 className={`absolute top-[40%] sm:top-[36.5%] md:top-[41.4%] right-[20%] sm:right-[29%] md:right-[28%]`}
               >
                 <p
-                  className={`text-3xl sm:text-3xl md:text-4xl font-bold text-[#241f20] max-w-full`}
+                  className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#241f20] max-w-full`}
                 >
                   from a
                 </p>
@@ -480,7 +480,7 @@ export default function VisualHighlight() {
                 className={`absolute top-[44.5%] sm:top-[41.5%] md:top-[46.8%] right-[20%] sm:right-[29.5%] md:right-[28%]`}
               >
                 <p
-                  className={`text-3xl sm:text-3xl md:text-4xl font-bold text-[#241f20] max-w-full`}
+                  className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#241f20] max-w-full`}
                 >
                   a tea
                 </p>
@@ -492,12 +492,10 @@ export default function VisualHighlight() {
                 className={`absolute bottom-[45.5%] sm:bottom-[48.5%] md:bottom-[41.5%] right-[11%] sm:right-[22%] md:right-[23%]`}
               >
                 <p
-                  className={`text-3xl sm:text-3xl md:text-4xl font-bold text-[#241f20] max-w-full`}
+                  className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#241f20] max-w-full`}
                 >
                   that is
                 </p>
-              </div>
-<div className="absolute top-[70%] w-full right-0 left-0 mx-auto">
               </div>
             </div>
           </div>
